@@ -41,10 +41,10 @@
                 <span class="label label-primary pull-right">8</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>About Us</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Services</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Contact us</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Opening Hours & Days</a></li>
+                <li><a href="{{ url('/manageabout') }}"><i class="fa fa-circle-o"></i>About Us</a></li>
+                <li><a href="{{ url('/manageservices') }}"><i class="fa fa-circle-o"></i>Services</a></li>
+            <li><a href="{{ url('/managecontact') }}"><i class="fa fa-circle-o"></i> Contact us</a></li>
+              <li><a href="{{ url('/manageschedule') }}"><i class="fa fa-circle-o"></i>Opening Hours & Days</a></li>
                  <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Gallery</a></li>
                   <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Find us</a></li>
                   <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Price list</a></li>
@@ -55,18 +55,12 @@
 
 
             <li class="treeview">
-              <a href="#">
+              <a href="{{ url('/manageloyalty') }}">
                 <i class="fa fa-files-o"></i>
                 <span>Loyalty System</span>
                 <span class="label label-primary pull-right">4</span>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('/apptype') }}"><i class="fa fa-circle-o"></i>Appsinfo</a></li>
-                <li><a href="{{ url('/appinfo') }}"><i class="fa fa-circle-o"></i>AppContent</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Services</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Contact us</a></li>
-                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Gllery</a></li>
-              </ul>
+            
             </li>
 
              
@@ -117,7 +111,7 @@
             </li>
 
                  <li class="treeview">
-              <a href="#">
+              <a href="{{ url('/manageevents') }}">
                 <i class="fa fa-files-o"></i>
                 <span>Events</span>
                 <span class="label label-primary pull-right">4</span>

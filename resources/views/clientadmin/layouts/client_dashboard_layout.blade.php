@@ -20,6 +20,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('assets/clientassets/dist/css/skins/_all-skins.min.css')}}">
 
+ <link rel="stylesheet" href="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker-bs3.css')}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -60,7 +61,7 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{asset('assets/clientassets/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+    <script src="{{asset('assets/clientassets/plugins/jQuery/jquery-2.2.0.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('assets/clientassets/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
@@ -68,17 +69,22 @@
     <!-- AdminLTE App -->
     <script src="{{asset('assets/clientassets/dist/js/app.min.js')}}"></script>
     <!-- Sparkline -->
-    <script src="{{asset('assets/clientassets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
-    <!-- jvectormap -->
-    <script src="{{asset('assets/clientassets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{asset('assets/clientassets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="{{asset('assets/clientassets/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-    <!-- ChartJS 1.0.1 -->
-    <script src="{{asset('assets/clientassets/plugins/chartjs/Chart.min.js')}}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{asset('assets/clientassets/dist/js/pages/dashboard2.js')}}"></script>
-    <!-- AdminLTE for demo purposes -->
+    
     <script src="{{asset('assets/clientassets/dist/js/demo.js')}}"></script>
+     <script src="{{asset('assets/clientassets/plugins/ckeditor/ckeditor.js')}}"></script>
+   <script src="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+   <script src="{{asset('assets/clientassets/plugins/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{asset('assets/clientassets/js/custom_script.js')}}"> </script>
+   <script>
+
+  
+     $(function () {
+        //Initialize Select2 Elements
+    
+        $('#reservationtime1').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+       
+      });
+   
+    </script>
   </body>
 </html>

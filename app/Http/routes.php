@@ -45,10 +45,37 @@
 
        Route::get('success', 'Auth\IndexController@success');
        Route::get('logout', 'Auth\IndexController@logout');
-       Route::post('areainterest', 'Auth\IndexController@areainterest');
+       /*Route::post('areainterest', 'Auth\IndexController@areainterest');
        Route::get('apptype', 'ClientDashboard\AppsController@apptype');
        Route::post('storeapptype', 'ClientDashboard\AppsController@storeapptype');
        Route::get('appinfo', 'ClientDashboard\AppsController@appinfo');
-       Route::post('storeappinfo', 'ClientDashboard\AppsController@storeappinfo');
+       Route::post('storeappinfo', 'ClientDashboard\AppsController@storeappinfo');*/
+       
+       Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
+       Route::post('saveabout', 'ClientDashboard\AboutController@saveabout');
+      
+       Route::get('manageservices', 'ClientDashboard\ServicesController@manageservices');
+       Route::post('saveservice', 'ClientDashboard\ServicesController@saveservice');
+       Route::get('editservice/{id}', 'ClientDashboard\ServicesController@editservice');
+       Route::post('updateservice', 'ClientDashboard\ServicesController@updateservice');
+       Route::get('deleteservice/{id}', 'ClientDashboard\ServicesController@deleteservice');
+       
+       Route::get('managecontact', 'ClientDashboard\ContactController@managecontact');
+       Route::post('savecontact', 'ClientDashboard\ContactController@savecontact');
+
+       Route::get('manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
+       Route::post('saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
+
+       Route::get('manageloyalty', 'ClientDashboard\LoyaltyController@manageloyalty');
+       Route::post('saveloyalty', 'ClientDashboard\LoyaltyController@saveloyalty');
+       Route::get('editloyalty/{id}', 'ClientDashboard\LoyaltyController@editloyalty');
+       Route::post('updateloyalty', 'ClientDashboard\LoyaltyController@updateloyalty');
+       Route::get('deleteloyalty/{id}', 'ClientDashboard\LoyaltyController@deleteloyalty');
+
+       Route::get('manageevents', 'ClientDashboard\EventsController@manageevents');
+       Route::post('saveevents', 'ClientDashboard\EventsController@saveevents');
+       Route::get('editevents/{id}', 'ClientDashboard\EventsController@editevents');
+       Route::post('updateevents', 'ClientDashboard\EventsController@updateevents');
+       Route::get('deleteevents/{id}', 'ClientDashboard\EventsController@deleteevents');
        
 });

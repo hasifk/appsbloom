@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 
-class AboutController extends Controller
+class ContactController extends Controller
 {
     /**
      * Show the profile for the given user.
@@ -24,38 +24,39 @@ class AboutController extends Controller
 
 
  
-    protected function manageabout()
+    protected function managecontact()
     {
           $id=Auth::user()->id;
-          $about_us=Model\Contents::where('admin_id',$id)->first();
+          $contact_us=Model\Contents::where('admin_id',$id)->first();
          
-      return view('clientadmin.manage_about')->with('about_us',$about_us);
+      return view('clientadmin.manage_contact')->with('contact_us',$contact_us);
     }
 
 /********************************************************************************************/
- protected function saveabout(Request $request)
+ protected function savecontact(Request $request)
     {
 
           $id=Auth::user()->id;
          
           
        $this->validate($request, [
-            'about_us_content' => 'required',
+            'contact_us_content' => 'required',
         ]);
 
-          $about_task=Model\Contents::where('admin_id',$id)->first();
-          if(isset($about_task)):
+          $contact_task=Model\Contents::where('admin_id',$id)->first();
+          if(isset($contact_task)):
          
-              $about_task->aboutus=$request->about_us_content;
+              $contact_task->contact_us=$request->contact_us_content;
+             
           
           else:
          
-          $about_task= new Model\Contents;
-          $about_task->admin_id =$id;
-          $about_task->aboutus = $request->about_us_content;
-          endif; 
-          $about_task->save();
-        
+          $contact_task= new Model\Contents;
+          $contact_task->admin_id =$id;
+          $contact_task->contact_us = $request->contact_us_content;
+          endif;
+          $contact_task->save();
+         
 
       return back();
     }
