@@ -11,7 +11,7 @@ class CreateLanguagesTable extends Migration
      * @return void
      */
    public function up()
-    {
+    {   Schema::dropIfExists('languages');
         Schema::create('languages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

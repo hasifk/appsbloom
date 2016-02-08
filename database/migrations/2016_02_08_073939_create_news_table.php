@@ -11,7 +11,7 @@ class CreateNewsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('news');
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

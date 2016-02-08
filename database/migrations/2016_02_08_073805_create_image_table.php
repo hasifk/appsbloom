@@ -11,7 +11,7 @@ class CreateImageTable extends Migration
      * @return void
      */
    public function up()
-    {
+    {    Schema::dropIfExists('image'); 
         Schema::create('image', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

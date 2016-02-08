@@ -11,7 +11,7 @@ class CreateFdbkReplyTable extends Migration
      * @return void
      */
    public function up()
-    {
+    {    Schema::dropIfExists('feedback_reply');
         Schema::create('feedback_reply', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('feedback_id');

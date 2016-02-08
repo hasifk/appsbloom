@@ -11,7 +11,7 @@ class CreateVideoTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('video');
         Schema::create('video', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

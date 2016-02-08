@@ -11,7 +11,7 @@ class CreateSubmenuTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('submenu');
         Schema::create('submenu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_id');

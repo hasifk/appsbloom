@@ -11,7 +11,7 @@ class CreateLanguageKeysTable extends Migration
      * @return void
      */
      public function up()
-    {
+    {   Schema::dropIfExists('language_keys'); 
         Schema::create('language_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('language_id');

@@ -11,7 +11,7 @@ class CreatePackagesTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('packages');
         Schema::create('packages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

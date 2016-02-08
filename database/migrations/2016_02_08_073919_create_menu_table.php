@@ -11,7 +11,7 @@ class CreateMenuTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('menu');
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_type_id');

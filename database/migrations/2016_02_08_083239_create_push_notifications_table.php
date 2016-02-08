@@ -11,7 +11,7 @@ class CreatePushNotificationsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('push_notifications');
         Schema::create('push_notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

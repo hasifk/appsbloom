@@ -11,7 +11,7 @@ class CreateBookingTable extends Migration
      * @return void
      */
      public function up()
-    {
+    {   Schema::dropIfExists('booking');
         Schema::create('booking', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
