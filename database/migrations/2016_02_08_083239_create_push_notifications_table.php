@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreatePushNotificationsTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreatePushNotificationsTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::dropIfExists('push_notifications');
+    {   DB::statement("TRUNCATE TABLE push_notifications");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::dropIfExists('push_notifications');
         Schema::create('push_notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

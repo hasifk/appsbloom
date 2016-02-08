@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateFanwallTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateFanwallTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::dropIfExists('fanwall');
+    {    DB::statement("TRUNCATE TABLE fanwall");
+        DB::statement("TRUNCATE TABLE admin CASCADE"); 
+        Schema::dropIfExists('fanwall');
         Schema::create('fanwall', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

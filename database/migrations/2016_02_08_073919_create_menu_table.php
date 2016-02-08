@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateMenuTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateMenuTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::dropIfExists('menu');
+    {   DB::statement("TRUNCATE TABLE menu");
+        DB::statement("TRUNCATE TABLE apptype CASCADE"); 
+        Schema::dropIfExists('menu');
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_type_id');

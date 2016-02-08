@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreatePasswordResetsTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreatePasswordResetsTable extends Migration
      * @return void
      */
     public function up()
-    {   
+    {  
+        DB::statement("TRUNCATE TABLE password_resets");
+        
         Schema::dropIfExists('password_resets'); 
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();

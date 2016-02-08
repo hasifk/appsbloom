@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateAppTypeTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateAppTypeTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::dropIfExists('app_type');
+    {   DB::statement("TRUNCATE TABLE app_type");
+        
+        Schema::dropIfExists('app_type');
         Schema::create('app_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type',100);

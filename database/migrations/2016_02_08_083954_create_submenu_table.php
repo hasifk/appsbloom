@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateSubmenuTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateSubmenuTable extends Migration
      * @return void
      */
     public function up()
-    {   Schema::dropIfExists('submenu');
+    {   DB::statement("TRUNCATE TABLE submenu");
+        DB::statement("TRUNCATE TABLE menu CASCADE");
+        Schema::dropIfExists('submenu');
         Schema::create('submenu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_id');

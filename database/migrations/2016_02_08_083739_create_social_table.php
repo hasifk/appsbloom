@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateSocialTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateSocialTable extends Migration
      * @return void
      */
    public function up()
-    {   Schema::dropIfExists('social');
+    {    DB::statement("TRUNCATE TABLE social");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::dropIfExists('social');
         Schema::create('social', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

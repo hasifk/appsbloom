@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateLanguageKeysTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateLanguageKeysTable extends Migration
      * @return void
      */
      public function up()
-    {   Schema::dropIfExists('language_keys'); 
+    {   DB::statement("TRUNCATE TABLE language_keys");
+        DB::statement("TRUNCATE TABLE languages CASCADE"); 
+        Schema::dropIfExists('language_keys'); 
         Schema::create('language_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('language_id');

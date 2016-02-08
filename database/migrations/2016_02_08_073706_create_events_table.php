@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateEventsTable extends Migration
 {
     /**
@@ -11,7 +11,9 @@ class CreateEventsTable extends Migration
      * @return void
      */
      public function up()
-    {   Schema::dropIfExists('events');
+    {   DB::statement("TRUNCATE TABLE events");
+        DB::statement("TRUNCATE TABLE admin CASCADE"); 
+        Schema::dropIfExists('events');
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
