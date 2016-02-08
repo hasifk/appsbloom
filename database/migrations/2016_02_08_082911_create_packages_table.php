@@ -17,7 +17,7 @@ class CreatePackagesTable extends Migration
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')
             ->onUpdate('cascade')->onDelete('cascade');
-            $table->string('package_title',200)
+            $table->string('package_title',200);
             $table->longText('description');
             $table->integer('cost');
             $table->timestamps();
