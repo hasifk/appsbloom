@@ -11,7 +11,7 @@ class CreateAppInfoTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('app_info');
         Schema::create('app_info', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

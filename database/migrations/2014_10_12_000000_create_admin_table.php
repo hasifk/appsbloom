@@ -11,7 +11,7 @@ class CreateAdminTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('admin'); 
         Schema::create('admin', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_type_id');

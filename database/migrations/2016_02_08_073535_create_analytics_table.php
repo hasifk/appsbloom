@@ -11,7 +11,7 @@ class CreateAnalyticsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('analytics'); 
         Schema::create('analytics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_id');

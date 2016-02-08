@@ -11,7 +11,7 @@ class CreateAppTypeTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('app_type');
         Schema::create('app_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type',100);
