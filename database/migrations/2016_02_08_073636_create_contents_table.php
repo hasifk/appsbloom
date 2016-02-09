@@ -11,9 +11,14 @@ class CreateContentsTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE contents");
+    {   
+        if(Schema::hasTable('contents')):
+        DB::statement("TRUNCATE TABLE contents");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('contents');
+        Schema::drop('contents');
+        endif;
+
+       
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

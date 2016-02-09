@@ -11,9 +11,15 @@ class CreateEventsTable extends Migration
      * @return void
      */
      public function up()
-    {   DB::statement("TRUNCATE TABLE events");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('events');
+    {   
+        if(Schema::hasTable('events')):
+        DB::statement("TRUNCATE TABLE events");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('events');
+        endif;
+        
+
+        
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

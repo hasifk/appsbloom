@@ -11,9 +11,13 @@ class CreateAppTypeTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE app_type");
-        
-        Schema::dropIfExists('app_type');
+    {  
+       if(Schema::hasTable('app_type')):
+        DB::statement("TRUNCATE TABLE app_type");
+        Schema::drop('app_type');
+        endif;
+
+
         Schema::create('app_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type',100);

@@ -11,9 +11,13 @@ class CreateNewsTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE news");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('news');
+    {   
+        if(Schema::hasTable('news')):
+        DB::statement("TRUNCATE TABLE news");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('news');
+        endif;
+   
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

@@ -11,9 +11,13 @@ class CreateMessagesTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE messages");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('messages');
+    {   
+        if(Schema::hasTable('messages')):
+        DB::statement("TRUNCATE TABLE messages");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('messages');
+        endif;
+
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

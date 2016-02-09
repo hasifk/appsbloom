@@ -11,9 +11,14 @@ class CreateFdbkReplyTable extends Migration
      * @return void
      */
    public function up()
-    {   DB::statement("TRUNCATE TABLE feedback_reply");
+    {   
+        if(Schema::hasTable('feedback_reply')):
+        DB::statement("TRUNCATE TABLE feedback_reply");
         DB::statement("TRUNCATE TABLE feedback CASCADE");
-        Schema::dropIfExists('feedback_reply');
+        Schema::drop('feedback_reply');
+        endif;
+
+        
         Schema::create('feedback_reply', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('feedback_id');

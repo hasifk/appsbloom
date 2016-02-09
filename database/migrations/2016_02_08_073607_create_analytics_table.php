@@ -11,13 +11,18 @@ class CreateAnalyticsTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE analytics");
-        DB::statement("TRUNCATE TABLE apptype CASCADE");
-        Schema::dropIfExists('analytics'); 
+    {   
+        if(Schema::hasTable('analytics')):
+        DB::statement("TRUNCATE TABLE analytics");
+        DB::statement("TRUNCATE TABLE app_type CASCADE");
+        Schema::drop('analytics');
+        endif;
+       
+        
         Schema::create('analytics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_id');
-             $table->foreign('app_id')->references('id')->on('apptype')
+             $table->foreign('app_id')->references('id')->on('app_type')
             ->onUpdate('cascade')->onDelete('cascade');
             $table->integer('downloads_by_date');
             $table->integer('downloads_by_platform');

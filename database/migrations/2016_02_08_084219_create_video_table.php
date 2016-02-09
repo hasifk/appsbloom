@@ -11,9 +11,13 @@ class CreateVideoTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE video");
+    {  
+        if(Schema::hasTable('video')):
+        DB::statement("TRUNCATE TABLE video");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('video');
+        Schema::drop('video');
+        endif;
+
         Schema::create('video', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

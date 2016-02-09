@@ -11,9 +11,13 @@ class CreatePushNotificationsTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE push_notifications");
+    { 
+        if(Schema::hasTable('push_notifications')):
+        DB::statement("TRUNCATE TABLE push_notifications");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('push_notifications');
+        Schema::drop('push_notifications');
+        endif;
+       
         Schema::create('push_notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

@@ -11,9 +11,14 @@ class CreateImageTable extends Migration
      * @return void
      */
    public function up()
-    {   DB::statement("TRUNCATE TABLE image");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('image'); 
+    {   
+        if(Schema::hasTable('image')):
+        DB::statement("TRUNCATE TABLE image");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('image');
+        endif; 
+
+       
         Schema::create('image', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

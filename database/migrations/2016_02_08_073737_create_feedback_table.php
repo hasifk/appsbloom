@@ -11,9 +11,14 @@ class CreateFeedbackTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE feedback");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('feedback');
+    {   
+        if(Schema::hasTable('feedback')):
+        DB::statement("TRUNCATE TABLE feedback");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('feedback');
+        endif;
+
+     
         Schema::create('feedback', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

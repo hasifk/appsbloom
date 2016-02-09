@@ -115,7 +115,7 @@ return [
 
         'cluster' => false,
 
-        'default' => 'postgres',
+        'default' => 'pgsql',
 
     ],
 

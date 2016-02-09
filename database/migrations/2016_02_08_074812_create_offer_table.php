@@ -11,9 +11,14 @@ class CreateOfferTable extends Migration
      * @return void
      */
      public function up()
-    {   DB::statement("TRUNCATE TABLE offer");
+    {   
+        if(Schema::hasTable('offer')):
+        DB::statement("TRUNCATE TABLE offer");
         DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('offer');
+        Schema::drop('offer');
+        endif;
+   
+
         Schema::create('offer', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

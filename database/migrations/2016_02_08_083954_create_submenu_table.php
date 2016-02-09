@@ -11,9 +11,13 @@ class CreateSubmenuTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE submenu");
+    { 
+        if(Schema::hasTable('submenu')):
+        DB::statement("TRUNCATE TABLE submenu");
         DB::statement("TRUNCATE TABLE menu CASCADE");
-        Schema::dropIfExists('submenu');
+        Schema::drop('submenu');
+        endif;
+       
         Schema::create('submenu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_id');

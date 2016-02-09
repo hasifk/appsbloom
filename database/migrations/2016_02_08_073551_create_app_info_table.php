@@ -11,9 +11,14 @@ class CreateAppInfoTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE app_info");
+    {   
+        if(Schema::hasTable('app_info')):
+        DB::statement("TRUNCATE TABLE app_info");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('app_info');
+        Schema::drop('app_info');
+        endif;
+        
+       
         Schema::create('app_info', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
@@ -21,7 +26,6 @@ class CreateAppInfoTable extends Migration
             ->onUpdate('cascade')->onDelete('cascade');
             $table->string('appname',100);
             $table->longText('appdescription');
-            $table->longText('customer_center');
             $table->longText('customer_center');
             $table->longText('terms_and_conditions');
             $table->string('app_image',300);

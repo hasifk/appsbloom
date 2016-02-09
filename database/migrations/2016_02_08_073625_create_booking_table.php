@@ -11,9 +11,13 @@ class CreateBookingTable extends Migration
      * @return void
      */
      public function up()
-    {   DB::statement("TRUNCATE TABLE booking");
+    {    
+     if(Schema::hasTable('booking')):
+        DB::statement("TRUNCATE TABLE booking");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('booking');
+        Schema::drop('booking');
+     endif;
+
         Schema::create('booking', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

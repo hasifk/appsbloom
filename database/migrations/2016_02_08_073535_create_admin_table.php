@@ -12,13 +12,18 @@ class CreateAdminTable extends Migration
      * @return void
      */
     public function up()
-    {   
+    { 
+
+        if(Schema::hasTable('admin')):
         DB::statement("TRUNCATE TABLE admin");
-        Schema::dropIfExists('admin'); 
+        DB::statement("TRUNCATE TABLE app_type CASCADE");
+        Schema::drop('admin');
+        endif;
+     
         Schema::create('admin', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_type_id');
-            $table->foreign('app_type_id')->references('id')->on('apptype')
+            $table->foreign('app_type_id')->references('id')->on('app_type')
             ->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
             $table->string('email')->unique();

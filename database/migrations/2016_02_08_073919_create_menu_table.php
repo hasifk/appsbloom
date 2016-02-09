@@ -11,13 +11,17 @@ class CreateMenuTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE menu");
-        DB::statement("TRUNCATE TABLE apptype CASCADE"); 
-        Schema::dropIfExists('menu');
+    {   
+        if(Schema::hasTable('menu')):
+        DB::statement("TRUNCATE TABLE menu");
+        DB::statement("TRUNCATE TABLE app_type CASCADE");
+        Schema::drop('menu');
+        endif;
+        
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('app_type_id');
-            $table->foreign('app_type_id')->references('id')->on('apptype')
+            $table->foreign('app_type_id')->references('id')->on('app_type')
             ->onUpdate('cascade')->onDelete('cascade');
             $table->string('menu',100);
             $table->timestamps();

@@ -11,9 +11,14 @@ class CreateLanguageKeysTable extends Migration
      * @return void
      */
      public function up()
-    {   DB::statement("TRUNCATE TABLE language_keys");
-        DB::statement("TRUNCATE TABLE languages CASCADE"); 
-        Schema::dropIfExists('language_keys'); 
+    {
+        if(Schema::hasTable('language_keys')):
+        DB::statement("TRUNCATE TABLE language_keys");
+        DB::statement("TRUNCATE TABLE languages CASCADE");
+        Schema::drop('language_keys');
+        endif; 
+
+
         Schema::create('language_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('language_id');

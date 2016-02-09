@@ -11,9 +11,14 @@ class CreateCouponsTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE coupons");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('coupons');
+    {    
+        if(Schema::hasTable('coupons')):
+        DB::statement("TRUNCATE TABLE coupons");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('coupons');
+        endif;
+        
+        
         Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

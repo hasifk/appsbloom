@@ -11,9 +11,14 @@ class CreateSocialTable extends Migration
      * @return void
      */
    public function up()
-    {    DB::statement("TRUNCATE TABLE social");
+    {   
+        if(Schema::hasTable('social')):
+        DB::statement("TRUNCATE TABLE social");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('social');
+        Schema::drop('social');
+        endif;
+
+
         Schema::create('social', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

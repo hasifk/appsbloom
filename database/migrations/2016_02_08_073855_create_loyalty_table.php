@@ -11,9 +11,14 @@ class CreateLoyaltyTable extends Migration
      * @return void
      */
    public function up()
-    {   DB::statement("TRUNCATE TABLE loyalty");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('loyalty');
+    {    
+        if(Schema::hasTable('loyalty')):
+        DB::statement("TRUNCATE TABLE loyalty");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('loyalty');
+        endif;
+
+      
         Schema::create('loyalty', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

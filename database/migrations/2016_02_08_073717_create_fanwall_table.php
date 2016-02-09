@@ -11,9 +11,14 @@ class CreateFanwallTable extends Migration
      * @return void
      */
     public function up()
-    {    DB::statement("TRUNCATE TABLE fanwall");
-        DB::statement("TRUNCATE TABLE admin CASCADE"); 
-        Schema::dropIfExists('fanwall');
+    {    
+        if(Schema::hasTable('fanwall')):
+        DB::statement("TRUNCATE TABLE fanwall");
+        DB::statement("TRUNCATE TABLE admin CASCADE");
+        Schema::drop('fanwall');
+        endif;
+
+       
         Schema::create('fanwall', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');

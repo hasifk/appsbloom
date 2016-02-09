@@ -11,9 +11,13 @@ class CreatePackagesTable extends Migration
      * @return void
      */
     public function up()
-    {   DB::statement("TRUNCATE TABLE packages");
+    {  
+        if(Schema::hasTable('packages')):
+        DB::statement("TRUNCATE TABLE packages");
         DB::statement("TRUNCATE TABLE admin CASCADE");
-        Schema::dropIfExists('packages');
+        Schema::drop('packages');
+        endif;
+
         Schema::create('packages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
