@@ -1,5 +1,5 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
-@section('price-lists')
+@section('content')
 
 <div class="container-fluid">
     <div class="row">

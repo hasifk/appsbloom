@@ -11,7 +11,12 @@ class CreatePasswordResetsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {  
+        if(Schema::hasTable('password_resets')):
+        DB::statement("TRUNCATE TABLE password_resets");
+        Schema::drop('password_resets');
+        endif;
+        
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token')->index();

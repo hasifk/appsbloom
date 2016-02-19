@@ -1,5 +1,5 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
-@section('find-us')
+@section('content')
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <div class="container-fluid">
     <div class="row">

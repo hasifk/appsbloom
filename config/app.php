@@ -205,9 +205,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Str'  => Illuminate\Support\Str::class,
-        'Collection' => Illuminate\Database\Eloquent\Collection::class,
         'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
+        'Str'  => Illuminate\Support\Str::class,
     ],
 
 ];

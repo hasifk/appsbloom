@@ -35,7 +35,7 @@ class GalleryController extends Controller {
             $obj = new Model\Gallery;
             $admin = Auth::user()->id;
             if ($request->gallery->isValid()) {
-                $destinationPath = 'uploads/'.$admin.'/Gallery'; // upload path
+                $destinationPath = 'assets/clientassets/uploads/'.$admin.'/Gallery'; // upload path
                 $extension = $request->gallery->getClientOriginalExtension(); // getting image extension
                 if (!file_exists($destinationPath)) {
                     mkdir($destinationPath, 0777, true);

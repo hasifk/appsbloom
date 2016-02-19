@@ -1,6 +1,6 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 
-@section('videos')
+@section('content')
 
 <div class="container-fluid">
     <div class="row">

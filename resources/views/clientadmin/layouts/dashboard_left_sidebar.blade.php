@@ -41,10 +41,10 @@
                     <span class="label label-primary pull-right">8</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>About Us</a></li>
-                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Services</a></li>
-                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>Contact us</a></li>
-                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Opening Hours & Days</a></li>
+                    <li><a href="{{ url('manageabout') }}"><i class="fa fa-circle-o"></i>About Us</a></li>
+                    <li><a href="{{ url('manageservices') }}"><i class="fa fa-circle-o"></i>Services</a></li>
+                    <li><a href="{{ url('managecontact') }}"><i class="fa fa-circle-o"></i> Contact us</a></li>
+                    <li><a href="{{ url('manageschedule') }}"><i class="fa fa-circle-o"></i>Opening Hours & Days</a></li>
                     <li><a href="<?php echo url('gallery') ?>"><i class="fa fa-circle-o"></i>Gallery</a></li>
                     <li><a href="<?php echo url('find-us') ?>"><i class="fa fa-circle-o"></i>Find us</a></li>
                     <li><a href="<?php echo url('price-list') ?>"><i class="fa fa-circle-o"></i>Price list</a></li>
@@ -55,15 +55,12 @@
 
 
             <li class="treeview">
-                <a href="#">
+                <a href="{{ url('manageloyalty') }}">
                     <i class="fa fa-files-o"></i>
                     <span>Loyalty System</span>
-                    <span class="label label-primary pull-right">4</span>
+
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('apptype') }}"><i class="fa fa-circle-o"></i>Appsinfo</a></li>
-                    
-                </ul>
+
             </li>
 
 
@@ -75,7 +72,7 @@
                     <span class="label label-primary pull-right">4</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('push-notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
+                   <li><a href="{{ url('push-notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
                 </ul>
             </li>
 
@@ -100,14 +97,15 @@
                     <li><a href="{{ url('coupons') }}"><i class="fa fa-circle-o"></i>Coupons</a></li>
                 </ul>
             </li>
+
             <li class="treeview">
-                <a href="#">
+                <a href="{{ url('manageevents') }}">
                     <i class="fa fa-files-o"></i>
                     <span>Events</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <span class="label label-primary pull-right"></span>
                 </a>
             </li>
-             <li class="treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Social</span>
@@ -120,22 +118,22 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Multilingual</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <span>Languages</span>
+                    <span class="label label-primary pull-right">2</span>
                 </a>
-                 <ul class="treeview-menu">
-                    <li><a href="{{ url('multilingual') }}"><i class="fa fa-circle-o"></i>Multilingual</a></li>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('/managelanguages') }}"><i class="fa fa-circle-o"></i>Languages</a></li>
+                    <li><a href="{{ url('/managelangkeys') }}"><i class="fa fa-circle-o"></i>Language-Keys</a></li>
+
+
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ url('/manageanalytics') }}">
                     <i class="fa fa-files-o"></i>
                     <span>Analytics</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <span class="label label-primary pull-right"></span>
                 </a>
-                 <ul class="treeview-menu">
-                    <li><a href="{{ url('analytics') }}"><i class="fa fa-circle-o"></i>Analytics</a></li>
-                </ul>
             </li>
             <li class="treeview">
                 <a href="#">

@@ -1,5 +1,5 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
-@section('coupons')
+@section('content')
 <div class="container-fluid">
     <div class="row">
         <!-- left column -->

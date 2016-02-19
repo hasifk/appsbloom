@@ -47,15 +47,15 @@ class AboutController extends Controller
           if(isset($about_task)):
          
               $about_task->aboutus=$request->about_us_content;
-              $about_task->save();
           
           else:
          
           $about_task= new Model\Contents;
           $about_task->admin_id =$id;
           $about_task->aboutus = $request->about_us_content;
-          $about_task->save();
           endif; 
+          $about_task->save();
+        
 
       return back();
     }
