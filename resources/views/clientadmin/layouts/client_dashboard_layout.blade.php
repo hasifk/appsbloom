@@ -90,7 +90,7 @@ CKEDITOR.replace('ck_editor');
 });
 
         </script>
-        <script>
+<!--        <script>
             $(function () {
                 //Initialize Select2 Elements
                 $(".select2").select2();
@@ -125,6 +125,6 @@ CKEDITOR.replace('ck_editor');
                         }
                 );
             });
-        </script>
+        </script>-->
     </body>
 </html>
