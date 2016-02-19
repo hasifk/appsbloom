@@ -1,0 +1,63 @@
+.gallery{
+    height: 190px !important;
+}
+.gallery img.img-responsive{
+    width: 100% !important;
+    height: 150px !important;
+    margin-bottom: 3px !important;
+}
+.gallery a.hidden{
+    cursor: pointer;
+}
+.gallery:hover a.hidden{
+    display: block !important;
+}
+@media screen and (max-width: 480px) {
+    .gallery{
+    height: 130px !important;
+}
+    .gallery.col-xs-4{
+        width: 50%;
+    }
+    .gallery img.img-responsive{
+    height: 100px !important;
+}
+}
+@media screen and (max-width: 300px) {
+    .gallery.col-xs-4{
+        width: 100%;
+    }
+}
+.panel-title>a{
+    color:#003399;
+}
+.place_delete,.news_delete,.room_delete,.coupons_delete,.message_delete,.offers_delete,.feedback_replay,.feedback_delete{
+    cursor: pointer;
+}
+.col-center{
+    padding-top: 10px;
+}
+.others{
+    display: none;
+}
+.panel-title:hover a{
+    color:#3399ff;
+    text-decoration: underline;
+}
+.panel-title div.text{
+    width:80% !important;
+}
+.box-header>.box-tools{
+    top:-12px !important;
+}
+#map_wrapper {
+    height: 400px;
+}
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: #ffece6;
+}

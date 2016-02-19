@@ -26,10 +26,38 @@ class AboutController extends Controller
  
     protected function manageabout()
     {
-      
-          $app_types=Model\Apptype::all();
-        //return view('home.index')->with('career_with_type', $career_with_type);
-      return view('clientadmin.app_type')->with('app_types',$app_types);
+          $id=Auth::user()->id;
+          $about_us=Model\Contents::where('admin_id',$id)->first();
+         
+      return view('clientadmin.manage_about')->with('about_us',$about_us);
+    }
+
+/********************************************************************************************/
+ protected function saveabout(Request $request)
+    {
+
+          $id=Auth::user()->id;
+         
+          
+       $this->validate($request, [
+            'about_us_content' => 'required',
+        ]);
+
+          $about_task=Model\Contents::where('admin_id',$id)->first();
+          if(isset($about_task)):
+         
+              $about_task->aboutus=$request->about_us_content;
+              $about_task->save();
+          
+          else:
+         
+          $about_task= new Model\Contents;
+          $about_task->admin_id =$id;
+          $about_task->aboutus = $request->about_us_content;
+          $about_task->save();
+          endif; 
+
+      return back();
     }
 
 /********************************************************************************************/
