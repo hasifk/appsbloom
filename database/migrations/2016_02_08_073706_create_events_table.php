@@ -28,8 +28,8 @@ class CreateEventsTable extends Migration
             $table->string('title',300);
             $table->string('photo',300);
             $table->longText('description');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->timestamps();
         });
     }

@@ -58,7 +58,7 @@
               <a href="{{ url('/manageloyalty') }}">
                 <i class="fa fa-files-o"></i>
                 <span>Loyalty System</span>
-                <span class="label label-primary pull-right">4</span>
+               
               </a>
             
             </li>
@@ -114,10 +114,29 @@
               <a href="{{ url('/manageevents') }}">
                 <i class="fa fa-files-o"></i>
                 <span>Events</span>
-                <span class="label label-primary pull-right">4</span>
+                <span class="label label-primary pull-right"></span>
               </a>
-        
+           </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Languages</span>
+                <span class="label label-primary pull-right">2</span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('/managelanguages') }}"><i class="fa fa-circle-o"></i>Languages</a></li>
+                <li><a href="{{ url('/managelangkeys') }}"><i class="fa fa-circle-o"></i>Language-Keys</a></li>
+                
+                
+              </ul>
             </li>
+             <li class="treeview">
+              <a href="{{ url('/manageanalytics') }}">
+                <i class="fa fa-files-o"></i>
+                <span>Analytics</span>
+                <span class="label label-primary pull-right"></span>
+              </a>
+           </li>
           </ul>
         </section>
         <!-- /.sidebar -->

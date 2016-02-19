@@ -27,7 +27,7 @@ class LoyaltyController extends Controller
     protected function manageloyalty()
     {
           $id=Auth::user()->id;
-          $loyalty_list=Model\Loyalty::where('admin_id',$id)->get();
+          $loyalty_list=Model\Loyalty::where('admin_id',$id)->paginate(10);
          
          
       return view('clientadmin.manage_loyalty')->with('loyalty_list',$loyalty_list);
@@ -42,6 +42,7 @@ class LoyaltyController extends Controller
        $this->validate($request, [
             'loyalty_title' => 'required',
             'loyalty_count' =>'required|integer',
+            'stamp_code' =>'required|integer|digits:4',
             'loyalty_action' =>'required',
         ]);
 
@@ -50,6 +51,7 @@ class LoyaltyController extends Controller
           $loyalty_task->admin_id =$id;
           $loyalty_task->title = $request->loyalty_title;
           $loyalty_task->count = $request->loyalty_count;
+          $loyalty_task->stamp_code = $request->stamp_code;
           $loyalty_task->action = $request->loyalty_action;
           $loyalty_task->save();
          
@@ -74,6 +76,7 @@ protected function updateloyalty(Request $request)
        $this->validate($request, [
             'loyalty_title' => 'required',
             'loyalty_count' =>'required|integer',
+             'stamp_code' =>'required|integer|digits:4',
             'loyalty_action' =>'required',
         ]);
 
@@ -81,6 +84,7 @@ protected function updateloyalty(Request $request)
           $loyalty_task_edit= Model\Loyalty::find($id);
           $loyalty_task_edit->title = $request->loyalty_title;
           $loyalty_task_edit->count = $request->loyalty_count;
+          $loyalty_task_edit->stamp_code = $request->stamp_code;
           $loyalty_task_edit->action = $request->loyalty_action;
           $loyalty_task_edit->save();
          
@@ -94,7 +98,7 @@ protected function updateloyalty(Request $request)
         Model\Loyalty::where('id',$id)->delete();
          
           $id1=Auth::user()->id;
-          $loyalty_list=Model\Loyalty::where('admin_id',$id1)->get();
+          $loyalty_list=Model\Loyalty::where('admin_id',$id1)->paginate(10);
 
          return view('clientadmin.loyalty_list')->with('loyalty_list',$loyalty_list); 
 

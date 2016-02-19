@@ -1,5 +1,5 @@
      @if(isset($loyalty_edit))
-           <div class="col-md-6">
+           <div class="col-md-12">
          <div class="box box-primary">
               
 
@@ -33,6 +33,19 @@
                         @endif 
                
                  </div> 
+                 
+                     <div class="form-group">
+            <label>Enter 4 digit stamp code</label>
+    <input type="text" id="stamp_code" name="stamp_code" class="form-control" 
+    value="{{$loyalty_edit->stamp_code}}" placeholder="Stamp Code" >
+                
+                    @if ($errors->has('stamp_code'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('stamp_code') }}</strong>
+                                    </span>
+                        @endif 
+               
+                 </div>
 
                   <div class="form-group">
             <label>Enter loyalty Action</label>
@@ -50,7 +63,7 @@
                  </div> <!-- /.box-body -->
                  <input type="hidden" value="{{$loyalty_edit->id}}" name="loyalty_id">
                 <div class="box-footer">
-                <input type="submit" value="Save loyalty" class="btn btn-primary"/>
+                <input type="submit" value="Update loyalty" class="btn btn-primary"/>
                 </div>
                  {!! Form::close() !!}
                   </div><!-- /.box -->

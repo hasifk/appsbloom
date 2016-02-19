@@ -39,7 +39,7 @@ class EventsController extends Controller
 
           $id=Auth::user()->id;
           $dir='assets/clientassets/uploads/'.$id;
-         $event_dir=$dir.'/events';
+          $event_dir=$dir.'/events';
           if (!is_dir($dir)) 
             {
             mkdir($dir);
@@ -51,18 +51,26 @@ class EventsController extends Controller
 
             }
        $this->validate($request, [
-            'event_content' => 'required',
+            'event_title' => 'required',
+            'event_description' => 'required',
+            'event_reservation' =>'required',
             'event_image' =>'required|mimes:jpeg,png',
         ]);
 
          $event_image = time(). '.' . $request->file('event_image')->getClientOriginalExtension();
-         $event_image_store=$event_dir.'/'.$event_image;
-         $request->file('event_image')->move($event_dir, $event_image);
-         
+          $event_image_store=$event_dir.'/'.$event_image;
+          $request->file('event_image')->move($event_dir, $event_image);
+          $myReservation= explode('-', $request->event_reservation);
+          $start_time=$myReservation[0];
+          $end_time=$myReservation[1];
+
           $event_task= new Model\Events;
           $event_task->admin_id =$id;
-          $event_task->description = $request->event_content;
-          $event_task->image = $event_image_store;
+          $event_task->title = $request->event_title;
+          $event_task->description = $request->event_description;
+          $event_task->photo = $event_image_store;
+          $event_task->start_time =$start_time;
+          $event_task->end_time =$end_time;
           $event_task->save();
          
 
@@ -89,11 +97,12 @@ protected function updateevent(Request $request)
 
           if ($request->hasFile('event_image')):
 
-        $this->validate($request, [
-            'event_content' => 'required',
+         $this->validate($request, [
+            'event_title' => 'required',
+            'event_description' => 'required',
+            'event_reservation' =>'required',
             'event_image' =>'required|mimes:jpeg,png',
         ]);
-
 
          $event_image = time(). '.' . $request->file('event_image')->getClientOriginalExtension();
          $event_image_store=$event_dir.'/'.$event_image;
@@ -104,17 +113,24 @@ protected function updateevent(Request $request)
           else:
 
              $this->validate($request, [
-            'event_content' => 'required'
+            'event_title' => 'required',
+            'event_description' => 'required',
+            'event_reservation' =>'required',
           ]);
               $event_image_store=$event_image_store1;
-
+             
            endif;
 
-         
+              $myReservation= explode('-', $request->event_reservation);
+              $start_time=$myReservation[0];
+              $end_time=$myReservation[1];
          
           $event_task= Model\Events::find($event_id);
-          $event_task->description = $request->event_content;
-          $event_task->image = $event_image_store;
+          $event_task->title = $request->event_title;
+          $event_task->description = $request->event_description;
+          $event_task->photo = $event_image_store;
+          $event_task->start_time =$start_time;
+          $event_task->end_time =$end_time;
           $event_task->save();
          
 
@@ -125,7 +141,7 @@ protected function updateevent(Request $request)
     {
           
          $del_event=Model\Events::find($id);
-         $del_image=$del_event->image;
+         $del_image=$del_event->photo;
          if(file_exists($del_image))
            unlink($del_image);
          $del_event->delete();

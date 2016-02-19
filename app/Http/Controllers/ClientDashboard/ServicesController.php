@@ -12,7 +12,7 @@ use App\Model;
 use Illuminate\Http\Request;
 
 use Validator;
-
+use Str;
 class ServicesController extends Controller
 {
     /**
@@ -27,7 +27,7 @@ class ServicesController extends Controller
     protected function manageservices()
     {
           $id=Auth::user()->id;
-          $service_list=Model\Services::where('admin_id',$id)->get();
+          $service_list=Model\Services::where('admin_id',$id)->paginate(10);
          
          
       return view('clientadmin.manage_services')->with('service_list',$service_list);
@@ -131,7 +131,7 @@ protected function updateservice(Request $request)
          $del_service->delete();
 
           $id1=Auth::user()->id;
-          $service_list=Model\Services::where('admin_id',$id1)->get();
+          $service_list=Model\Services::where('admin_id',$id1)->paginate(10);
 
          return view('clientadmin.service_list')->with('service_list',$service_list); 
 

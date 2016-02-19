@@ -73,9 +73,25 @@
        Route::get('deleteloyalty/{id}', 'ClientDashboard\LoyaltyController@deleteloyalty');
 
        Route::get('manageevents', 'ClientDashboard\EventsController@manageevents');
-       Route::post('saveevents', 'ClientDashboard\EventsController@saveevents');
-       Route::get('editevents/{id}', 'ClientDashboard\EventsController@editevents');
-       Route::post('updateevents', 'ClientDashboard\EventsController@updateevents');
-       Route::get('deleteevents/{id}', 'ClientDashboard\EventsController@deleteevents');
+       Route::post('saveevent', 'ClientDashboard\EventsController@saveevent');
+       Route::get('editevent/{id}', 'ClientDashboard\EventsController@editevent');
+       Route::post('updateevent', 'ClientDashboard\EventsController@updateevent');
+       Route::get('deleteevent/{id}', 'ClientDashboard\EventsController@deleteevent');
+
+       Route::get('managelanguages', 'ClientDashboard\LanguagesController@managelanguages');
+       Route::post('savelanguage', 'ClientDashboard\LanguagesController@savelanguage');
+       Route::get('editlanguage/{id}', 'ClientDashboard\LanguagesController@editlanguage');
+       Route::post('updatelanguage', 'ClientDashboard\LanguagesController@updatelanguage');
+       Route::get('deletelanguage/{id}', 'ClientDashboard\LanguagesController@deletelanguage');
+
+       Route::get('managelangkeys','ClientDashboard\LangkeyController@managelangkeys');
+       Route::post('savelangkey', 'ClientDashboard\LangkeyController@savelangkey');
+       Route::get('editlangkey/{id}', 'ClientDashboard\LangkeyController@editlangkey');
+       Route::post('updatelangkey', 'ClientDashboard\LangkeyController@updatelangkey');
+       Route::get('deletelangkey/{id}', 'ClientDashboard\LangkeyController@deletelangkey');
+
+
+
+       Route::get('manageanalytics','ClientDashboard\AnalyticsController@manageanalytics');
        
 });

@@ -3,9 +3,51 @@
 @section('content')
 
 <h3><b><center>Manage Events</center></b></h3>
+<div class="box-body" id="show_event_list">
+                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                         @if(isset($event_list))
+              @foreach($event_list as $key => $value)
+                       
+                       <div class="panel panel-default" id="removal">
+                           <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
 
+                                       <span class="text">{{$value->title}}</span>
+                                   </a>
+                                   <!-- General tools such as edit or delete-->
+                                   <span class="tools pull-right">
+                                       {!! date('d - m - Y',strtotime($value->created_at))!!} &nbsp;&nbsp;&nbsp;
+                                 <i class="fa fa-edit event_edit" name="{{$value->id}}"></i>
+                                       <i class="fa fa-trash-o event_delete" name="{{$value->id}}"></i>
+                                   </span>
+                               </h4>
+                           </div>
+                           <div id="collapse_{{$value->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$value->id}}">
+                               <div class="panel-body">
+                               <?php $description=strip_tags($value->description); ?>
+                                <p>event Title:{{$value->title}}</p>
+                                <p>event Description:{!!$value->description!!}</p> 
+                  <p>event Start:{{date("d/m/Y h:i:s", strtotime($value->start_time))}}</p>
+                  <p>event End:{{date("d/m/Y h:i:s", strtotime($value->end_time))}}</p>
+                    <img class="img-responsive pad" src="{{$value->photo}}" alt="Photo">             
+                               </div>
+                           </div>
+                       </div>
+                       @endforeach
+                       @else
+                       <div class="panel panel-default">
+                           <div class="panel-heading" role="tab" id="heading">
+                               <h4 class="panel-title">
+                                       <span class="text">No Language Keys</span>
+                               </h4>
+                           </div>
+                       </div>
+                       @endif
+                   </div>
+               </div>
    <section class="content" id="show_event_list_edit">
-         <div class="col-md-6">
+         <div class="col-md-12">
          <div class="box box-primary">
               
 
@@ -26,41 +68,41 @@
                         @endif 
                
                  </div> 
-
-                  <div class="form-group">
-            <label>Enter Required count</label>
-    <input type="text" id="event_count" name="event_count" class="form-control" 
-    value="{{ old('event_count') }}" placeholder="event Count" >
-                
-                    @if ($errors->has('event_count'))
+            
+                <div class="form-group">
+            <label>Enter event Description</label>
+          <textarea id="event_description" name="event_description" class="form-control to_ck">
+            {{ old('event_description') }}</textarea>
+                                  
+                    @if ($errors->has('event_description'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('event_count') }}</strong>
+                                        <strong>{{ $errors->first('event_description') }}</strong>
                                     </span>
                         @endif 
                
                  </div> 
+
+            
                <div class="form-group">
                     <label>Date and time range:</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                       </div>
-                      <input type="text" class="form-control pull-right" id="reservationtime1">
+                      <input type="text" class="form-control pull-right reservation" id="event_reservation"
+                      name="event_reservation">
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
-                  <div class="form-group">
-            <label>Enter event Action</label>
-           <input type="text" id="event_action" name="event_action" class="form-control"
-            value="{{ old('event_action') }}" placeholder="event Action">
-                                  
-                    @if ($errors->has('event_action'))
+              
+              <div class="form-group">
+              <label>Upload Event Image</label>
+              <input type="file" name="event_image" class="form-control" id="event_image">
+              @if ($errors->has('event_image'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('event_action') }}</strong>
+                                        <strong>{{ $errors->first('event_image') }}</strong>
                                     </span>
                         @endif 
-               
-                 </div> 
-
+              </div>
                  </div> <!-- /.box-body -->
                 <div class="box-footer">
                 <input type="submit" value="Save event" class="btn btn-primary"/>
@@ -69,34 +111,7 @@
                   </div><!-- /.box -->
                   </div>
       </section>
-<div class="col-md-12">
-    <section class="content">
-          <!-- Small boxes (Stat box) -->
-          <div class="row" id="show_event_list">
-          @if(isset($event_list))
-              @foreach($event_list as $key => $value)
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <p>event Title:{{$value->title}}</p>
-                  <p>event Count:{{$value->count}}</p>
-                  <p>event Action:{{$value->action}}</p>
 
-                  <div class="col-md-6">
-<button class="glyphicon glyphicon-trash event_delete" style="color:red" name="{{$value->id}}"></button>
-<button class="glyphicon glyphicon-pencil event_edit" style="color:red" name="{{$value->id}}"></button>
-                </div>
-              
-             
-              </div>
-            </div>
-            </div>
-              @endforeach
-              @endif
-              </div>
-              </section>
-              </div>
             
        
 @endsection
