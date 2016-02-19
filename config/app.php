@@ -207,11 +207,6 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
         'Str'  => Illuminate\Support\Str::class,
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7dab2b5a5cf840969e274ff693ce324b52380bed
     ],
 
 ];
