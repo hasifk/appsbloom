@@ -1,4 +1,8 @@
  $(function () {
+CKEDITOR.replace('ck_editor');
+});
+ 
+ $(function () {
 
 
           $( '.to_ck').each( function() {
