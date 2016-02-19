@@ -81,9 +81,9 @@
         <script src="{{asset('assets/clientassets/dist/js/demo.js')}}"></script>
         <script src="{{asset('assets/clientassets/plugins/ckeditor/ckeditor.js')}}"></script>
 
+       
         <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>
-        <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
-        <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>
+        
         <script>
             $(function () {
                 //Initialize Select2 Elements
@@ -120,5 +120,7 @@
                 );
             });
         </script>
+        <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
+        <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>
     </body>
 </html>
