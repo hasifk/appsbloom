@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +32,40 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="{{asset('assets/clientassets/plugins/jQuery/jquery-2.2.0.min.js')}}"></script>
+=======
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{{asset('assets/clientassets/bootstrap/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   <!-- <link rel="stylesheet" href="{{asset('assets/clientassets/css/font-awesome.min.css')}}">
+    <!-- Ionicons --> -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{{asset('assets/clientassets/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
+    <!-- Theme style -->
+   <link rel="stylesheet" href="{{asset('assets/clientassets/dist/css/AdminLTE.min.css')}}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{asset('assets/clientassets/dist/css/skins/_all-skins.min.css')}}">
+
+ <link rel="stylesheet" href="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker-bs3.css')}}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+       <script src="{{asset('assets/clientassets/plugins/jQuery/jquery-2.2.0.min.js')}}"></script>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+>>>>>>> 7dab2b5a5cf840969e274ff693ce324b52380bed
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -62,6 +97,7 @@
             @include('clientadmin.layouts.dashboard_right_sidebar')
 
 
+<<<<<<< HEAD
 
         </div><!-- ./wrapper -->
 
@@ -125,4 +161,31 @@ $(function () {
 });
         </script>
     </body>
+=======
+    <!-- jQuery 2.1.4 -->
+ 
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{{asset('assets/clientassets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{asset('assets/clientassets/plugins/fastclick/fastclick.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('assets/clientassets/dist/js/app.min.js')}}"></script>
+    <!-- Sparkline -->
+    
+    <script src="{{asset('assets/clientassets/dist/js/demo.js')}}"></script>
+     <script src="{{asset('assets/clientassets/plugins/ckeditor/ckeditor.js')}}"></script>
+  
+    <script src="{{asset('assets/clientassets/plugins/select2/select2.full.min.js')}}"></script>
+       <!-- InputMask -->
+       <script src="{{asset('assets/clientassets/plugins/input-mask/jquery.inputmask.js')}}"></script>
+       <script src="{{asset('assets/clientassets/plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+       <script src="{{asset('assets/clientassets/plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+   <script src="{{asset('assets/clientassets/plugins/daterangepicker/moment.min.js')}}"></script>
+     <script src="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>
+   <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
+   <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>
+
+  </body>
+>>>>>>> 7dab2b5a5cf840969e274ff693ce324b52380bed
 </html>
