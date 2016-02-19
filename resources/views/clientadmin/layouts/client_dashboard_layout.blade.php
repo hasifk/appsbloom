@@ -115,6 +115,12 @@
             <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>
             <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
             <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>
+            <script type="text/javascript">
+$(function () {
+    CKEDITOR.replace('ck_editor');
+});
+
+        </script>
             <script>
     $(function () {
         //Initialize Select2 Elements
