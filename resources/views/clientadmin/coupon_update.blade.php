@@ -37,7 +37,7 @@
                         </div><!-- /.form group -->
                         <div class="form-group col-xs-12">
                             <label for="exampleInputPassword1">Coupon Description</label>
-                            {{ Form::textarea('description',$coupons[0]->description, ['id' => 'ck_editor']) }}
+                            {{ Form::textarea('description',$coupons[0]->description,['id' => 'description','class'=>'to_ck']) }}
                         </div>
                         <div class="form-group col-xs-12"></div>
                         <div class="form-group col-xs-12">
