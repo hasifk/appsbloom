@@ -108,8 +108,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('coordinates_save', 'ClientDashboard\FindUsController@CoordinatesSave');
     Route::get('findus_delete', 'ClientDashboard\FindUsController@FindusDelete');
     Route::get('findus_update/{id}', 'ClientDashboard\FindUsController@FindusUpdate');
+    
     //PriceLists
-
     Route::get('price-list', 'ClientDashboard\PricelistController@PriceLists');
     Route::post('pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
 
