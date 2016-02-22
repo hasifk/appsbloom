@@ -39,9 +39,10 @@
                     <h3 class="box-title">Add/Update Price lists</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
+                <?php var_dump($pricelists); exit;?>
                 {!! Form::open(array('url' => 'pricelists_save')) !!} 
                 {{ csrf_field() }}
-                <?php var_dump($pricelists); exit;?>
+                
                 <textarea id="ck_editor" name="price_lists" rows="10" cols="80">
 
 <!--                                   @if(!empty($pricelists->price_lists) || $pricelists->price_lists!='') {{$pricelists->price_lists}} @endif-->
