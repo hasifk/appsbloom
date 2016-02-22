@@ -19,7 +19,7 @@ class PricelistController extends Controller {
      */
     public function PriceLists() {
         $id = Auth::user()->id;
-        $pricelists = Model\Contents::where('admin_id', $id)->first();
+        $pricelists = Model\Contents::where('admin_id', $id)->get();
         return view('clientadmin.pricelists')->with('pricelists', $pricelists);
     }
 
