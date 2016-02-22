@@ -84,7 +84,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">News</label>
-                        {{ Form::textarea('news','',['id' => 'message','class'=>'to_ck']) }}
+                        {{ Form::textarea('news','',['id' => 'news','class'=>'to_ck']) }}
                     </div>
                 </div><!-- /.box-body -->
 
