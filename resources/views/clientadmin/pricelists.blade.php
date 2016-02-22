@@ -43,7 +43,7 @@
                 {!! Form::open(array('url' => 'pricelists_save')) !!}
                 {{ csrf_field() }}
                 <textarea id="offer_info" class="to_ck" name="price_lists" rows="10" cols="80">
-                    <?php if (!empty($pricelists[0]->price_lists) || $pricelists[0]->price_lists != ''):
+                    <?php if (!empty($pricelists[0]->price_lists) || $pricelists[0]->price_lists !=''):
                                        echo $pricelists[0]->price_lists;
                     endif;
                     ?>
