@@ -32,7 +32,7 @@
                         </div><!-- /.form group -->
                         <div class="form-group col-xs-12">
                             <label for="exampleInputPassword1">Offer Description</label>
-                            {{ Form::textarea('offer_info',$offers[0]->offer_info, ['id' => 'message','class'=>'to_ck'] }}
+                            {{ Form::textarea('offer_info',$offers[0]->offer_info, ['id' => 'offer_info','class'=>'to_ck'] }}
                         </div>
                         <div class="form-group col-xs-12"></div>
                         <div class="form-group col-xs-12">
