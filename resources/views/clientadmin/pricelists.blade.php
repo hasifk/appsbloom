@@ -45,8 +45,8 @@
 
                 <textarea id="ck_editor" name="price_lists" rows="10" cols="80">
                                    @if(!empty($pricelists->price_lists) || $pricelists->price_lists!='') 
-{{$pricelists->price_lists}}
- @endif
+                                   {{$pricelists->price_lists}}
+                                   @endif
                 </textarea>
 
                 <div class="box-footer">
