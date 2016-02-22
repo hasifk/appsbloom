@@ -42,7 +42,7 @@
                 {!! Form::open(array('url' => 'pricelists_save')) !!} 
                 {{ csrf_field() }}
                 <textarea id="ck_editor" name="price_lists" rows="10" cols="80">
-<?php print_r($pricelists) ?>
+<?php print_r($pricelists) exit;?>
                                    @if(!empty($pricelists->price_lists) || $pricelists->price_lists!='') {{$pricelists->price_lists}} @endif
                 </textarea>
 
