@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/laragon/www/appsbloom/public/assets/clientassets/js/custom.js</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/manage_about.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/offer_update.blade.php</file>
             <file>file:/C:/laragon/www/appsbloom/</file>
+            <file>file:/C:/laragon/www/appsbloom/public/assets/clientassets/js/custom_script.js</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/offers.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/layouts/client_dashboard_layout.blade.php</file>
         </group>
     </open-files>
 </project-private>
