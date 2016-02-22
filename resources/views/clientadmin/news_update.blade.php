@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">News</label>
-                        {{ Form::textarea('news',$news[0]->news, ['id' => 'ck_editor']) }}
+                        {{ Form::textarea('news',$news[0]->news,['id' => 'news','class'=>'to_ck']) }}
                     </div>
                 </div><!-- /.box-body -->
 
