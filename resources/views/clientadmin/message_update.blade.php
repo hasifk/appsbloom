@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="form-group col-xs-12">
                             <label for="exampleInputPassword1">Message Description</label>
-                            {{ Form::textarea('message',$message[0]->message,['id' => 'message','class'=>'to_ck'] }}
+                            {{ Form::textarea('message',$message[0]->message,['id' => 'message','class'=>'to_ck']) }}
                         </div>
                         <div class="form-group col-xs-12"></div>
                         <div class="form-group col-xs-12">
