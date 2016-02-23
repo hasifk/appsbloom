@@ -85,7 +85,7 @@ class ApiController extends Controller {
                 $return = Model\Offer::where('admin_id', $id)->first();
                 break;
             default:
-                $return = "No data";
+                $return = "";
                 break;
         }
         return response()->json(["responce"=>$return]);
