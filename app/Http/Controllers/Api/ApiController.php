@@ -43,16 +43,34 @@ class ApiController extends Controller {
                 $return = Model\News::where('admin_id', $id)->first();
                 break;
             case "loyality":
-                $return = Model\Gallery::where('admin_id', $id)->first();
+                $return = Model\Loyalty::where('admin_id', $id)->first();
                 break;
             case "push-notification":
-                $return = Model\FindUs::where('admin_id', $id)->first();
+                $return = Model\Notifications::where('admin_id', $id)->first();
                 break;
             case "booking":
-                $return = Model\Pricelist::where('admin_id', $id)->first();
+                $return = Model\Room::where('admin_id', $id)->first();
                 break;
             case "coupons":
-                $return = Model\News::where('admin_id', $id)->first();
+                $return = Model\Coupon::where('admin_id', $id)->first();
+                break;
+            case "events":
+                $return = Model\Events::where('admin_id', $id)->first();
+                break;
+            case "social":
+                $return = Model\Social::where('admin_id', $id)->first();
+                break;
+            case "language":
+                $return = Model\Languages::where('admin_id', $id)->first();
+                break;
+            case "languagekeys":
+                $return = Model\Languagekeys::where('admin_id', $id)->first();
+                break;
+            case "booking":
+                $return = Model\Room::where('admin_id', $id)->first();
+                break;
+            case "coupons":
+                $return = Model\Coupon::where('admin_id', $id)->first();
                 break;
         }
         return response()->json(["responce"=>$return]);

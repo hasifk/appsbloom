@@ -28,7 +28,7 @@ class LangkeyController extends Controller
     {
           $id=Auth::user()->id;
           $language_list=Model\Languages::where('admin_id',$id)->get();
-          $langkey_list=Model\Languagekeys::where('admin_id',$id)->get();
+          $langkey_list=Model\Languagekeys::where('language_id',$id)->get();
          
          
       return view('clientadmin.manage_language_keys')->with('language_list',$language_list)->with('langkey_list',$langkey_list);
@@ -48,7 +48,7 @@ class LangkeyController extends Controller
 
          
           $lang_keys_task= new Model\Languagekeys;
-          $lang_keys_task->admin_id =$id;
+//          $lang_keys_task->admin_id =$id;
           $lang_keys_task->language_id =$request->lang_selected_id;
           $lang_keys_task->key = $request->language_key;
           $lang_keys_task->lang_value = $request->language_value;
