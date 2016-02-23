@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\ClientDashboard;
+namespace App\Http\Controllers\Api;
 
 use Auth;
 use App\Http\Controllers\Controller;
