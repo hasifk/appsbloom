@@ -66,11 +66,23 @@ class ApiController extends Controller {
             case "languagekeys":
                 $return = Model\Languagekeys::where('admin_id', $id)->first();
                 break;
-            case "booking":
+            case "analytics":
                 $return = Model\Room::where('admin_id', $id)->first();
                 break;
-            case "coupons":
-                $return = Model\Coupon::where('admin_id', $id)->first();
+            case "feedback":
+                $return = Model\Feedback::where('admin_id', $id)->first();
+                break;
+            case "fanwall":
+                $return = Model\Fanwall::where('admin_id', $id)->first();
+                break;
+            case "messages":
+                $return = Model\Messages::where('admin_id', $id)->first();
+                break;
+            case "videos":
+                $return = Model\Video::where('admin_id', $id)->first();
+                break;
+            case "offer":
+                $return = Model\Offer::where('admin_id', $id)->first();
                 break;
         }
         return response()->json(["responce"=>$return]);
