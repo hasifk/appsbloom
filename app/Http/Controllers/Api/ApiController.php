@@ -84,6 +84,9 @@ class ApiController extends Controller {
             case "offer":
                 $return = Model\Offer::where('admin_id', $id)->first();
                 break;
+            default:
+                $return = "No data";
+                break;
         }
         return response()->json(["responce"=>$return]);
     }
