@@ -28,7 +28,7 @@ class ApiController extends Controller {
                 $return = Model\Contact::where('admin_id', $id)->first();
                 break;
             case "hours":
-                $return = Model\Services::where('admin_id', $id)->first();
+                $return = Model\Contents::where('admin_id', $id)->first();
                 break;
             case "gallery":
                 $return = Model\Gallery::where('admin_id', $id)->first();
@@ -37,7 +37,7 @@ class ApiController extends Controller {
                 $return = Model\FindUs::where('admin_id', $id)->first();
                 break;
             case "price-lists":
-                $return = Model\Pricelist::where('admin_id', $id)->first();
+                $return = Model\Contents::where('admin_id', $id)->first();
                 break;
             case "news":
                 $return = Model\News::where('admin_id', $id)->first();
