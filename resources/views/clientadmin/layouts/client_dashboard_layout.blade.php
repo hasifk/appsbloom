@@ -58,7 +58,7 @@
 
         </div><!-- ./wrapper -->
         <script src="{{asset('assets/clientassets/js/custom.js')}}"></script>
-        <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>
+<!--        <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>-->
         
         <!-- Bootstrap 3.3.5 -->
         <script src="{{asset('assets/clientassets/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -120,7 +120,7 @@ $(function () {
     );
 });
         </script>
-<!--        <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
-        <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>-->
+        <script src="{{asset('assets/clientassets/js/Chart.Core.js')}}"></script>
+        <script src="{{asset('assets/clientassets/js/Chart.Doughnut.js')}}"></script>
     </body>
 </html>
