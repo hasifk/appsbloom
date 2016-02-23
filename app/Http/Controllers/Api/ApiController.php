@@ -16,7 +16,7 @@ class ApiController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    protected function Api($id, $page) {
+    protected function API($id, $page) {
         switch ($page) {
             case "about":
                 $return = Model\Contents::where('admin_id', $id)->first();
