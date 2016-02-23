@@ -35,7 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('login', 'Auth\IndexController@login');
     Route::post('tologin', 'Auth\IndexController@tologin');
-    Route::post('api/{id}/{page}', 'Api\ApiController@API');
+    Route::get('api/{id}/{page}', 'Api\ApiController@API');
 });
 
 
