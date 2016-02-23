@@ -21,7 +21,7 @@ class ApiController extends Controller {
             case "about":
                 $return = Model\Contents::where('admin_id', $id)->first();
                 break;
-            case "services":
+            case "servics":
                 $return = Model\Services::where('admin_id', $id)->first();
                 break;
             case "contact-us":
