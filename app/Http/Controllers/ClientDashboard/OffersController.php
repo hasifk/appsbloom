@@ -11,7 +11,6 @@ use Validator;
 use Psy\Util\Str;
 
 class OffersController extends Controller {
-
     /**
      * Show the profile for the given user.
      *
