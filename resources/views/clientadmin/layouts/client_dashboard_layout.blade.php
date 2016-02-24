@@ -58,16 +58,16 @@
         </div><!-- ./wrapper -->
         <script src="{{asset('assets/clientassets/js/custom.js')}}"></script>
 <!--        <script src="{{asset('assets/clientassets/js/custom_script.js')}}"></script>-->
-        
+
         <!-- Bootstrap 3.3.5 -->
         <script src="{{asset('assets/clientassets/bootstrap/js/bootstrap.min.js')}}"></script>
         <!-- FastClick -->
-        
+
         <script src="{{asset('assets/clientassets/plugins/fastclick/fastclick.min.js')}}"></script>
         <!-- AdminLTE App -->
-        
+
         <script src="{{asset('assets/clientassets/dist/js/app.min.js')}}"></script>
-        
+
         <!-- Select2 -->
         <script src="{{asset('assets/clientassets/plugins/select2/select2.full.min.js')}}"></script>
 
