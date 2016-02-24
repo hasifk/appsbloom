@@ -36,7 +36,8 @@ class ProfileController extends Controller {
             
             $rules = [
                 'password' => 'required|min:6',
-                'password_confirmation' => 'same:password'];
+                'password_confirmation' => 'required|same:password',
+                ];
            
         endif;
 $admin = Auth::user()->id;
