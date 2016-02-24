@@ -25,42 +25,31 @@ class ProfileController extends Controller {
 
         return view('clientadmin.profile_update');
     }
+
     public function ProfileSave(Request $request) {
-
-        $admin = Auth::user()->id;
-        $f = 0;
-        $u = 0;
-        $obj = Model\Admin::find($admin);
-        $return = 'profile-update';
-
-        if (!$request->has('passwordchange')):
+        if ($request->has('namechange')):
             $rules = [
                 'name' => 'required',
                 'email' => 'required|email',
             ];
-            $f = 1;
+        else:
+            $rules=[];
+            if (Auth::user()->password !== bcrypt($request->cpassword)) {
+                $rules['cpassword'] = 'required';
+            }
+            $rules ['password'] = 'required|min:6';
+            $rules['password_confirmation'] = 'same:password';
         endif;
-        if (!$request->has('namechange')):
-            $rules = [
-                'password' => 'required',
-            ];
-            $u = 1;
-        endif;
-        if ($f == 1 && $u == 1) {
-            $return = 'profile';
-            $obj = new Model\Admin;
-        }
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
-            return redirect($return)
+            return redirect('profile-update')
                             ->withErrors($this->validator)
                             ->withInput();
-        } else if (!$request->has('passwordchange')) {
+        } else {
+            $admin = Auth::user()->id;
+            $obj = Model\Admin::find($admin);
             $obj->name = $request->name;
             $obj->email = $request->email;
-        }
-        if (!$request->has('namechange')) {
-            $obj->password = $request->password;
         }
         $obj->save();
         return redirect('profile');
