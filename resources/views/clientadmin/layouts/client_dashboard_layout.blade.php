@@ -47,7 +47,6 @@
                         <li class="active">Dashboard</li>
                     </ol>
                 </section>
-
                 <!-- Main content -->
                 @yield('content')
             </div><!-- /.content-wrapper -->

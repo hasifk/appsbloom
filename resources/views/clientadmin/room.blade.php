@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-group col-xs-12">
                             <label for="exampleInputPassword1">Other Details</label>
-                            {{ Form::textarea('other','', ['id' => 'ck_editor','placeholder'=>'Other Details']) }}
+                            {{ Form::textarea('other','', ['id' => 'offer_info','class'=>'to_ck','placeholder'=>'Other Details']) }}
                         </div>
                         <div class="form-group col-xs-12"></div>
                         <div class="form-group col-xs-12">
