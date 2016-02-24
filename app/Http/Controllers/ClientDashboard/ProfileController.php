@@ -33,24 +33,25 @@ class ProfileController extends Controller {
                 'email' => 'required|email',
             ];
         else:
-            $rules=[];
-            if (Auth::user()->password !== bcrypt($request->cpassword)) {
-                $rules['cpassword'] = 'required';
-            }
-            $rules ['password'] = 'required|min:6';
-            $rules['password_confirmation'] = 'same:password';
+            
+            $rules = [
+                'password' => 'required|min:6',
+                'password_confirmation' => 'same:password'];
+           
         endif;
+$admin = Auth::user()->id;
+            $obj = Model\Admin::find($admin);
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
             return redirect('profile-update')
                             ->withErrors($this->validator)
                             ->withInput();
-        } else {
-            $admin = Auth::user()->id;
-            $obj = Model\Admin::find($admin);
+        } else if($request->has('namechange')){
             $obj->name = $request->name;
             $obj->email = $request->email;
         }
+        else
+            $obj->password = bcrypt($request->password);
         $obj->save();
         return redirect('profile');
     }

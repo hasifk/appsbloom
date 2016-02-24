@@ -11,7 +11,7 @@
                 </div><!-- /.box-header -->
                 {!! Form::open(array('url' => 'client_save')) !!}
                 <div class="box-body">
-                    @if (count($errors) > 0)
+                    @if (($errors->first('name') || $errors->first('email')) && count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -50,7 +50,7 @@
                 </div><!-- /.box-header -->
                 {!! Form::open(array('url' => 'client_save')) !!}
                 <div class="box-body">
-                    @if (count($errors) > 0)
+                    @if (($errors->first('password') || $errors->first('password_confirmation'))&& count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -60,10 +60,10 @@
                     </div>
                     @endif
                     <div class="row">
-                        <div class="form-group col-xs-12">
+<!--                        <div class="form-group col-xs-12">
                             <label for="name">Current Password</label>
                         {!! Form::password('cpassword',array("class"=>"form-control","placeholder"=>"Current Password")) !!}
-                        </div>
+                        </div>-->
                         <div class="form-group col-xs-12">
                             <label for="email">New Password</label>
                         {!! Form::password('password',array("class"=>"form-control","placeholder"=>"New Password")) !!}
