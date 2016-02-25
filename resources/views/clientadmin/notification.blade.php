@@ -79,7 +79,7 @@
                     @endif
                     <div class="form-group">
                         <label for="exampleInputPassword1">Notifications</label>
-                        {{ Form::textarea('notification','', ['id' => 'ck_editor']) }}
+                        {{ Form::textarea('notification','',['id' => 'offer_info','class'=>'to_ck']) }}
                     </div>
                 </div><!-- /.box-body -->
 
