@@ -40,7 +40,7 @@
                             endforeach;
                         else:
                             ?>
-                            <tr><td colspan="3"> No Room Added</td></tr>
+                            <tr><td colspan="5"> No Room Added</td></tr>
                         <?php
                         endif;
                         ?>
