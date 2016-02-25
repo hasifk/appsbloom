@@ -52,7 +52,7 @@ class IndexController extends Controller
           $task = new Model\Admin;
           $task->name = $request->name;
           $task->email = $request->email;
-          $task->app_type_id =3;
+          //$task->app_type_id =3;
           $task->password = bcrypt($request->password);
          
           $task->save();
