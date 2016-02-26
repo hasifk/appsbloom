@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/message.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/client_dashboard.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/notification.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/routes.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/offers.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/coupon.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/.env</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/Auth/IndexController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/app_type.blade.php</file>
         </group>
     </open-files>
 </project-private>

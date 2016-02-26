@@ -28,10 +28,6 @@
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <!--   <ul class="treeview-menu">
-                    <li><a href="{{ url('/apptype') }}"><i class="fa fa-circle-o"></i> App type</a></li>
-                    <li><a href="{{ url('/appinfo') }}"><i class="fa fa-circle-o"></i> App Info</a></li>
-                  </ul> -->
             </li>
             <li class="treeview">
                 <a href="#">
@@ -44,10 +40,10 @@
                     <li><a href="{{ url('manageservices') }}"><i class="fa fa-circle-o"></i>Services</a></li>
                     <li><a href="{{ url('managecontact') }}"><i class="fa fa-circle-o"></i> Contact us</a></li>
                     <li><a href="{{ url('manageschedule') }}"><i class="fa fa-circle-o"></i>Opening Hours & Days</a></li>
-                    <li><a href="<?php echo url('gallery') ?>"><i class="fa fa-circle-o"></i>Gallery</a></li>
-                    <li><a href="<?php echo url('find-us') ?>"><i class="fa fa-circle-o"></i>Find us</a></li>
-                    <li><a href="<?php echo url('price-list') ?>"><i class="fa fa-circle-o"></i>Price list</a></li>
-                    <li><a href="<?php echo url('news') ?>"><i class="fa fa-circle-o"></i>News</a></li>
+                    <li><a href="{{ url('gallery') }}"><i class="fa fa-circle-o"></i>Gallery</a></li>
+                    <li><a href="{{ url('find-us') }}"><i class="fa fa-circle-o"></i>Find us</a></li>
+                    <li><a href="{{ url('price-list') }}"><i class="fa fa-circle-o"></i>Price list</a></li>
+                    <li><a href="{{ url('news') }}"><i class="fa fa-circle-o"></i>News</a></li>
                 </ul>
             <li class="treeview">
                 <a href="#">
@@ -59,8 +55,6 @@
                     <li><a href="{{ url('manageloyalty') }}"><i class="fa fa-circle-o"></i>Loyalty System</a></li>
                 </ul>
             </li>
-
-
 
             <li class="treeview">
                 <a href="#">
@@ -77,10 +71,11 @@
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Booking & Appointments </span>
-                    <span class="label label-primary pull-right">1</span>
+                    <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('rooms') }}"><i class="fa fa-circle-o"></i>Rooms</a></li>
+                    <li><a href="{{ url('booking') }}"><i class="fa fa-circle-o"></i>Booking</a></li>
                 </ul>
             </li>
 
@@ -121,8 +116,8 @@
                     <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/managelanguages') }}"><i class="fa fa-circle-o"></i>Languages</a></li>
-                    <li><a href="{{ url('/managelangkeys') }}"><i class="fa fa-circle-o"></i>Language-Keys</a></li>
+                    <li><a href="{{ url('managelanguages') }}"><i class="fa fa-circle-o"></i>Languages</a></li>
+                    <li><a href="{{ url('managelangkeys') }}"><i class="fa fa-circle-o"></i>Language-Keys</a></li>
 
 
                 </ul>
@@ -187,7 +182,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('offers') }}"><i class="fa fa-circle-o"></i>Offers</a></li>
-
                 </ul>
             </li>
         </ul>
