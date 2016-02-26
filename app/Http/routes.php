@@ -125,6 +125,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('room_save', 'ClientDashboard\RoomController@RoomSave');
     Route::get('room_delete', 'ClientDashboard\RoomController@RoomDelete');
     Route::get('update-room/{id}', 'ClientDashboard\RoomController@UpdateRoom');
+    
+     //Booking
+    Route::get('booking', 'ClientDashboard\BookingController@Booking');
+    Route::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
+    Route::get('booking_delete', 'ClientDashboard\BookingController@BookingDelete');
+    Route::get('update-booking/{id}', 'ClientDashboard\BookingController@UpdateBooking');
 
     //Coupons
     Route::get('coupons', 'ClientDashboard\CouponsController@Coupons');
