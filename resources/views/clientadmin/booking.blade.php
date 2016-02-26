@@ -13,13 +13,14 @@
                 <div class="box-body no-padding">
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Type</th>
-                            <th>Capacity</th>
-                            <th>Rent</th>
-                            <th colspan="2">Actions</th>
-                        </tr>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Age</th>
+                                <th>Time</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
                         </thead>
                         <tbody id="booking">
                             <?php
@@ -27,7 +28,7 @@
                                 $f = 1;
                                 foreach ($booking as $val):
                                     echo "<tr id=\"booking_$val->id\">";
-                                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->type . "</td><td class=\"booking_focus\">" . $val->capacity . " Persons</td><td>" . $val->rent . "</td>";
+                                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . " Persons</td><td>" . $val->age . "</td>";
                                     ?>
                                 <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a></td>
                                 <?php
@@ -40,7 +41,7 @@
                             endforeach;
                         else:
                             ?>
-                            <tr><td colspan="5"> No Booking Added</td></tr>
+                            <tr><td colspan="6"> No Booking Added</td></tr>
                         <?php
                         endif;
                         ?>
