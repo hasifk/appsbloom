@@ -4,12 +4,12 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Messages extends Model
+class OurTeam extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      *
     **/ 
-      protected $table = 'messages';
+      protected $table = 'our_team';
 }

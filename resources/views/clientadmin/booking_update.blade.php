@@ -8,7 +8,7 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Room</h3>
+                    <h3 class="box-title">Booking</h3>
                 </div><!-- /.box-header -->
                 {!! Form::open(array('url' => 'room_save')) !!}
                 <div class="box-body">
@@ -23,7 +23,7 @@
                     @endif
                     <div class="row">
                         <div class="form-group col-xs-12">
-                            <label for="exampleInputEmail1">Room Type</label>
+                            <label for="exampleInputEmail1">Booking Type</label>
                             {!! Form::text('type',$rooms[0]->type,array("id"=>"type","class"=>"form-control","placeholder"=>"Single,Double,Mini-Suite etc.")) !!}
                         </div>
                         <div class="form-group col-xs-6">

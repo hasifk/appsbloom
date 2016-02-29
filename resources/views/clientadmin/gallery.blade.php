@@ -25,7 +25,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputFile">Upload Photos</label>
-                        {!! Form::file('image',$attributes = array("id"=>"exampleInputFile","name"=>'gallery')) !!}
+                        {!! Form::file('gallery',$attributes = array("id"=>"exampleInputFile")) !!}
 
                     </div>
                 </div><!-- /.box-body -->

@@ -40,7 +40,7 @@ class GalleryController extends Controller {
                 if (!file_exists($destinationPath)) {
                     mkdir($destinationPath, 0777, true);
                 }
-                $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+                $fileName = rand(11111, 99999) . '.' . $extension; // rename image
 
                 $request->gallery->move($destinationPath, $fileName); // uploading file to given path
                 // sending back with message

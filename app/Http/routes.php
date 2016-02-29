@@ -177,5 +177,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('reply_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
     Route::get('notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
     Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
+    
+     //PushNotification
+    Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
+    Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
+    Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
+    Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
        
 });

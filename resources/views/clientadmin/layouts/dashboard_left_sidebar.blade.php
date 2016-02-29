@@ -118,8 +118,6 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ url('managelanguages') }}"><i class="fa fa-circle-o"></i>Languages</a></li>
                     <li><a href="{{ url('managelangkeys') }}"><i class="fa fa-circle-o"></i>Language-Keys</a></li>
-
-
                 </ul>
             </li>
             <li class="treeview">
@@ -182,6 +180,16 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('offers') }}"><i class="fa fa-circle-o"></i>Offers</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Our Team</span>
+                    <span class="label label-primary pull-right">1</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('our-teams') }}"><i class="fa fa-circle-o"></i>Our Team</a></li>
                 </ul>
             </li>
         </ul>

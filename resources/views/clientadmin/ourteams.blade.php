@@ -3,69 +3,63 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <!-- TO DO List -->
-            <div class="box box-primary" >
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Messages</h3>
-                    <div class="box-tools pull-right">
-                            <?php echo $message->links(); ?>
-                    </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        @if(count($message)>0)
-                        @foreach($message as $value)
-                        <?php $info=strip_tags($value->message); ?>
-                        <div class="panel panel-default" id="removal">
-                            <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
-
-                                        <span class="text">{!!Str::limit($info,60)!!}</span>
-                                    </a>
-                                    <!-- General tools such as edit or delete-->
-                                    <span class="tools pull-right">
-                                        {!! date('d - m - Y',strtotime($value->created_at))!!} &nbsp;&nbsp;&nbsp;
-                                        <a href="<?php echo url('update-message/'.$value->id) ?>"><i class="fa fa-edit"></i></a>
-                                        <i class="fa fa-trash-o message_delete" id="{{$value->id}}"></i>
-                                    </span>
-                                </h4>
-                            </div>
-                            <div id="collapse_{{$value->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$value->id}}">
-                                <div class="panel-body">
-                                    {!!$value->message!!}
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        @else
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading">
-                                <h4 class="panel-title">
-                                        <span class="text">No Messages</span>
-                                </h4>
-                            </div>
-                        </div>
-                        @endif
-                    </div>
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix no-border">
-                    <a href="#message_add"> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
-                </div>
-            </div><!-- /.box -->
-        </div>
-</div>
-<div class="row" id='message_add'>
-        <!-- left column -->
-    <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Messages</h3>
+                    <h3 class="box-title">Booking Details</h3>
+                    <div class="box-tools pagination-sm no-margin pull-right">
+                        <?php echo $ourteam->links(); ?>
+                    </div>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Photo</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booking">
+                            <?php
+                            if (count($ourteam) > 0):
+                                $f = 1;
+                                foreach ($ourteam as $val):
+                                    echo "<tr id=\"booking_$val->id\">";
+                                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->email . "</td><td>" . $val->phone . "</td><td>" . $val->photo . "</td>";
+                                    ?>
+                        <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><img scr="{{asset('assets/clientassets/images/new-icon.png')}}" width="80"></a></td>
+                                <?php
+                                echo "<td><a class=\"booking_delete\" id=\"$val->id\"><i style=\"color:red\" class=\"fa fa-fw fa-trash-o\"></a></i>"
+                                . "</td>";
+                                echo "</tr>";
+                                if (!empty($val->other)):
+                                    echo "<tr id=\"booking_$val->id\" class=\"others\"><td></td><td colspan=\"5\">" . $val->other . "</td></tr>";
+                                endif;
+                            endforeach;
+                        else:
+                            ?>
+                            <tr><td colspan="6"> No Booking Added</td></tr>
+                        <?php
+                        endif;
+                        ?>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+    <div class="row" id='ourteam_add'>
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Add Our Teams</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(array('url' => 'message_save')) !!}
+                {!! Form::open(array('url' => 'ourteam_save','files'=>true,'role'=>"form")) !!}
                 <div class="box-body">
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -76,9 +70,27 @@
                         </ul>
                     </div>
                     @endif
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Messages</label>
-                        {{ Form::textarea('message','',['id' => 'message','class'=>'to_ck']) }}
+                    <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Name <span style="color:red;">*</span></label>
+                        {!! Form::text('name','',array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Email &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
+                        {!! Form::text('email','',array("id"=>"email","class"=>"form-control","placeholder"=>"Email")) !!}
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="exampleInputFile">Phone &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
+                        {!! Form::text('Phone','',array("id"=>"Phone","class"=>"form-control","placeholder"=>"Phone Number")) !!}
+
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="exampleInputFile">Photo &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
+                        {!! Form::file('image',$attributes = array("id"=>"exampleInputFile")) !!}
+
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label for="exampleInputPassword1">About <span style="color:red;">*</span></label>
+                        {{ Form::textarea('about','',['id' => 'about','class'=>'to_ck']) }}
                     </div>
                 </div><!-- /.box-body -->
 
