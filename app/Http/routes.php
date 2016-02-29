@@ -23,7 +23,10 @@
   | kernel and includes session state, CSRF protection, and more.
   |
  */
-
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header('content-type: application/json; charset=utf-8');
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('clientadmin.signup');
@@ -178,8 +181,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
     Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
     
-     //PushNotification
+     //Our Teams
     Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
+    Route::get('our-teams/more', 'ClientDashboard\OurTeamsController@TeamsMore');
     Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
     Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
     Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');

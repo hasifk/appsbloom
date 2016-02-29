@@ -73,7 +73,10 @@ class OurTeamsController extends Controller {
             return redirect('our-teams');
         }
     }
-
+    public function TeamsMore($param) {
+        $admin = Auth::user()->id;
+        $ourteam = Model\OurTeam::where('admin_id', $admin)->paginate(10);
+    }
     public function TeamsDelete(Request $request) {
         Model\OurTeam::where('id', $request->id)->delete();
         $admin = Auth::user()->id;

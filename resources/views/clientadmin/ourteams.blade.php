@@ -30,7 +30,7 @@
                                     echo "<tr id=\"booking_$val->id\">";
                                     echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->email . "</td><td>" . $val->phone . "</td><td>" . $val->photo . "</td>";
                                     ?>
-                        <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><img scr="{{asset('assets/clientassets/images/new-icon.png')}}" width="80"></a></td>
+                                <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a></td>
                                 <?php
                                 echo "<td><a class=\"booking_delete\" id=\"$val->id\"><i style=\"color:red\" class=\"fa fa-fw fa-trash-o\"></a></i>"
                                 . "</td>";
@@ -80,7 +80,7 @@
                     </div>
                     <div class="form-group col-xs-6">
                         <label for="exampleInputFile">Phone &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
-                        {!! Form::text('Phone','',array("id"=>"Phone","class"=>"form-control","placeholder"=>"Phone Number")) !!}
+                        {!! Form::text('Phone','',array("id"=>"phone","class"=>"form-control","placeholder"=>"Phone Number")) !!}
 
                     </div>
                     <div class="form-group col-xs-6">
