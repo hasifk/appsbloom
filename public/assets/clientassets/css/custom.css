@@ -31,7 +31,7 @@
 .panel-title>a{
     color:#003399;
 }
-.place_delete,.news_delete,.room_delete,.coupons_delete,.message_delete,.offers_delete,.feedback_replay,.feedback_delete{
+.place_delete,.news_delete,.room_delete,.coupons_delete,.message_delete,.offers_delete,.feedback_replay,.feedback_delete,.teams_delete{
     cursor: pointer;
 }
 .col-center{
@@ -60,4 +60,15 @@
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
 	background-color: #ffece6;
+}
+.xs-pull{
+    float: right;
+}
+@media screen and (max-width: 420px) {
+    .xs-pull{
+    float: left;
+}
+}
+.rigth-border{
+    border-right: 1px solid #f4f4f4 !important;
 }

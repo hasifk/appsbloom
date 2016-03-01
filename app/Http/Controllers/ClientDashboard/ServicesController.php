@@ -51,6 +51,7 @@ class ServicesController extends Controller
 
             }
        $this->validate($request, [
+            'title' => 'required',
             'service_content' => 'required',
             'service_image' =>'required|mimes:jpeg,png',
         ]);
@@ -61,11 +62,10 @@ class ServicesController extends Controller
          
           $service_task= new Model\Services;
           $service_task->admin_id =$id;
+          $service_task->title =$request->title;
           $service_task->description = $request->service_content;
           $service_task->image = $service_image_store;
           $service_task->save();
-         
-
       return back();
     }
 /********************************************************************************************/
@@ -90,6 +90,7 @@ protected function updateservice(Request $request)
           if ($request->hasFile('service_image')):
 
         $this->validate($request, [
+            'title' => 'required',
             'service_content' => 'required',
             'service_image' =>'required|mimes:jpeg,png',
         ]);
@@ -114,6 +115,7 @@ protected function updateservice(Request $request)
          
           $service_task= Model\Services::find($service_id);
           $service_task->description = $request->service_content;
+          $service_task->title =$request->title;
           $service_task->image = $service_image_store;
           $service_task->save();
          

@@ -131,6 +131,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
      //Booking
     Route::get('booking', 'ClientDashboard\BookingController@Booking');
+    Route::get('booking/{id}', 'ClientDashboard\BookingController@Bookings');
     Route::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
     Route::get('booking_delete', 'ClientDashboard\BookingController@BookingDelete');
     Route::get('update-booking/{id}', 'ClientDashboard\BookingController@UpdateBooking');
@@ -183,7 +184,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
      //Our Teams
     Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
-    Route::get('our-teams/more', 'ClientDashboard\OurTeamsController@TeamsMore');
+    Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
     Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
     Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
     Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');

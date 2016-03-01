@@ -171,6 +171,25 @@ $(document).ready(function () {
             });
         }
     });
+    $(document).on("click", '.teams_delete', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to delete"))
+        {
+            var ids = this.id;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/ourteam_status',
+                data: "id=" + ids,
+                cache: false,
+                success: function (data) {
+                    window.location=base_url+'/our-teams';
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
     $(document).on("change", '.fanwall_status', function () {
         var cursel = $(this);
         if (confirm("Are sure want to change"))
