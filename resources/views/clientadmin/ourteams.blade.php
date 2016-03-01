@@ -28,7 +28,7 @@
                                 $f = 1;
                                 foreach ($ourteam as $val):
                                     echo "<tr id=\"teams_$val->id\">";
-                                    echo "<td>" . $f++ . "</td><td class=\"teams_focus\">" . $val->name . "</td><td class=\"teams_focus\">" . $val->email . "</td><td>" . $val->phone . "</td><td> <img src=" . asset($val->photo) . " style=\"width:90px;\"/></td>";
+                                    echo "<td>" . $f++ . "</td><td class=\"teams_focus\">" . $val->name . "</td><td class=\"teams_focus\">" . $val->email . "</td><td>" . $val->phone . "</td><td> <img src=" . asset($val->photo) . " style=\"width:90px;height:90px;\"/></td>";
                                     ?>
                                 <td class="teams_focus"><a href="{{url('our-teams/'.$val->id)}}" class="teams_edit"><i class="fa fa-edit"></i></a></td>
                                 <?php

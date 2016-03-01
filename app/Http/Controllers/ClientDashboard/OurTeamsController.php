@@ -19,7 +19,7 @@ class OurTeamsController extends Controller {
      */
     public function Teams() {
         $admin = Auth::user()->id;
-        $ourteam = Model\OurTeam::where('admin_id', $admin)->paginate(20);
+        $ourteam = Model\OurTeam::where('admin_id', $admin)->paginate(6);
         return view('clientadmin.ourteams')->with('ourteam', $ourteam);
     }
 
