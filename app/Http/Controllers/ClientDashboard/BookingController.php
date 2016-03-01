@@ -22,6 +22,11 @@ class BookingController extends Controller {
         $booking = Model\Booking::where('admin_id', $admin)->paginate(10);
         return view('clientadmin.booking')->with('booking', $booking);
     }
+    public function Bookings() {
+        $admin = Auth::user()->id;
+        $booking = Model\Booking::where('admin_id', $admin)->paginate(10);
+        return view('clientadmin.bookings')->with('booking', $booking);
+    }
     public function BookingSave(Request $request) {
         $rules = [
             'type' => 'required',

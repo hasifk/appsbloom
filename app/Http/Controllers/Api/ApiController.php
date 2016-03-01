@@ -83,6 +83,9 @@ class ApiController extends Controller {
             case "offer":
                 $return = Model\Offer::where('admin_id', $id)->get();
                 break;
+            case "teams":
+                $return = Model\OurTeam::where('admin_id', $id)->get();
+                break;
             default:
                 $return = "";
                 break;

@@ -30,20 +30,17 @@
                                     echo "<tr id=\"booking_$val->id\">";
                                     echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . "</td><td>" . $val->age . "</td><td>" . $val->date . "</td>";
                                     ?>
-                                <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a></td>
-                                
-                                <td><a class="booking_delete" id="<?php echo $val->id; ?>">
-                               
-                                        <img scr="{{asset('assets/clientassets/images/new-icon.png')}}" width="80" height="30"></a></i>
+                                <td class="booking_focus"><a href="{{url('booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a></td>
+                                <td> <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
                                         <?php
-                                echo "</td>";
-                                echo "</tr>";
-                                if (!empty($val->other)):
-                                    echo "<tr id=\"booking_$val->id\" class=\"others\"><td></td><td colspan=\"5\">" . $val->other . "</td></tr>";
-                                endif;
-                            endforeach;
-                        else:
-                            ?>
+                                        echo "</td>";
+                                        echo "</tr>";
+                                        if (!empty($val->other)):
+                                            echo "<tr id=\"booking_$val->id\" class=\"others\"><td></td><td colspan=\"5\">" . $val->other . "</td></tr>";
+                                        endif;
+                                    endforeach;
+                                else:
+                                    ?>
                             <tr><td colspan="6"> No Booking Added</td></tr>
                         <?php
                         endif;
