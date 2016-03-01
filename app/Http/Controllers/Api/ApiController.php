@@ -87,6 +87,6 @@ class ApiController extends Controller {
                 $return = "";
                 break;
         }
-        return response()->json(["responce"=>$return]);
+        return response()->json([$return]);
     }
 }
