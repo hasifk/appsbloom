@@ -13,9 +13,9 @@
                         <a href="{{ url('booking') }}">
                             <span class="glyphicon glyphicon-arrow-left"></span>
                         </a>&nbsp;&nbsp;&nbsp;
-                        {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Delete'),$booking[0]->status,array('id'=>$booking[0]->id,'class'=>'feedback_status')) !!}
+                        {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$booking[0]->status,array('id'=>$booking[0]->id,'class'=>'booking_status')) !!}
                         &nbsp;&nbsp;&nbsp;
-                        <a class="teams_delete" id="{{ $booking[0]->id }}"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
+                        <a class="booking_delete" id="{{ $booking[0]->id }}"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body no-padding">

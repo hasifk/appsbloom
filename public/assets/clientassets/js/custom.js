@@ -3,7 +3,7 @@ $(document).ready(function () {
 
         CKEDITOR.replace($(this).attr('id'));
     });
-    
+
     var l = window.location;
     base_url = l.protocol + "//" + l.host;
     $(".img_delete").on("click", function () {
@@ -83,6 +83,26 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on("click", '.room_delete', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to delete"))
+        {
+            var ids = this.id;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/room_delete',
+                data: "id=" + ids,
+                cache: false,
+                success: function (data) {
+                    $('#rooms').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+
     $(document).on("click", '.news_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
@@ -95,6 +115,44 @@ $(document).ready(function () {
                 cache: false,
                 success: function (data) {
                     $('div#accordion').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+$(document).on("click", '.booking_delete', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to delete"))
+        {
+            var ids = this.id;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/news_delete',
+                data: "id=" + ids,
+                cache: false,
+                success: function (data) {
+                    $('div#accordion').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+    $(document).on("change", '.booking_status', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to change"))
+        {
+            var ids = this.id;
+            var values = this.value;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/booking_status',
+                data: "id=" + ids + "&value=" + values,
+                cache: false,
+                success: function (data) { 
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -182,7 +240,7 @@ $(document).ready(function () {
                 data: "id=" + ids,
                 cache: false,
                 success: function (data) {
-                    window.location=base_url+'/our-teams';
+                    window.location = base_url + '/our-teams';
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -212,14 +270,14 @@ $(document).ready(function () {
         }
     });
     $(document).on("change", '.feedback_status', function () {
-        var status,cursel = $(this),values = this.value;
-        if(values==-1)
-            status="Are sure want to delete";
+        var status, cursel = $(this), values = this.value;
+        if (values == -1)
+            status = "Are sure want to delete";
         else
-            status="Are sure want to change the status";
-        
+            status = "Are sure want to change the status";
+
         if (confirm(status))
-        {   
+        {
             var ids = this.id;
             $.ajax({
                 type: "GET",
@@ -227,8 +285,8 @@ $(document).ready(function () {
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
                 success: function (data) {
-                    if(values == -1)
-                    $('div#accordion').html(data);
+                    if (values == -1)
+                        $('div#accordion').html(data);
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -251,7 +309,7 @@ $(document).ready(function () {
         }
 
     });
-    
+
     $(document).on('click', '.service_edit', function ()
     {
 
@@ -266,7 +324,7 @@ $(document).ready(function () {
 
 
     });
-    
+
     /********************************************************************************/
 
     $(document).on('click', '.loyalty_delete', function ()
@@ -286,7 +344,7 @@ $(document).ready(function () {
         }
 
     });
-    
+
     $(document).on('click', '.loyalty_edit', function ()
     {
 
@@ -301,7 +359,7 @@ $(document).ready(function () {
 
 
     });
-     /********************************************************************************/
+    /********************************************************************************/
     $(document).on('click', '.event_delete', function ()
     {
 
@@ -423,7 +481,7 @@ $(document).ready(function () {
         }
 
     ];
-    
+
 });
 //$(function () {
 //    $('.ck_edit').each(function () {

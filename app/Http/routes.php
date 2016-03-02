@@ -133,7 +133,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('booking/{id}', 'ClientDashboard\BookingController@Bookings');
     Route::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
     Route::get('booking_delete', 'ClientDashboard\BookingController@BookingDelete');
-    Route::get('update-booking/{id}', 'ClientDashboard\BookingController@UpdateBooking');
+    Route::get('booking_status', 'ClientDashboard\BookingController@BookingStatus');
 
     //Coupons
     Route::get('coupons', 'ClientDashboard\CouponsController@Coupons');

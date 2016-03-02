@@ -96,8 +96,6 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div><!-- /.box-body -->
-
-
                 {!! Form::close() !!}
             </div><!-- /.box -->
         </div>

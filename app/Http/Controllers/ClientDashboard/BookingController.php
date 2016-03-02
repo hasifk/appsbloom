@@ -92,4 +92,9 @@ class BookingController extends Controller {
         return view('clientadmin.booking_update')->with('booking', $booking);
     }
 
+     public function BookingStatus(Request $request) {
+            $obj = Model\Booking::find($request->id);
+            $obj->status = trim($request->value);
+            $obj->save();
+    }
 }
