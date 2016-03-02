@@ -82,6 +82,9 @@ class OurTeamsController extends Controller {
     }
 
     public function TeamsStatus(Request $request) {
+        $obj = Model\OurTeam::find($request->id);
+        $link = $obj->photo;
+        unlink($link);
         Model\OurTeam::where('id', $request->id)->delete();
         $admin = Auth::user()->id;
         //return redirect('our-teams');

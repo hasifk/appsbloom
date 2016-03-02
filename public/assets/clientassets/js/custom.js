@@ -129,11 +129,11 @@ $(document).on("click", '.booking_delete', function () {
             var ids = this.id;
             $.ajax({
                 type: "GET",
-                url: base_url + '/news_delete',
+                url: base_url + '/booking_delete',
                 data: "id=" + ids,
                 cache: false,
                 success: function (data) {
-                    $('div#accordion').html(data);
+                    window.location = base_url + '/booking';
                 },
                 error: function (xhr, status, error) {
                     alert(error);

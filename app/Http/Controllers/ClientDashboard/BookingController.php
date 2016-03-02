@@ -59,31 +59,6 @@ class BookingController extends Controller {
 
     public function BookingDelete(Request $request) {
         Model\Booking::where('id', $request->id)->delete();
-        $admin = Auth::user()->id;
-        $booking = Model\Booking::where('admin_id', $admin)->paginate(10);
-        if (count($booking) > 0):
-            $f = 1;
-            foreach ($booking as $val):
-                echo "<tr id=\"booking_$val->id\">";
-                echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->type . "</td><td class=\"booking_focus\">" . $val->capacity . " Persons</td><td>" . $val->rent . "</td>";
-                ?>
-                <td class="booking_focus"><a href="{{url('update-booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a></td>
-                        <?php
-
-                        echo "<td><a class=\"booking_delete\" id=\"$val->id\"><i style=\"color:red\" class=\"fa fa-fw fa-trash-o\"></a></i>"
-                        . "</td>";
-                        echo "</tr>";
-                        if (!empty($val->other)):
-                            echo "<tr id=\"booking_$val->id\" class=\"others\"><td></td><td colspan=\"5\">" . $val->other . "</td></tr>";
-                        endif;
-
-                    endforeach;
-                else:
-                    ?>
-            <tr><td colspan="3"> No Booking Added</td></tr>
-        <?php
-
-        endif;
     }
 
     public function UpdateBooking($id) {

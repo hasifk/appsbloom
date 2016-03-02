@@ -31,7 +31,7 @@
 .panel-title>a{
     color:#003399;
 }
-.place_delete,.news_delete,.room_delete,.coupons_delete,.message_delete,.offers_delete,.feedback_replay,.feedback_delete,.teams_delete{
+.place_delete,.news_delete,.room_delete,.coupons_delete,.message_delete,.offers_delete,.feedback_replay,.feedback_delete,.teams_delete,.booking_delete{
     cursor: pointer;
 }
 .col-center{
