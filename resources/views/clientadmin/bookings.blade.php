@@ -10,11 +10,12 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">{{$booking[0]->name}}</h3>
                     <div class="pagination-sm no-margin xs-pull">
-                        <a href="{{ url('our-teams') }}">
+                        <a href="{{ url('booking') }}">
                             <span class="glyphicon glyphicon-arrow-left"></span>
-                        </a>&nbsp;&nbsp;
-                        <a href="{{url('update-ourteam/'.$booking[0]->id)}}" class="teams_edit"><i class="fa fa-edit"></i></a>
-                        <a class="teams_delete" id="<?php echo $booking[0]->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
+                        </a>&nbsp;&nbsp;&nbsp;
+                        {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Delete'),$booking[0]->status,array('id'=>$booking[0]->id,'class'=>'feedback_status')) !!}
+                        &nbsp;&nbsp;&nbsp;
+                        <a class="teams_delete" id="{{ $booking[0]->id }}"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body no-padding">

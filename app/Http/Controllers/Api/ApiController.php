@@ -36,7 +36,7 @@ class ApiController extends Controller {
                 $return = Model\FindUs::where('admin_id', $id)->get();
                 break;
             case "price-lists":
-                $return = Model\Contents::where('admin_id', $id)->first();
+                $return = Model\Contents::where('admin_id', $id)->get();
                 break;
             case "news":
                 $return = Model\News::where('admin_id', $id)->get();
