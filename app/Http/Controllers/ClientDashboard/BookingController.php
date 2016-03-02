@@ -19,7 +19,7 @@ class BookingController extends Controller {
      */
     public function Booking() {
         $admin = Auth::user()->id;
-        $booking = Model\Booking::where('admin_id', $admin)->paginate(20);
+        $booking = Model\Booking::where('admin_id', $admin)->paginate(1);
         return view('clientadmin.booking')->with('booking', $booking);
     }
     public function Bookings() {

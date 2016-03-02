@@ -187,4 +187,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
     Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
     Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
+    
+    //sorting
+    Route::get('sorting', 'ClientDashboard\SortingController@Sorting');
 });

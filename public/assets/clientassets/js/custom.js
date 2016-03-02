@@ -3,6 +3,7 @@ $(document).ready(function () {
 
         CKEDITOR.replace($(this).attr('id'));
     });
+    $('#datetimepicker').datetimepicker();
 
     var l = window.location;
     base_url = l.protocol + "//" + l.host;
@@ -122,7 +123,7 @@ $(document).ready(function () {
             });
         }
     });
-$(document).on("click", '.booking_delete', function () {
+    $(document).on("click", '.booking_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
         {
@@ -152,7 +153,7 @@ $(document).on("click", '.booking_delete', function () {
                 url: base_url + '/booking_status',
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
-                success: function (data) { 
+                success: function (data) {
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -294,10 +295,28 @@ $(document).on("click", '.booking_delete', function () {
             });
         }
     });
+
+    $(document).on("click", '#search', function () {
+        var name = $('#name').val().trim();
+        var date = $('#datetimepicker').val().trim();
+        var section =$('#section').val();
+            $.ajax({
+                type: "GET",
+                url: base_url + '/sorting',
+                data: "name=" + name+"&date="+date+"&section="+section,
+                cache: false,
+                success: function (data) {
+                    $('#booking').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        });
+
     /********************************************************************************/
     $(document).on('click', '.service_delete', function ()
     {
-
         if (confirm("Are you sure?"))
         {
             var sr_id = $(this).attr('name');
@@ -307,13 +326,10 @@ $(document).on("click", '.booking_delete', function () {
                 $('#show_service_list').html(data);
             });
         }
-
     });
 
     $(document).on('click', '.service_edit', function ()
     {
-
-
         var sr_id_edit = $(this).attr('name');
 
         var sr_edit = $.get(base_url + "/editservice/" + sr_id_edit);
@@ -321,15 +337,12 @@ $(document).on("click", '.booking_delete', function () {
             $('#show_service_list').hide();
             $('#show_service_list_edit').html(data);
         });
-
-
     });
 
     /********************************************************************************/
 
     $(document).on('click', '.loyalty_delete', function ()
     {
-
         if (confirm("Are you sure?"))
         {
             var lt_id = $(this).attr('name');
@@ -342,13 +355,10 @@ $(document).on("click", '.booking_delete', function () {
 
             });
         }
-
     });
 
     $(document).on('click', '.loyalty_edit', function ()
     {
-
-
         var lt_id_edit = $(this).attr('name');
 
         var lt_edit = $.get(base_url + "/editloyalty/" + lt_id_edit);
@@ -356,13 +366,10 @@ $(document).on("click", '.booking_delete', function () {
             $('#show_loyalty_list').hide();
             $('#show_loyalty_list_edit').html(data);
         });
-
-
     });
     /********************************************************************************/
     $(document).on('click', '.event_delete', function ()
     {
-
         if (confirm("Are you sure?"))
         {
             var ev_id = $(this).attr('name');
@@ -372,13 +379,10 @@ $(document).on("click", '.booking_delete', function () {
                 $('#show_event_list').html(data);
             });
         }
-
     });
     $(document).on('click', '.event_edit', function ()
 
     {
-
-
         var ev_id_edit = $(this).attr('name');
 
         var ev_edit = $.get(base_url + "/editevent/" + ev_id_edit);
@@ -386,13 +390,10 @@ $(document).on("click", '.booking_delete', function () {
             $('#show_event_list').hide();
             $('#show_event_list_edit').html(data);
         });
-
-
     });
     /********************************************************************************/
     $(document).on('click', '.language_delete', function ()
     {
-
         if (confirm("Are you sure?"))
         {
             var lang_id = $(this).attr('name');
@@ -407,8 +408,6 @@ $(document).on("click", '.booking_delete', function () {
     $(document).on('click', '.language_edit', function ()
 
     {
-
-
         var lang_id_edit = $(this).attr('name');
 
         var lang_edit = $.get(base_url + "/editlanguage/" + lang_id_edit);
