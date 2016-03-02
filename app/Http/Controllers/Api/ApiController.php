@@ -48,7 +48,7 @@ class ApiController extends Controller {
                 $return = Model\Notifications::where('admin_id', $id)->get();
                 break;
             case "booking":
-                $return = Model\Room::where('admin_id', $id)->get();
+                $return = Model\Booking::where('admin_id', $id)->get();
                 break;
             case "coupons":
                 $return = Model\Coupon::where('admin_id', $id)->get();
