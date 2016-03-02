@@ -43,7 +43,6 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
-
 /* * ****************************************************************************************************************** */
 Route::group(['middleware' => ['web', 'auth']], function () {
 
@@ -112,7 +111,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('coordinates_save', 'ClientDashboard\FindUsController@CoordinatesSave');
     Route::get('findus_delete', 'ClientDashboard\FindUsController@FindusDelete');
     Route::get('findus_update/{id}', 'ClientDashboard\FindUsController@FindusUpdate');
-    
+
     //PriceLists
     Route::get('price-list', 'ClientDashboard\PricelistController@PriceLists');
     Route::post('pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
@@ -128,8 +127,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('room_save', 'ClientDashboard\RoomController@RoomSave');
     Route::get('room_delete', 'ClientDashboard\RoomController@RoomDelete');
     Route::get('update-room/{id}', 'ClientDashboard\RoomController@UpdateRoom');
-    
-     //Booking
+
+    //Booking
     Route::get('booking', 'ClientDashboard\BookingController@Booking');
     Route::get('booking/{id}', 'ClientDashboard\BookingController@Bookings');
     Route::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
@@ -181,12 +180,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('reply_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
     Route::get('notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
     Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
-    
-     //Our Teams
+
+    //Our Teams
     Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
     Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
     Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
     Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
     Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
-       
 });
