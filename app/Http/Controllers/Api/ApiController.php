@@ -29,7 +29,8 @@ class ApiController extends Controller {
             case "hours":{
                 //$return = Model\Contents::where('admin_id', $id)->first();
                 $return=(object)array('Time'=>'Mon  8:00 – 13:00');
-                
+                $js=json_encode($return);
+                $return="[".$js."]";
                 break;
             }
             case "gallery":
