@@ -28,7 +28,7 @@ class ApiController extends Controller {
                 break;
             case "hours":{
                 //$return = Model\Contents::where('admin_id', $id)->first();
-                $return=array('Mon  8:00 – 13:00','Thu  8:00 – 13:00');
+                $return='{'.array('Mon  8:00 – 13:00','Thu  8:00 – 13:00').'}';
                 break;
             }
             case "gallery":
