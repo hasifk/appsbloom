@@ -131,7 +131,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //Booking
     Route::get('booking', 'ClientDashboard\BookingController@Booking');
     Route::get('booking/{id}', 'ClientDashboard\BookingController@Bookings');
-    Route::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
+    //oute::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
     Route::get('booking_delete', 'ClientDashboard\BookingController@BookingDelete');
     Route::get('booking_status', 'ClientDashboard\BookingController@BookingStatus');
 

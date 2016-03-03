@@ -26,9 +26,11 @@ class ApiController extends Controller {
             case "contact-us":
                 $return = Model\Contact::where('admin_id', $id)->get();
                 break;
-            case "hours":
-                $return = Model\Contents::where('admin_id', $id)->first();
+            case "hours":{
+                //$return = Model\Contents::where('admin_id', $id)->first();
+                $return=array('Mon  8:00 – 13:00','Thu  8:00 – 13:00');
                 break;
+            }
             case "gallery":
                 $return = Model\Gallery::where('admin_id', $id)->get();
                 break;
