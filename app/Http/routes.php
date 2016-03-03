@@ -191,3 +191,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //sorting
     Route::get('sorting', 'ClientDashboard\SortingController@Sorting');
 });
+
+Route::get('admin/profile', ['middleware' => 'userroles', function () {
+    
+}]);
