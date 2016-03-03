@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use Auth;
@@ -7,6 +8,7 @@ use Illuminate\View\View;
 use App\Model;
 use Illuminate\Http\Request;
 use Validator;
+
 class ApiController extends Controller {
 
     /**
@@ -15,7 +17,7 @@ class ApiController extends Controller {
      * @param  int  $id
      * @return Response
      */
-   public function API($id, $page) {
+    public function Display($id, $page) {
         switch ($page) {
             case "about":
                 $return = Model\Contents::where('admin_id', $id)->first();
@@ -92,4 +94,37 @@ class ApiController extends Controller {
         }
         return response()->json($return);
     }
+
+    public function InsertBooking(Request $request) {
+        $admin = Auth::user()->id;
+        $obj = new Model\Booking;
+        $obj->admin_id = $admin;
+        $obj->name = $request->name;
+        $obj->phone = $request->phone;
+        $obj->email = $request->email;
+        $obj->age = $request->age;
+        $obj->gender = $request->gender;
+        $obj->address = $request->address;
+        $obj->date = $request->date;
+        $obj->other = $request->other;
+        $obj->save();
+    }
+
+    public function InsertFanwall(Request $request) {
+        $admin = Auth::user()->id;
+        $obj = new Model\Fanwall;
+        $obj->admin_id = $admin;
+        $obj->comment = $request->comment;
+        $obj->user_id = $request->userid;
+        $obj->save();
+    }
+    public function InsertFeedback(Request $request) {
+        $admin = Auth::user()->id;
+        $obj = new Model\Feedback;
+        $obj->admin_id = $admin;
+        $obj->email = $request->email;
+        $obj->feedback = $request->feedback;
+        $obj->save();
+    }
+
 }

@@ -4,7 +4,7 @@
 
 <h3><b><center>Manage Services</center></b></h3>
 <div class="box-body" id="show_service_list">
-   
+
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @if(isset($service_list))
 
@@ -44,45 +44,45 @@
         </div>
         @endif
     </div>
-    
+
 </div>
 <section class="content" id="show_service_list_edit">
-   
-        <div class="box box-primary">
+
+    <div class="box box-primary">
 
 
-            {!! Form::open(array('url' => 'saveservice','files' => true)) !!} 
-            {{ csrf_field() }}
-            <div class="box-body">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Service Title </label>
-                    {!! Form::text('title','',array("id"=>"title","class"=>"form-control","placeholder"=>"Service Title")) !!}
-                </div>
-                <div class="form-group">
-                    <label>Upload Service Image </label>
-                    <input type="file" name="service_image" class="form-control" id="service_image">
-                    @if ($errors->has('service_image'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('service_image') }}</strong>
-                    </span>
-                    @endif 
-                </div>
-                <div class="form-group">
-                    <label>Enter Service Description </label>
-                    {{ Form::textarea('service_content','',['id' => 'service_content','class'=>'to_ck']) }}
-                    @if ($errors->has('service_content'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('service_content') }}</strong>
-                    </span>
-                    @endif 
-                </div>   
-            </div> <!-- /.box-body -->
-            <div class="box-footer">
-                <input type="submit" value="Save Service" class="btn btn-primary"/>
+        {!! Form::open(array('url' => 'saveservice','files' => true)) !!} 
+        {{ csrf_field() }}
+        <div class="box-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Service Title </label>
+                {!! Form::text('title','',array("id"=>"title","class"=>"form-control","placeholder"=>"Service Title")) !!}
             </div>
-            {!! Form::close() !!}
-        </div><!-- /.box -->
-    
+            <div class="form-group">
+                <label>Upload Service Image </label>
+                <input type="file" name="service_image" class="form-control" id="service_image">
+                @if ($errors->has('service_image'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('service_image') }}</strong>
+                </span>
+                @endif 
+            </div>
+            <div class="form-group">
+                <label>Enter Service Description </label>
+                {{ Form::textarea('service_content','',['id' => 'service_content','class'=>'to_ck']) }}
+                @if ($errors->has('service_content'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('service_content') }}</strong>
+                </span>
+                @endif 
+            </div>   
+        </div> <!-- /.box-body -->
+        <div class="box-footer">
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </div>
+        {!! Form::close() !!}
+    </div><!-- /.box -->
+
 </section>
 
 
