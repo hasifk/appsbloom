@@ -38,7 +38,6 @@
                             {!!$booking[0]->other!!}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

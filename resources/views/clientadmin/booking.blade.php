@@ -4,10 +4,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="box box-primary">
+            <div class="box box-primary" id="sorted_result">
                 <div class="box-header with-border">
                     <div class="col-md-3 box-title">{!! Form::text('name','',array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}</div>
-                    <div class="col-md-3 box-title">{!! Form::text('date','',array("id"=>"datetimepicker","class"=>"form-control","placeholder"=>date('d/m/Y')." 4:23 PM")) !!}
+                    <div class="col-md-3 box-title">{!! Form::text('date','',array("id"=>"datetimepicker","class"=>"form-control","placeholder"=>date('d/m/Y'))) !!}
                     {!! Form::hidden('section','Booking',array("id"=>"section")) !!}
                     </div>
                     <div class="col-md-3 box-title"><button id="search" class="btn btn-primary">Search</button>&nbsp;&nbsp;<button id="reset" class="btn btn-primary">Reset</button></div>
@@ -16,7 +16,7 @@
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body no-padding">
-                    <table class="table table-responsive" id="sorted_result">
+                    <table class="table table-responsive">
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
@@ -43,7 +43,7 @@
                                     endforeach;
                                 else:
                                     ?>
-                            <tr><td colspan="6"> No Booking Added</td></tr>
+                            <tr><td colspan="6"> No Booking </td></tr>
                         <?php
                         endif;
                         ?>

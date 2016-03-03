@@ -3,7 +3,7 @@ $(document).ready(function () {
 
         CKEDITOR.replace($(this).attr('id'));
     });
-    $('#datetimepicker').datetimepicker();
+    $('#datetimepicker').datepicker({format: "dd/mm/yyyy"});
 
     var l = window.location;
     base_url = l.protocol + "//" + l.host;
@@ -296,24 +296,36 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", '#search', function () {
-        var name = $('#name').val().trim();
-        var date = $('#datetimepicker').val().trim();
-        var section =$('#section').val();
-            $.ajax({
-                type: "GET",
-                url: base_url + '/sorting',
-                data: "name=" + name+"&date="+date+"&section="+section,
-                cache: false,
-                success: function (data) {
-                    $('#booking').html(data);
-                },
-                error: function (xhr, status, error) {
-                    alert(error);
-                }
-            });
+    $(document).on("click", '#search,#reset', function () {
+        var name,date;
+        if (this.id == 'search')
+        {
+             name = $('#name').val().trim();
+             date = $('#datetimepicker').val().trim();
+           
+        } else {
+           $('#name').val('');
+           $('#datetimepicker').val('');
+           name="";date="";
+        }
+        var section = $('#section').val();
+        $.ajax({
+            type: "GET",
+            url: base_url + '/sorting',
+            data: "name=" + name + "&date=" + date + "&section=" + section,
+            cache: false,
+            success: function (data) {
+                $('#sorted_result').html(data);
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            }
         });
-
+    });
+//$(document).on("click", '#reset', function () {
+//        $('#name').val('');
+//        $('#datetimepicker').val('');
+//        });
     /********************************************************************************/
     $(document).on('click', '.service_delete', function ()
     {

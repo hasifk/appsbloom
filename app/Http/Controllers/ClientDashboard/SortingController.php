@@ -18,13 +18,31 @@ class SortingController extends Controller {
      * @return Response
      */
     public function Sorting(Request $request) {
-
+        $admin = Auth::user()->id;
         if ($request->section == "Booking") {
-            $admin = Auth::user()->id;
-            $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->paginate(2);
-            //return view('clientadmin.booking')->with('booking', $booking);
+            //if (!empty($request->name) && !empty($request->date))
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->where('date', 'like', trim($request->date) . "%")->orderBy('created_at')->paginate(20);
+           // else if (!empty($request->date))
+             //   $booking = Model\Booking::where('admin_id', $admin)->where('date', '=', $request->date)->paginate(20);
+            //else
+               // $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->paginate(20);
             ?>
-            <table class="table table-responsive" id="booking">
+            <script>
+                $(document).ready(function () {
+                    $('#datetimepicker').datepicker({format:"dd/mm/yyyy"})
+                });
+            </script>
+            <div class="box-header with-border">
+                <div class="col-md-3 box-title"><input type="text" name="name" id="name" value="<?php echo $request->name; ?>" placeholder="Name" class="form-control"></div>
+                <div class="col-md-3 box-title"><input type="text" name="name" id="datetimepicker" value="<?php echo $request->date; ?>" placeholder="<?php echo date('d/m/Y') ?>" class="form-control">
+                    <input type="hidden" name="section" id="section" value="Booking">
+                </div>
+                <div class="col-md-3 box-title"><button id="search" class="btn btn-primary">Search</button>&nbsp;&nbsp;<button id="reset" class="btn btn-primary">Reset</button></div>
+                <div class="box-tools pagination-sm no-margin pull-right">
+                    <?php echo $booking->links(); ?>
+                </div>
+            </div><!-- /.box-header -->
+            <table class="table table-responsive">
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
@@ -43,17 +61,21 @@ class SortingController extends Controller {
                             echo "<tr id=\"booking_$val->id\">";
                             echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . "</td><td>" . $val->age . "</td><td>" . $val->date . "</td>";
                             ?>
-                        <td class="booking_focus"><a href="<?php echo url('booking/'.$val->id) ?>" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
-                            <?php // echo Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$val->status,array('id'=>$val->id,'class'=>'booking_status')) ?>&nbsp;&nbsp;&nbsp;
+                        <td class="booking_focus"><a href="<?php echo url('booking/' . $val->id) ?>" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;  <select name="status" class="booking_status" id="<?php echo $val->id; ?>">
+                                <option <?php if ($val->status == 0) { ?> selected="selected" <?php } ?> value="0">Pending</option>
+                                <option <?php if ($val->status == 1) { ?> selected="selected" <?php } ?> value="1">Approved</option>
+                                <option <?php if ($val->status == -1) { ?> selected="selected" <?php } ?> value="-1">Cancel</option>
+                            </select>&nbsp;&nbsp;&nbsp;
                             <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a></td>
                                 <?php
                             endforeach;
                         else:
                             ?>
-                    <tr><td colspan="6"> No Booking Added</td></tr>
-                        <?php
-                        endif;
-                        ?>
+                    <tr><td colspan="6"> No Booking</td></tr>
+                <?php
+                endif;
+                ?>
             </tbody>
             </table>
             <?php

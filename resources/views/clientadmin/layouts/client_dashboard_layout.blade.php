@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- daterange picker -->
         <link rel="stylesheet" href="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker-bs3.css')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css" />
         <!-- jvectormap -->
         <link rel="stylesheet" href="{{asset('assets/clientassets/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
         <!-- Theme style -->
@@ -80,7 +80,7 @@
         <!-- date-range-picker -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
         <script src="{{asset('assets/clientassets/plugins/daterangepicker/daterangepicker.js')}}"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.js"></script>
         <script src="{{asset('assets/clientassets/dist/js/demo.js')}}"></script>
         <script src="{{asset('assets/clientassets/plugins/ckeditor/ckeditor.js')}}"></script>
 
