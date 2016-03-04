@@ -1,13 +1,14 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Social Links</center></b></h3>
 
+<section class="content">
     <div class="row">
         <!-- left column -->
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Social Links</h3>
+                    <h3 class="box-title">Update Social Links</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 {!! Form::open(array('url' => 'social_save','files'=>true,'role'=>"form")) !!}
@@ -43,5 +44,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 @endsection

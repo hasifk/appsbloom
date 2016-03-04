@@ -1,13 +1,14 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Coupons</center></b></h3>
+<section class="content">
     <div class="row">
         <div class="col-md-12">
 
             <!-- TO DO List -->
             <div class="box box-primary" >
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
+                <div class="box-header with-border">
+                    
                     <h3 class="box-title">Coupons</h3>
                     <div class="box-tools pull-right">
                         <?php echo $coupons->links(); ?>
@@ -104,6 +105,6 @@
         </div>
     </div>
 
-</div>
+</section>
 
 @endsection

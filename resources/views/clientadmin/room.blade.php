@@ -1,6 +1,8 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Rooms</center></b></h3>
+
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -105,6 +107,6 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 
 @endsection

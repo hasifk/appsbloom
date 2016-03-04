@@ -1,6 +1,8 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Social Links</center></b></h3>
+
+<section class="content">
     @if(count($social))
     <div class="box">
         <div class="box-header">
@@ -14,12 +16,17 @@
             $user[2] = "Twitter";
             $f = 0;
             ?>
-            
+
             <table class="table table-hover">
                 <tbody>
                     <tr>
                         <th>Facebook</th>
-                        <td>{{$social[0]->facebook}}</td>
+                        <td>@if(!empty($social[0]->facebook))
+                            {{$social[0]->facebook}}
+                            @else
+                            --
+                            @endif
+                        </td>
                         <th>
                             @if(!empty($social[0]->facebook))
                             <span class="tools">
@@ -30,7 +37,12 @@
                     </tr>
                     <tr>
                         <th>Instagram</th>
-                        <td>{{$social[0]->instagram}}</td>
+                        <td>@if(!empty($social[0]->instagram))
+                            {{$social[0]->instagram}}
+                            @else
+                            --
+                            @endif
+                        </td>
                         <th>
                             @if(!empty($social[0]->instagram))
                             <span class="tools">
@@ -41,7 +53,13 @@
                     </tr>
                     <tr>
                         <th>Twitter</th>
-                        <td>{{$social[0]->twitter}}</td>
+                        <td>
+                            @if(!empty($social[0]->twitter))
+                            {{$social[0]->twitter}}
+                            @else
+                            --
+                            @endif
+                        </td>
                         <th>
                             @if(!empty($social[0]->twitter))
                             <span class="tools">
@@ -61,7 +79,7 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Social links</h3>
+                        <h3 class="box-title">Add Social links</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     {!! Form::open(array('url' => 'social_save','files'=>true,'role'=>"form")) !!}
@@ -98,5 +116,5 @@
         </div>
     </section>
     @endif
-</div> 
+</section>
 @endsection

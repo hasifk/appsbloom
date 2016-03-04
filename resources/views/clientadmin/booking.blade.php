@@ -1,7 +1,7 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
 <h3><b><center>Manage Booking</center></b></h3>
-<div class="container-fluid">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary" id="sorted_result">
@@ -54,5 +54,5 @@
         </div>
     </div>
 
-</div>
+</section>
 @endsection

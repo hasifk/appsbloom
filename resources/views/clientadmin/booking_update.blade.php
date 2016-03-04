@@ -1,14 +1,15 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Booking</center></b></h3>
+<section class="content">
     <div class="row">
         <!-- left column -->
         <div class="col-md-12">
             <!-- SELECT2 EXAMPLE -->
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Booking</h3>
+                    <h3 class="box-title">Update Booking</h3>
                 </div><!-- /.box-header -->
                 {!! Form::open(array('url' => 'room_save')) !!}
                 <div class="box-body">
@@ -58,5 +59,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 @endsection

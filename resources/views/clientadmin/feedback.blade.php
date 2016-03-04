@@ -1,13 +1,13 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Feedbacks</center></b></h3>
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <!-- TO DO List -->
             <div class="box box-primary" >
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Feedback</h3>
+                <div class="box-header with-border">
+                    <h3 class="box-title">Feedbacks</h3>
                     <div class="box-tools pull-right">
                         <?php
                         echo $feedback->links();
@@ -95,5 +95,5 @@
         </div>
 
     </div>
-</div>
+</section>
 @endsection
