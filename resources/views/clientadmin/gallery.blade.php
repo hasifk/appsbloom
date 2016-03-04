@@ -1,15 +1,15 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 
 @section('content')
-
+<h3><b><center>Gallery</center></b></h3>
 <div class="container-fluid">
     <div class="row">
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="box box-primary">
-                <div class="box-header with-border">
+<!--                <div class="box-header with-border">
                     <h3 class="box-title">Gallery</h3>
-                </div><!-- /.box-header -->
+                </div> /.box-header -->
                 <!-- form start -->
                 {!! Form::open(array('url' => 'gallery_save','files'=>true,'role'=>"form")) !!}
                 <div class="box-body">

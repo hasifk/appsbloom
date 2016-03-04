@@ -7,9 +7,7 @@
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         @if(isset($service_list))
-
         {!! $service_list->links() !!}
-
         @foreach($service_list as $key => $value)
         <div class="panel panel-default" id="removal">
             <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
