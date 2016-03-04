@@ -1,7 +1,7 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<h3><b><center>Find Us</center></b></h3>
+<h3><b><center>Manage Find Us</center></b></h3>
 <section class="content">
     <div class="row">
         <!-- left column -->
