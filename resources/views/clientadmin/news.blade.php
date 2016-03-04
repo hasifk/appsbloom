@@ -1,7 +1,8 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
+<h3><b><center>Price Lists</center></b></h3>
 
-<div class="container-fluid">
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <!-- TO DO List -->
@@ -10,7 +11,7 @@
                     <i class="ion ion-clipboard"></i>
                     <h3 class="box-title">News</h3>
                     <div class="box-tools pull-right">
-                            <?php echo $news->links(); ?>
+                        <?php echo $news->links(); ?>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
@@ -26,7 +27,7 @@
                                     </a>
                                     <!-- General tools such as edit or delete-->
                                     <span class="tools pull-right">
-                                        <a href="<?php echo url('update-news/'.$value->id) ?>"><i class="fa fa-edit"></i></a>
+                                        <a href="<?php echo url('update-news/' . $value->id) ?>"><i class="fa fa-edit"></i></a>
                                         <i class="fa fa-trash-o news_delete" id="{{$value->id}}"></i>
                                     </span>
                                 </h4>
@@ -34,7 +35,7 @@
                             <div id="collapse_{{$value->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$value->id}}">
                                 <div class="panel-body">
                                     {!!$value->news!!}
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading">
                                 <h4 class="panel-title">
-                                        <span class="text">No News</span>
+                                    <span class="text">No News</span>
                                 </h4>
                             </div>
                         </div>
@@ -55,10 +56,7 @@
                 </div>
             </div><!-- /.box -->
         </div>
-
     </div>
-
-
     <div class="row" id='news_add'>
         <!-- left column -->
         <div class="col-md-12">
@@ -95,8 +93,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-
-
-
-</div>
+</section>
 @endsection

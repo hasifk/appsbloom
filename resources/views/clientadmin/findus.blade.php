@@ -2,7 +2,7 @@
 @section('content')
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <h3><b><center>Find Us</center></b></h3>
-<div class="container-fluid">
+<section class="content">
     <div class="row">
         <!-- left column -->
         <div class="col-md-6">
@@ -94,7 +94,7 @@
         </div>
 
     </div>
-</div>
+</section>
 <?php
 if ($loc === "") {
     $loc = $loc . '["New Delhi, India",' . 28.38 . ',' . 77.12 . '],';
