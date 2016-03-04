@@ -1,22 +1,22 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Fanwall</center></b></h3>
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <!-- TO DO List -->
             <div class="box box-primary" >
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
+                <div class="box-header with-border">
                     <h3 class="box-title">Fanwall</h3>
                     <div class="box-tools pull-right">
-                            <?php echo $fanwall->links(); ?>
+                        <?php echo $fanwall->links(); ?>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         @if(count($fanwall)>0)
                         @foreach($fanwall as $value)
-                        <?php $info=strip_tags($value->comment); ?>
+                        <?php $info = strip_tags($value->comment); ?>
                         <div class=" panel panel-default" id="removal">
                             <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
                                 <h4 class="panel-title">
@@ -41,17 +41,16 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading">
                                 <h4 class="panel-title">
-                                        <span class="text">No Fanwall</span>
+                                    <span class="text">No Fanwall</span>
                                 </h4>
                             </div>
                         </div>
                         @endif
                     </div>
                 </div><!-- /.box-body -->
-                
+
             </div><!-- /.box -->
         </div>
-
     </div>
-</div>
+</section>
 @endsection

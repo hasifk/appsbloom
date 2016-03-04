@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 use Validator;
 
 class FanwallController extends Controller {
-
     /**
      * Show the profile for the given user.
      *
      * @param  int  $id
      * @return Response
      */
+    
     public function Fanwall() {
         $admin = Auth::user()->id;
         $fanwall = Model\Fanwall::where('admin_id', $admin)->paginate(10);

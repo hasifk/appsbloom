@@ -65,13 +65,12 @@
                                 {!! Form::open(array('url' => 'reply_save')) !!}
                                 <div class="box-body pad">
                                     <div class="form-group col-xs-12 ">
-                                        {{ Form::textarea("reply",'',['id' => "reply_".$value->id,"class"=>'ck_edit']) }}
+                                        {{ Form::textarea("reply",'',['id' => "reply_".$value->id,"class"=>'to_ck']) }}
                                     </div>
                                     <div class="form-group col-xs-12">
                                         {!! Form::hidden('id',$value->id) !!}
                                         <button type="submit" class="btn btn-primary">Send</button>
                                     </div>
-
                                 </div>
 
                                 {!! Form::close() !!}

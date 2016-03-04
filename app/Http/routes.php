@@ -179,7 +179,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     //PushNotification
     Route::get('push-notification', 'ClientDashboard\PushNotificationController@Notifications');
-    Route::post('reply_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
+    Route::post('notification_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
     Route::get('notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
     Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
 
