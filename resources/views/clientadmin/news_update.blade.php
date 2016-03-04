@@ -1,8 +1,9 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 
 @section('content')
+<h3><b><center>Manage News</center></b></h3>
 
-<div class="container-fluid">
+<section class="content">
     <div class="row" id='news_add'>
         <!-- left column -->
         <div class="col-md-12">
@@ -44,5 +45,5 @@
 
 
 
-</div>
+</section>
 @endsection
