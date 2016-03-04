@@ -1,6 +1,7 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Teams</center></b></h3>
+<section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -56,41 +57,58 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Our Teams</h3>
+                    <h3 class="box-title">Add Team Memebers</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 {!! Form::open(array('url' => 'ourteam_save','files'=>true,'role'=>"form")) !!}
                 <div class="box-body">
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+                    
                     <div class="form-group col-xs-6">
                         <label for="exampleInputEmail1">Name <span style="color:red;">*</span></label>
                         {!! Form::text('name','',array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}
+                        @if ($errors->has('name'))
+                            <span class="help-block error-color">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
                     </div>
                     <div class="form-group col-xs-6">
                         <label for="exampleInputEmail1">Email &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
                         {!! Form::text('email','',array("id"=>"email","class"=>"form-control","placeholder"=>"Email")) !!}
+                        @if ($errors->has('email'))
+                            <span class="help-block error-color">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                            @endif
                     </div>
                     <div class="form-group col-xs-6">
                         <label for="exampleInputFile">Phone &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
                         {!! Form::text('Phone','',array("id"=>"phone","class"=>"form-control","placeholder"=>"Phone Number")) !!}
+                        @if ($errors->has('Phone'))
+                            <span class="help-block error-color">
+                                <strong>{{ $errors->first('Phone') }}</strong>
+                            </span>
+                            @endif
 
                     </div>
                     <div class="form-group col-xs-6">
                         <label for="exampleInputFile">Upload Photo<span style="color:red;">*</span></label>
                         {!! Form::file('image',$attributes = array("id"=>"exampleInputFile")) !!}
+                        @if ($errors->has('image'))
+                            <span class="help-block error-color">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                            @endif
 
                     </div>
                     <div class="form-group col-xs-12">
                         <label for="exampleInputPassword1">About <span style="color:red;">*</span></label>
                         {{ Form::textarea('about','',['id' => 'about','class'=>'to_ck']) }}
+                        @if ($errors->has('about'))
+                            <span class="help-block error-color">
+                                <strong>{{ $errors->first('about') }}</strong>
+                            </span>
+                            @endif
                     </div>
                     <div class="form-group col-xs-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -100,5 +118,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 @endsection

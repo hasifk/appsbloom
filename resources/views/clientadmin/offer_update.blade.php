@@ -6,7 +6,7 @@
         <!-- left column -->
         <div class="col-md-12" id="offers_add">
             <!-- SELECT2 EXAMPLE -->
-            <div class="box box-default">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Update Offer</h3>
                 </div><!-- /.box-header -->

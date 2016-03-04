@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="container-fluid">
+<h3><b><center>Manage Teams</center></b></h3>
+<section class="content">
     <div class="row">
         <!-- left column -->
         <div class="col-md-12">
@@ -34,5 +35,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

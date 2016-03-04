@@ -1,6 +1,7 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+<h3><b><center>Manage Teams</center></b></h3>
+<section class="content">
     <div class="row" id='ourteam_add'>
         <!-- left column -->
         <div class="col-md-12">
@@ -58,5 +59,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 @endsection
