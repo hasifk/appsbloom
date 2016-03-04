@@ -2,10 +2,11 @@
 
 @section('content')
 
-<div class="container-fluid">
+<h3><b><center>Manage Videos</center></b></h3>
+<section class="content">
     <div class="row">
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Video</h3>
@@ -56,5 +57,5 @@
     </div>
 
     @endif
-</div>
+</section>
 @endsection

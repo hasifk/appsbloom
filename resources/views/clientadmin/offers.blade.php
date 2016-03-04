@@ -1,13 +1,13 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
-<div class="container-fluid">
+
+<h3><b><center>Manage Offers</center></b></h3>
+<section class="content">
     <div class="row">
         <div class="col-md-12">
-
             <!-- TO DO List -->
             <div class="box box-primary">
-                <div class="box-header ">
-                    <i class="ion ion-clipboard"></i>
+                <div class="box-header with-border">
                     <h3 class="box-title">Offers</h3>
                     <div class="box-tools pull-right">
                         <?php echo $offers->links(); ?>
@@ -17,7 +17,7 @@
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         @if(count($offers)>0)
                         @foreach($offers as $value)
-                        <?php $info=strip_tags($value->offer_info); ?>
+                        <?php $info = strip_tags($value->offer_info); ?>
                         <div class="panel panel-default" id="removal">
                             <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
                                 <h4 class="panel-title">
@@ -29,7 +29,7 @@
                                     </a>
                                     <!-- General tools such as edit or delete-->
                                     <span class="tools pull-right">
-                                 {{date('d.m.Y h:i A',strtotime($value->start_date))." - ".date('d.m.Y h:i A',strtotime($value->end_date))}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                        {{date('d.m.Y h:i A',strtotime($value->start_date))." - ".date('d.m.Y h:i A',strtotime($value->end_date))}}&nbsp;&nbsp;&nbsp;&nbsp;
                                         <a href="<?php echo url('update-offer/' . $value->id) ?>"><i class="fa fa-edit"></i></a>
                                         <i class="fa fa-trash-o offers_delete" id="{{$value->id}}"></i>
                                     </span>
@@ -101,5 +101,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-</div>
+</section>
 @endsection
