@@ -27,6 +27,9 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header('content-type: application/json; charset=utf-8');
+
+Route::post('insertbooking/{id}', 'Api\ApiController@InsertBooking');
+
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('clientadmin.signup');
@@ -39,7 +42,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('login', 'Auth\IndexController@login');
     Route::post('tologin', 'Auth\IndexController@tologin');
     Route::get('api/{id}/{page}', 'Api\ApiController@Display');
-    Route::post('insertbooking/{id}', 'Api\ApiController@InsertBooking');
     Route::post('insertfanwall/{id}', 'Api\ApiController@InsertFanwall');
     Route::post('insertfeedback/{id}', 'Api\ApiController@InsertFeedback');
 });
