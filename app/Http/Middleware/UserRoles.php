@@ -5,8 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 
 class UserRoles
-{
-    /**
+{   /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request

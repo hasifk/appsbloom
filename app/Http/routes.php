@@ -48,7 +48,7 @@ Route::group(['middleware' => ['web']], function () {
 /* * ****************************************************************************************************************** */
 Route::group(['middleware' => ['web', 'auth']], function () {
 
-    Route::get('success', 'Auth\IndexController@success');
+    //Route::get('success', 'Auth\IndexController@success');
     Route::get('logout', 'Auth\IndexController@logout');
     /* Route::post('areainterest', 'Auth\IndexController@areainterest');
       Route::get('apptype', 'ClientDashboard\AppsController@apptype');
@@ -195,5 +195,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::group(['middleware' =>['web','auth','userroles']], function () {
-   // Route::get('success', 'Auth\IndexController@success');
+    Route::get('success', 'Auth\IndexController@success');
 });
