@@ -94,10 +94,10 @@ class ApiController extends Controller {
         }
         return response()->json($return);
     }
-    public function InsertBooking(Request $request) {
-        $admin = Auth::user()->id;
+    public function InsertBooking(Request $request,$id) {
+        //$admin = Auth::user()->id;
         $obj = new Model\Booking;
-        $obj->admin_id = $admin;
+        $obj->admin_id = $id;
         $obj->name = $request->name;
         $obj->phone = $request->phone;
         $obj->email = $request->email;
@@ -105,7 +105,7 @@ class ApiController extends Controller {
         $obj->gender = $request->gender;
         $obj->address = $request->address;
         $obj->date = $request->date;
-        $obj->other = $request->other;
+       // $obj->other = $request->other;
         $obj->save();
     }
     public function InsertFanwall(Request $request) {
