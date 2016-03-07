@@ -51,5 +51,4 @@
 
       </div><!-- /.login-box-body -->
     </div>
-
     @endsection
