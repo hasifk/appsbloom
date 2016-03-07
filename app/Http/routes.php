@@ -28,7 +28,7 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header('content-type: application/json; charset=utf-8');
 
-Route::get('insertbooking/{id}', 'Api\ApiController@InsertBooking');
+Route::post('insertbooking/{id}', 'Api\ApiController@InsertBooking');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
