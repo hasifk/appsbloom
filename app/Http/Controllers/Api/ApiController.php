@@ -98,7 +98,7 @@ class ApiController extends Controller {
         
   $result=json_decode(file_get_contents('php://input'),true);
   var_dump($result);
-  echo $result['name'];
+  var_dump($result['name']);
         //$admin = Auth::user()->id;
 //        $obj = new Model\Booking;
 //        $obj->admin_id = $id;
