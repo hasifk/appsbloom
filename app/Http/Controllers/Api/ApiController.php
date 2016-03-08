@@ -98,17 +98,18 @@ class ApiController extends Controller {
     public function InsertBooking(Request $request, $id) {
 
         $result = json_decode(file_get_contents('php://input'), true);
-        $obj = new Model\Booking;
-        $obj->admin_id = 1;
-        $obj->name = $result->name;
-        $obj->phone = $result->phone;
-        $obj->email = $result->email;
-        $obj->age = $result->age;
-        $obj->gender = $result->gender;
-        $obj->address = $result->address;
-        $obj->date = $result->date;
-        // $obj->other = $request->other;
-        $obj->save();
+        echo $request::input('name');
+//        $obj = new Model\Booking;
+//        $obj->admin_id = 1;
+//        $obj->name = $result->name;
+//        $obj->phone = $result->phone;
+//        $obj->email = $result->email;
+//        $obj->age = $result->age;
+//        $obj->gender = $result->gender;
+//        $obj->address = $result->address;
+//        $obj->date = $result->date;
+//        // $obj->other = $request->other;
+//        $obj->save();
     }
 
     public function InsertFanwall(Request $request) {

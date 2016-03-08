@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/laragon/www/appsbloom/public/assets/clientassets/js/custom.js</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/routes.php</file>
-            <file>file:/C:/laragon/www/appsbloom/public/assets/clientassets/css/custom.css</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/layouts/client_dashboard_layout.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/login.blade.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Middleware/UserRoles.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/Auth/IndexController.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Middleware/Authenticate.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Kernel.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/Api/ApiController.php</file>
         </group>
     </open-files>
 </project-private>
