@@ -97,8 +97,9 @@ class ApiController extends Controller {
 
     public function InsertBooking(Request $request, $id) {
 
-        $result = json_decode(file_get_contents('php://input'), true);
-        echo $request::input('name');
+        print_r($request);
+        //$result = json_decode(file_get_contents('php://input'), true);
+        //echo $request::input('name');
 //        $obj = new Model\Booking;
 //        $obj->admin_id = 1;
 //        $obj->name = $result->name;
