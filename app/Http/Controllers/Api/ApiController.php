@@ -96,7 +96,7 @@ class ApiController extends Controller {
     }
 
     public function InsertBooking(Request $request) {
-
+      $result = json_decode(file_get_contents('php://input'));
         $rules = [
             'name' => 'required',
             'phone' => 'required|numeric',
@@ -112,7 +112,7 @@ class ApiController extends Controller {
         if ($this->validator->fails()) {
             print_r($this->validator);
         } else {
-            $result = json_decode(file_get_contents('php://input'));
+            //$result = json_decode(file_get_contents('php://input'));
             //echo $result['name'];
             $obj = new Model\Booking;
             $obj->admin_id = $result->admin_id;
