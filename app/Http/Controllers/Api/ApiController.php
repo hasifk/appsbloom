@@ -106,7 +106,7 @@ class ApiController extends Controller {
 //            'address' => 'required',
 //            'date' => 'required',
 //        ];
-       echo "hello";
+       return("hello");
       exit;
 //        $this->validator = Validator::make($request->all(), $rules);
 //        if ($this->validator->fails()) {
