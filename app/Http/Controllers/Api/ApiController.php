@@ -121,7 +121,6 @@ class ApiController extends Controller {
             $obj->date = $result->date . " " . $result->time;
             $obj->other = $request->app_id;
             $obj->save();
-            
         }
     }
     
