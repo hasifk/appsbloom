@@ -97,21 +97,19 @@ class ApiController extends Controller {
 
     public function InsertBooking(Request $request) {
       $result = json_decode(file_get_contents('php://input'));
-//        $rules = [
-//            'name' => 'required',
-//            'phone' => 'required|numeric',
-//            'email' => 'required|email',
-//            'age' => 'required|numeric',
-//            'gender' => 'required',
-//            'address' => 'required',
-//            'date' => 'required',
-//        ];
-//       return("hello");
-//       exit;
-//        $this->validator = Validator::make($request->all(), $rules);
-//        if ($this->validator->fails()) {
-//            print_r($this->validator);
-//        } else {
+        $rules = [
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'age' => 'required|numeric',
+            'gender' => 'required',
+            'address' => 'required',
+            'date' => 'required',
+        ];
+        $this->validator = Validator::make($result, $rules);
+        if ($this->validator->fails()) {
+           print_r($this->validator);
+       } else {
             $obj = new Model\Booking;
             $obj->admin_id = $result->admin_id;
             $obj->name = $result->name;
@@ -123,7 +121,8 @@ class ApiController extends Controller {
             $obj->date = $result->date . " " . $result->time;
             $obj->other = $request->app_id;
             $obj->save();
-       // }
+            
+        }
     }
     
     public function InsertFanwall(Request $request) {
