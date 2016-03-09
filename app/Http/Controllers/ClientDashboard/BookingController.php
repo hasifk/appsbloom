@@ -22,11 +22,13 @@ class BookingController extends Controller {
         $booking = Model\Booking::where('admin_id', $admin)->orderBy('created_at')->paginate(20);
         return view('clientadmin.booking')->with('booking', $booking);
     }
+
     public function Bookings() {
         $admin = Auth::user()->id;
         $booking = Model\Booking::where('admin_id', $admin)->paginate(10);
         return view('clientadmin.bookings')->with('booking', $booking);
     }
+
     public function BookingSave(Request $request) {
         $rules = [
             'type' => 'required',
@@ -67,9 +69,54 @@ class BookingController extends Controller {
         return view('clientadmin.booking_update')->with('booking', $booking);
     }
 
-     public function BookingStatus(Request $request) {
-            $obj = Model\Booking::find($request->id);
-            $obj->status = trim($request->value);
-            $obj->save();
+    public function BookingStatus(Request $request) {
+        $ids = explode("-", $request->id); //$request->value contains both status and app_id
+        //echo $request->id;
+        $obj = Model\Booking::find($ids[0]);
+        $obj->status = $request->value;
+        $obj->save();
+
+//        // API access key from Google API's Console
+        define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
+        if ($ids[1] == 1)
+            $mssg = "Your appoinment booking is approved";
+        else if ($ids[1] == -1)
+            $mssg = "Sorry..Your appoinment booking is Cancelled";
+        else 
+            $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
+        // prep the bundle
+        $msg = array
+            (
+            'message' => $mssg,
+            'title' => "Booking Status",
+            'subtitle' => 'This is a subtitle. subtitle',
+            'tickerText' => 'Ticker text here...Ticker text here...Ticker text here',
+            'vibrate' => 1,
+            'sound' => 1,
+            'largeIcon' => 'large_icon',
+            'smallIcon' => 'small_icon'
+        );
+        $fields = array
+            (
+            'registration_ids' => $ids[1],
+            'data' => $msg
+        );
+
+        $headers = array
+            (
+            'Authorization: key=' . API_ACCESS_KEY,
+            'Content-Type: application/json'
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://android.googleapis.com/gcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        $result = curl_exec($ch);
+        curl_close($ch);
     }
+
 }

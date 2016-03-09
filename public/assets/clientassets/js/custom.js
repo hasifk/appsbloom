@@ -134,7 +134,7 @@ $(document).ready(function () {
                 data: "id=" + ids,
                 cache: false,
                 success: function (data) {
-                    window.location = base_url + '/booking';
+                    location.reload();
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -142,11 +142,12 @@ $(document).ready(function () {
             });
         }
     });
+    
     $(document).on("change", '.booking_status', function () {
         var cursel = $(this);
         if (confirm("Are sure want to change"))
         {
-            var ids = this.id;
+            var ids = this.id.trim();
             var values = this.value;
             $.ajax({
                 type: "GET",
@@ -154,6 +155,7 @@ $(document).ready(function () {
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
                 success: function (data) {
+                    alert(data);
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -241,7 +243,7 @@ $(document).ready(function () {
                 data: "id=" + ids,
                 cache: false,
                 success: function (data) {
-                    window.location = base_url + '/our-teams';
+                    location.reload();
                 },
                 error: function (xhr, status, error) {
                     alert(error);

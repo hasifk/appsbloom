@@ -24,6 +24,12 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
-        return $next($request);
+        $role = Auth::user()->role;
+            if ($role != "SuperAdm") {
+                 return $next($request);
+            } else {
+                return redirect()->intended('success');
+            }
+        //return $next($request);
     }
 }

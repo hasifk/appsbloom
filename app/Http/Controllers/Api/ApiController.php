@@ -17,6 +17,7 @@ class ApiController extends Controller {
      * @param  int  $id
      * @return Response
      */
+    
     public function Display($id, $page) {
         switch ($page) {
             case "about":
@@ -94,7 +95,6 @@ class ApiController extends Controller {
         }
         return response()->json($return);
     }
-
     public function InsertBooking(Request $request) {
 
         $result = json_decode(file_get_contents('php://input'));
@@ -108,10 +108,9 @@ class ApiController extends Controller {
         $obj->gender = $result->gender;
         $obj->address = $result->address;
         $obj->date = $result->date ." ".$result->time;
-        // $obj->other = $request->other;
+         $obj->other = $request->app_id;
         $obj->save();
     }
-
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
         $obj = new Model\Fanwall;
@@ -120,7 +119,6 @@ class ApiController extends Controller {
         $obj->user_id = $request->userid;
         $obj->save();
     }
-
     public function InsertFeedback(Request $request) {
         $admin = Auth::user()->id;
         $obj = new Model\Feedback;
@@ -129,5 +127,4 @@ class ApiController extends Controller {
         $obj->feedback = $request->feedback;
         $obj->save();
     }
-
 }

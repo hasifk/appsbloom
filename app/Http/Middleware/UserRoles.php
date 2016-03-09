@@ -13,20 +13,18 @@ class UserRoles { /**
  * @return mixed
  */
 
-    public function handle($request, Closure $next,$guard = null) {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else if (Auth::user()->role == "clini") {
-               // return redirect()->guest('login');
-                 return redirect('success');
+    public function handle($request, Closure $next) {
+
+        if (Auth::check()) {
+            $role = Auth::user()->role;
+            if ($role != "SuperAdm") {
+                 return $next($request);
+            } else {
+                return redirect()->intended('success');
             }
+        } else {
+            return redirect('login');
         }
-        return $next($request);
-//        if (Auth::user()->role == "clinic") {
-//            return redirect('success');
-//        }
-       
     }
 
 }
