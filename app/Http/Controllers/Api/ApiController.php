@@ -97,17 +97,17 @@ class ApiController extends Controller {
 
     public function InsertBooking(Request $request) {
       $result = json_decode(file_get_contents('php://input'));
-        $rules = [
-            'name' => 'required',
-            'phone' => 'required|numeric',
-            'email' => 'required|email',
-            'age' => 'required|numeric',
-            'gender' => 'required',
-            'address' => 'required',
-            'date' => 'required',
-        ];
+//        $rules = [
+//            'name' => 'required',
+//            'phone' => 'required|numeric',
+//            'email' => 'required|email',
+//            'age' => 'required|numeric',
+//            'gender' => 'required',
+//            'address' => 'required',
+//            'date' => 'required',
+//        ];
        echo "hello";
-        exit;
+      exit;
 //        $this->validator = Validator::make($request->all(), $rules);
 //        if ($this->validator->fails()) {
 //            print_r($this->validator);
