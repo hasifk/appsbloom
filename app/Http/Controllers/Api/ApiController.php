@@ -106,15 +106,12 @@ class ApiController extends Controller {
 //            'address' => 'required',
 //            'date' => 'required',
 //        ];
-       return("hello");
-      exit;
+//       return("hello");
+//       exit;
 //        $this->validator = Validator::make($request->all(), $rules);
 //        if ($this->validator->fails()) {
 //            print_r($this->validator);
 //        } else {
-            //$result = json_decode(file_get_contents('php://input'));
-            //echo $result['name'];
-      
             $obj = new Model\Booking;
             $obj->admin_id = $result->admin_id;
             $obj->name = $result->name;
