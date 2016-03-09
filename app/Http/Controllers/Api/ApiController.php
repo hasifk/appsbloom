@@ -106,12 +106,12 @@ class ApiController extends Controller {
 //            'address' => 'required',
 //            'date' => 'required',
 //        ];
-        echo "hello";
-        exit;
-        $this->validator = Validator::make($request->all(), $rules);
-        if ($this->validator->fails()) {
-            print_r($this->validator);
-        } else {
+//        echo "hello";
+//        exit;
+//        $this->validator = Validator::make($request->all(), $rules);
+//        if ($this->validator->fails()) {
+//            print_r($this->validator);
+//        } else {
             //$result = json_decode(file_get_contents('php://input'));
             //echo $result['name'];
             $obj = new Model\Booking;
@@ -125,9 +125,9 @@ class ApiController extends Controller {
             $obj->date = $result->date . " " . $result->time;
             $obj->other = $request->app_id;
             $obj->save();
-        }
+       // }
     }
-
+    
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
         $obj = new Model\Fanwall;
