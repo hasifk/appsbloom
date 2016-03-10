@@ -149,6 +149,7 @@ $(document).ready(function () {
         {
             var ids = this.id.trim();
             var values = this.value;
+            alert(ids);
             $.ajax({
                 type: "GET",
                 url: base_url + '/booking_status',
