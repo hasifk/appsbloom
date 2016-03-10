@@ -110,6 +110,7 @@ class ApiController extends Controller {
 //        if ($this->validator->fails()) {
 //           print_r($this->validator);
 //       } else {
+      
             $obj = new Model\Booking;
             $obj->admin_id = $result->admin_id;
             $obj->name = $result->name;
@@ -119,7 +120,7 @@ class ApiController extends Controller {
             $obj->gender = $result->gender;
             $obj->address = $result->address;
             $obj->date = $result->date . " " . $result->time;
-            $obj->other = $request->app_id;
+            $obj->other = $result->app_id;
             $obj->save();
        // }
     }
