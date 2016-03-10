@@ -52,9 +52,32 @@ class ScheduleController extends Controller {
 
         return back();
     }
-    public function ShedulingTime($param) {
+    public function scheduling_time(Request $request) {
+        $rules = [
+            'day' => 'required',
+            'stime' => 'required',
+            'ctime' => 'required',
+        ];
+        $admin = Auth::user()->id;
+        $return = 'manageschedule';
+        if ($request->has('id')):
+            $return = 'findus_update/' . $request->id;
+            $obj = Model\Time_sheduling::find($request->id);
+        else:
+            $obj = new Model\Time_sheduling;
+            $obj->admin_id = $admin;
+        endif;
+        $this->validator = Validator::make($request->all(), $rules);
+        if ($this->validator->fails()) {
+            return redirect($return)
+                            ->withErrors($this->validator)
+                            ->withInput();
+        } else {
+            $obj->day_time = $request->day." ".$request->stime.":".$request->ctime;
+            $obj->save();
+            return redirect('find-us');
+        }
         
     }
-
     /*     * ***************************************************************************************** */
 }

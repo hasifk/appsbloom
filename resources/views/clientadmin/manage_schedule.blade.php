@@ -52,11 +52,11 @@
                     ?>
                     <div class="form-group col-xs-3">
                         <label for="exampleInputPassword1">Starting Time</label>
-                        {!! Form::select('day',$hours,'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                        {!! Form::select('stime',$hours,'',array('id'=>'stime',"class"=>"form-control")) !!}
                     </div>
                     <div class="form-group col-xs-3">
                         <label for="exampleInputPassword1">Closing Time</label>
-                        {!! Form::select('day',$min,'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                        {!! Form::select('ctime',$min,'',array('id'=>'ctime',"class"=>"form-control")) !!}
                     </div>
                     <div class="form-group col-xs-3">
                         <button type="submit" class="btn btn-primary">Save</button>
