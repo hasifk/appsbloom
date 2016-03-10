@@ -70,7 +70,7 @@ class BookingController extends Controller {
     }
 
     public function BookingStatus(Request $request) {
-        $ids = explode("-", $request->id); //$request->value contains both status and app_id
+        $ids = explode("-+", $request->id); //$request->value contains both status and app_id
         //echo $request->id;
         $value=$request->value;
         $obj = Model\Booking::find($ids[0]);
@@ -99,13 +99,13 @@ class BookingController extends Controller {
             'smallIcon' => 'small_icon'
         );
         $fields = array
-            (
+        (
             'registration_ids' => $ids[1],
             'data' => $msg
         );
 
         $headers = array
-            (
+        (
             'Authorization: key=' . API_ACCESS_KEY,
             'Content-Type: application/json'
         );

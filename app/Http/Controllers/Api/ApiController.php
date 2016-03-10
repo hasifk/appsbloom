@@ -120,7 +120,7 @@ class ApiController extends Controller {
             $obj->gender = $result->gender;
             $obj->address = $result->address;
             $obj->date = $result->date . " " . $result->time;
-            $obj->other = $result->app_id;
+            $obj->app_id = $result->app_id;
             $obj->save();
        // }
     }
