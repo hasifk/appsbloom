@@ -100,7 +100,7 @@ class BookingController extends Controller {
         );
         $fields = array
             (
-            'registration_ids' => $ids[1],
+            'registration_ids' => array($ids[1]),
             'data' => $msg
         );
 
