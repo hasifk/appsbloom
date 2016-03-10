@@ -78,7 +78,7 @@ class BookingController extends Controller {
         $obj->save();
 
 //        // API access key from Google API's Console
-        define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
+        //define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
         if ($value == 1)
             $mssg = "Your appoinment booking is approved";
         else if ($value == -1)
