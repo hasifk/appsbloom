@@ -86,7 +86,7 @@ class BookingController extends Controller {
         else 
             $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
         // prep the bundle
-        return($ids[1]);
+       
         $msg = array
             (
             'message' => $mssg,
@@ -119,6 +119,8 @@ class BookingController extends Controller {
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         $result = curl_exec($ch);
         curl_close($ch);
+        
+         print_r($ids);
     }
 
 }
