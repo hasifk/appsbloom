@@ -52,13 +52,14 @@ class ScheduleController extends Controller {
 
         return back();
     }
-    public function scheduling_time(Request $request) {
+    public function ShedulingTime(Request $request) {
         $rules = [
             'day' => 'required',
             'stime' => 'required',
             'ctime' => 'required',
         ];
         $admin = Auth::user()->id;
+        
         $return = 'manageschedule';
         if ($request->has('id')):
             $return = 'findus_update/' . $request->id;
@@ -77,7 +78,6 @@ class ScheduleController extends Controller {
             $obj->save();
             return redirect('find-us');
         }
-        
     }
     /*     * ***************************************************************************************** */
 }

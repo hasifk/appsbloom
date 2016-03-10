@@ -101,7 +101,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
-    Route::get('scheduling_time', 'ClientDashboard\BookingController@ShedulingTime');
+    Route::post('scheduling_time', 'ClientDashboard\ScheduleController@ShedulingTime');
 
     Route::get('clients/manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('clients/saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
