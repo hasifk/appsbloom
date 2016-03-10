@@ -70,21 +70,21 @@ class BookingController extends Controller {
     }
 
     public function BookingStatus(Request $request) {
-        $ids = explode("-+", $request->id); //$request->value contains both status and app_id
+        $ids = explode("*_*", $request->id); //$request->value contains both status and app_id
         //echo $request->id;
-//        $value=$request->value;
-//        $obj = Model\Booking::find($ids[0]);
-//        $obj->status = $value;
-//        $obj->save();
+        $value=$request->value;
+        $obj = Model\Booking::find($ids[0]);
+        $obj->status = $value;
+        $obj->save();
 
         // API access key from Google API's Console
-//        define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
-//        if ($value == 1)
-//            $mssg = "Your appoinment booking is approved";
-//        else if ($value == -1)
-//            $mssg = "Sorry..Your appoinment booking is Cancelled";
-//        else 
-//            $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
+        define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
+        if ($value == 1)
+            $mssg = "Your appoinment booking is approved";
+        else if ($value == -1)
+            $mssg = "Sorry..Your appoinment booking is Cancelled";
+        else 
+            $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
         // prep the bundle
         return $request->id; 
         exit;
