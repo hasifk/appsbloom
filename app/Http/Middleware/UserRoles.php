@@ -20,7 +20,7 @@ class UserRoles { /**
             if ($role != "SuperAdm") {
                  return $next($request);
             } else {
-                return redirect()->intended('success');
+                return $next($request);
             }
         } else {
             return redirect('login');
