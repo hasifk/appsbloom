@@ -86,7 +86,7 @@ class BookingController extends Controller {
         else 
             $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
         // prep the bundle
-        print_r($ids); 
+        return $ids; 
         exit;
         
         $msg = array
