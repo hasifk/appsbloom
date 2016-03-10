@@ -19,26 +19,21 @@ class ApiController extends Controller {
      */
     public function Display($id, $page) {
         switch ($page) {
+            case "home":
             case "about":
-                $return = Model\Contents::where('admin_id', $id)->first();
+            case "contact-us":
+            case "hours":
+            case "price-lists":
+                $return = Model\Contents::where('admin_id', $id)->get();
                 break;
             case "services":
                 $return = Model\Services::where('admin_id', $id)->get();
-                break;
-            case "contact-us":
-                $return = Model\Contact::where('admin_id', $id)->get();
-                break;
-            case "hours":
-                $return = Model\Contents::where('admin_id', $id)->first();
                 break;
             case "gallery":
                 $return = Model\Gallery::where('admin_id', $id)->get();
                 break;
             case "find-us":
                 $return = Model\FindUs::where('admin_id', $id)->get();
-                break;
-            case "price-lists":
-                $return = Model\Contents::where('admin_id', $id)->get();
                 break;
             case "news":
                 $return = Model\News::where('admin_id', $id)->get();
@@ -96,7 +91,7 @@ class ApiController extends Controller {
     }
 
     public function InsertBooking(Request $request) {
-      $result = json_decode(file_get_contents('php://input'));
+        $result = json_decode(file_get_contents('php://input'));
 //        $rules = [
 //            'name' => 'required',
 //            'phone' => 'required|numeric',
@@ -110,21 +105,21 @@ class ApiController extends Controller {
 //        if ($this->validator->fails()) {
 //           print_r($this->validator);
 //       } else {
-      
-            $obj = new Model\Booking;
-            $obj->admin_id = $result->admin_id;
-            $obj->name = $result->name;
-            $obj->phone = $result->phone;
-            $obj->email = $result->email;
-            $obj->age = $result->age;
-            $obj->gender = $result->gender;
-            $obj->address = $result->address;
-            $obj->date = $result->date . " " . $result->time;
-            $obj->app_id = $result->app_id;
-            $obj->save();
-       // }
+
+        $obj = new Model\Booking;
+        $obj->admin_id = $result->admin_id;
+        $obj->name = $result->name;
+        $obj->phone = $result->phone;
+        $obj->email = $result->email;
+        $obj->age = $result->age;
+        $obj->gender = $result->gender;
+        $obj->address = $result->address;
+        $obj->date = $result->date . " " . $result->time;
+        $obj->app_id = $result->app_id;
+        $obj->save();
+        // }
     }
-    
+
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
         $obj = new Model\Fanwall;

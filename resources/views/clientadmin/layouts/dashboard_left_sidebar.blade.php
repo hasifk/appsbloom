@@ -204,7 +204,7 @@
                 case "clinic": {
                         ?>
                         <li class="active treeview">
-                            <a href="#">
+                            <a href="{{ url('clients/home') }}">
                                 <i class="fa fa-dashboard"></i><span>Home</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>

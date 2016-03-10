@@ -53,6 +53,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('success', 'Auth\IndexController@success');
     Route::get('clients/success', 'Auth\IndexController@success');
     
+    
+    
     Route::get('logout', 'Auth\IndexController@logout');
     /* Route::post('areainterest', 'Auth\IndexController@areainterest');
       Route::get('apptype', 'ClientDashboard\AppsController@apptype');
@@ -60,6 +62,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
       Route::get('appinfo', 'ClientDashboard\AppsController@appinfo');
       Route::post('storeappinfo', 'ClientDashboard\AppsController@storeappinfo'); */
 
+    //Home
+    
+    Route::get('home', 'ClientDashboard\HomeController@Home');
+    Route::get('clients/home', 'ClientDashboard\HomeController@Home');
+    Route::post('home_save', 'ClientDashboard\HomeController@HomeSave');
     //About
 
     Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
