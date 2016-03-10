@@ -149,14 +149,14 @@ $(document).ready(function () {
         {
             var ids = this.id.trim();
             var values = this.value;
-            alert(ids);
+            //alert(ids);
             $.ajax({
                 type: "GET",
                 url: base_url + '/booking_status',
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
                 success: function (data) {
-                    alert(data);
+                    alert("Successfully Changed");
                 },
                 error: function (xhr, status, error) {
                     alert(error);
