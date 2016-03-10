@@ -77,8 +77,8 @@ class BookingController extends Controller {
         $obj->status = $value;
         $obj->save();
 
-//        // API access key from Google API's Console
-        //define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
+        // API access key from Google API's Console
+        define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
         if ($value == 1)
             $mssg = "Your appoinment booking is approved";
         else if ($value == -1)
@@ -86,40 +86,39 @@ class BookingController extends Controller {
         else 
             $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
         // prep the bundle
-        return $mssg; 
-        exit;
-//        $msg = array
-//            (
-//            'message' => $mssg,
-//            'title' => "Booking Status",
-//            'subtitle' => 'This is a subtitle. subtitle',
-//            'tickerText' => 'Ticker text here...Ticker text here...Ticker text here',
-//            'vibrate' => 1,
-//            'sound' => 1,
-//            'largeIcon' => 'large_icon',
-//            'smallIcon' => 'small_icon'
-//        );
-//        $fields = array
-//            (
-//            'registration_ids' => $ids[1],
-//            'data' => $msg
-//        );
-//
-//        $headers = array
-//            (
-//            'Authorization: key=' . API_ACCESS_KEY,
-//            'Content-Type: application/json'
-//        );
-//
-//        $ch = curl_init();
-//        curl_setopt($ch, CURLOPT_URL, 'https://android.googleapis.com/gcm/send');
-//        curl_setopt($ch, CURLOPT_POST, true);
-//        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-//        $result = curl_exec($ch);
-//        curl_close($ch);
+        
+        $msg = array
+            (
+            'message' => $mssg,
+            'title' => "Booking Status",
+            'subtitle' => 'This is a subtitle. subtitle',
+            'tickerText' => 'Ticker text here...Ticker text here...Ticker text here',
+            'vibrate' => 1,
+            'sound' => 1,
+            'largeIcon' => 'large_icon',
+            'smallIcon' => 'small_icon'
+        );
+        $fields = array
+            (
+            'registration_ids' => $ids[1],
+            'data' => $msg
+        );
+
+        $headers = array
+            (
+            'Authorization: key=' . API_ACCESS_KEY,
+            'Content-Type: application/json'
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://android.googleapis.com/gcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        $result = curl_exec($ch);
+        curl_close($ch);
     }
 
 }
