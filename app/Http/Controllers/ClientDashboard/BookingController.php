@@ -120,7 +120,7 @@ class BookingController extends Controller {
 //        $result = curl_exec($ch);
 //        curl_close($ch);
         
-         print_r($ids);
+        return $ids;
     }
 
 }
