@@ -72,7 +72,7 @@ class BookingController extends Controller {
     public function BookingStatus(Request $request) {
         $ids = explode("*_*", $request->id); //$request->value contains both status and app_id
         //echo $request->id;
-        $value=$request->value;
+        $value = $request->value;
         $obj = Model\Booking::find($ids[0]);
         $obj->status = $value;
         $obj->save();
@@ -83,10 +83,10 @@ class BookingController extends Controller {
             $mssg = "Your appoinment booking is approved";
         else if ($value == -1)
             $mssg = "Sorry..Your appoinment booking is Cancelled";
-        else 
+        else
             $mssg = "Sorry..Your appoinment booking is Pending, it will be approved shortly";
         // prep the bundle
-        
+
         $msg = array
             (
             'message' => $mssg,
@@ -118,13 +118,8 @@ class BookingController extends Controller {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         $result = curl_exec($ch);
-//        if ($result === FALSE) {
-//             die('Curl failed: ' . curl_error($ch));
-//         }
-   
-         // Close connection
-         curl_close($ch);
-         //return $result;
+        // Close connection
+        curl_close($ch);
     }
 
 }
