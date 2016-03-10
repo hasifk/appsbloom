@@ -101,9 +101,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
+    Route::get('scheduling_time', 'ClientDashboard\BookingController@ShedulingTime');
 
     Route::get('clients/manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('clients/saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
+    Route::get('clients/booking_time', 'ClientDashboard\BookingController@BookingTime');
 
     //Loyality
 
@@ -237,6 +239,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //oute::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
     Route::get('clients/booking_delete', 'ClientDashboard\BookingController@BookingDelete');
     Route::get('clients/booking_status', 'ClientDashboard\BookingController@BookingStatus');
+    
 
     //Coupons
     Route::get('coupons', 'ClientDashboard\CouponsController@Coupons');

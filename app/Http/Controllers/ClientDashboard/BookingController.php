@@ -88,7 +88,7 @@ class BookingController extends Controller {
         // prep the bundle
 
         $msg = array
-            (
+        (
             'message' => $mssg,
             'title' => "Booking Status",
             'subtitle' => 'This is a subtitle. subtitle',
@@ -105,7 +105,7 @@ class BookingController extends Controller {
         );
 
         $headers = array
-            (
+        (
             'Authorization: key=' . API_ACCESS_KEY,
             'Content-Type: application/json'
         );
@@ -121,5 +121,4 @@ class BookingController extends Controller {
         // Close connection
         curl_close($ch);
     }
-
 }

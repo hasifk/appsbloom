@@ -29,5 +29,45 @@
             </div>
         </div><!-- /.col-->
     </div><!-- ./row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                {!! Form::open(array('url' => 'scheduling_time')) !!} 
+                <div class="box-body pad">
+                    {{ csrf_field() }}
+                    <div class="form-group col-xs-3">
+                        <label for="exampleInputPassword1">Select Day</label>
+                        {!! Form::select('day',array('Mon'=>'Monday','Tue' => 'Tuesday','Wend'=>'wednesday','Thu' => 'Thursday','Fri'=>'Friday','Sat' => 'Saturday','Sun' => 'Sunday'),'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                    </div>
+                    <?php
+                    for ($i = 1; $i < 25; $i++) {
+                        $hours[$i] = $i;
+                    }
+                    for ($i = 0; $i < 60; $i++) {
+                        if ($i < 10)
+                            $min[$i] = "0" . $i;
+                        else
+                            $min[$i] = $i;
+                    }
+                    ?>
+                    <div class="form-group col-xs-3">
+                        <label for="exampleInputPassword1">Starting Time</label>
+                        {!! Form::select('day',$hours,'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <label for="exampleInputPassword1">Closing Time</label>
+                        {!! Form::select('day',$min,'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                {!! Form::close() !!}
+                
+                
+            </div>
+        </div><!-- /.col-->
+    </div>
 </section>
+
 @endsection
