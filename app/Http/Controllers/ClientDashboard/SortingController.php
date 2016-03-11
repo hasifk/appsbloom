@@ -19,13 +19,14 @@ class SortingController extends Controller {
      */
     public function Sorting(Request $request) {
         $admin = Auth::user()->id;
+        $date=date('d-m-Y',strtotime(trim($request->date)));
         if ($request->section == "Booking") {
-            if (!empty(trim($request->name)) && !empty(trim($request->date)))
-                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->where('date', 'like', trim($request->date) . "%")->orderBy('created_at')->paginate(20);
-            else if (!empty($request->date))
-                $booking = Model\Booking::where('admin_id', $admin)->where('date', 'like', trim($request->date) . "%")->paginate(20);
+            if (!empty(trim($request->name)) && !empty($date))
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->where('date', 'like', $date . "%")->orderBy('created_at')->paginate(20);
+            else if (!empty($date))
+                $booking = Model\Booking::where('admin_id', $admin)->where('date', 'like', $date . "%")->paginate(20);
             else
-                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->paginate(20);
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $date . "%")->paginate(20);
             ?>
             <script>
                 $(document).ready(function () {
