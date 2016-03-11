@@ -25,13 +25,16 @@
             </div>
             <div id="collapse_{{$value->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$value->id}}">
                 <div class="panel-body">
-                    <img class="img-responsive pad" src="{{$value->image}}" height="90" alt="Photo">
-                    <p>{!!$value->description!!}</p>             
+                    <?php if (!empty($value->image)) { ?>
+                        <img class="img-responsive pad" src="{{asset($value->image)}}" height="90" alt="Photo">
+                        <?php
+                    }
+                    ?>
+                    <p>{!!$value->description!!}</p>  
                 </div>
             </div>
         </div>
         @endforeach
-
         @else
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading">
