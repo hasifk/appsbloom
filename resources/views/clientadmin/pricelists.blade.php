@@ -2,35 +2,7 @@
 @section('content')
 <h3><b><center>Manage Price Lists</center></b></h3>
 <section class="content">
-    <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Price Lists</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <div class="box-body">
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    <div class="box-body pad">
-                        @if(!empty($pricelists[0]->price_lists))
-                        {!!$pricelists[0]->price_lists!!}
-                        @else
-                        Empty Price Lists
-                        @endif
-                    </div>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div>
-    </div>
+    
     <div class="row">
         <!-- left column -->
         <div class="col-md-12">
