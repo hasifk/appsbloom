@@ -1,5 +1,6 @@
 @extends('clientadmin.layouts.client_dashboard_layout')
 @section('content')
+<?php $role = Auth::user()->role; ?>
 <h3><b><center>Manage Teams</center></b></h3>
 <section class="content">
     <div class="row" id='ourteam_add'>
@@ -9,7 +10,11 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Update Our Teams</h3>
                     <div class="pagination-sm no-margin xs-pull">
-                        <a href="{{ url('our-teams/'.$ourteam[0]->id) }}">
+                        <a href="<?php if ($role != "SuperAdm")
+                        echo url('clients/our-teams/'.$ourteam[0]->id);
+                        else
+                        echo url('our-teams/'.$ourteam[0]->id);
+                        ?>">
                             <span class="glyphicon glyphicon-arrow-left"></span>
                         </a>&nbsp;&nbsp;
                     </div>

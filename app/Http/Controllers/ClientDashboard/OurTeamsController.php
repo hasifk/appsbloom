@@ -35,6 +35,7 @@ class OurTeamsController extends Controller {
             $rules['Phone'] = 'required|numeric';
         }
         $admin = Auth::user()->id;
+        $role = Auth::user()->role;
         $return = 'our-teams';
         if ($request->has('id')):
             $return = 'update-ourteam/' . $request->id;
@@ -71,7 +72,10 @@ class OurTeamsController extends Controller {
             $obj->email = $request->email;
             $obj->about = $request->about;
             $obj->save();
-            return redirect('our-teams');
+            if ($role != "SuperAdm")
+                return redirect('clients/our-teams');
+            else
+                return redirect('our-teams');
         }
     }
 

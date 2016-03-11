@@ -29,8 +29,6 @@ class ScheduleController extends Controller {
     protected function saveschedule(Request $request) {
 
         $id = Auth::user()->id;
-
-
         $this->validate($request, [
             'schedule_info' => 'required',
         ]);
@@ -48,8 +46,6 @@ class ScheduleController extends Controller {
 
         endif;
         $schedule_task->save();
-
-
         return back();
     }
 
@@ -72,7 +68,7 @@ class ScheduleController extends Controller {
         } else {
             $obj->day_time = $request->day . " " . $request->shour . ":" . $request->smin . " " . $request->ehour . ":" . $request->emin;
             $obj->save();
-            return redirect('manageschedule');
+            return back();
         }
     }
     public function ShedulingDelete(Request $request) {
