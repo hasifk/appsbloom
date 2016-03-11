@@ -119,6 +119,7 @@ class ApiController extends Controller {
         $obj->address = $result->address;
         $obj->date = $result->date . " " . $result->time;
         $obj->app_id = $result->app_id;
+        $obj->device_type = $result->device_type;
         $obj->save();
         // }
     }
