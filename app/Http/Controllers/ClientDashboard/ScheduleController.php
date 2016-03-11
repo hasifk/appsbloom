@@ -56,8 +56,10 @@ class ScheduleController extends Controller {
     public function ShedulingTime(Request $request) {
         $rules = [
             'day' => 'required',
-            'stime' => 'required',
-            'ctime' => 'required',
+            'shour' => 'required',
+            'smin' => 'required',
+            'shour' => 'required',
+            'smin' => 'required',
         ];
         $admin = Auth::user()->id;
         $obj = new Model\Time_sheduling;
@@ -68,7 +70,7 @@ class ScheduleController extends Controller {
                             ->withErrors($this->validator)
                             ->withInput();
         } else {
-            $obj->day_time = $request->day . " " . $request->stime . ":" . $request->ctime;
+            $obj->day_time = $request->day . " " . $request->shour . ":" . $request->smin . " " . $request->ehour . ":" . $request->emin;
             $obj->save();
             return redirect('manageschedule');
         }

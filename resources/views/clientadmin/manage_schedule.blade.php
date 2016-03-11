@@ -35,7 +35,7 @@
                 {!! Form::open(array('url' => 'scheduling_time')) !!} 
                 <div class="box-body pad">
                     {{ csrf_field() }}
-                    <div class="form-group col-xs-3">
+                    <div class="form-group col-xs-2">
                         <label for="exampleInputPassword1">Select Day</label>
                         {!! Form::select('day',array('Mon'=>'Monday','Tue' => 'Tuesday','Wed'=>'wednesday','Thu' => 'Thursday','Fri'=>'Friday','Sat' => 'Saturday','Sun' => 'Sunday'),'',array('id'=>'day_status',"class"=>"form-control")) !!}
                     </div>
@@ -50,15 +50,17 @@
                             $min[$i] = $i;
                     }
                     ?>
-                    <div class="form-group col-xs-3">
+                    <div class="form-group col-xs-2">
                         <label for="exampleInputPassword1">Starting Time</label>
-                        {!! Form::select('stime',$hours,'',array('id'=>'stime',"class"=>"form-control")) !!}
+                        {!! Form::select('shour',$hours,'',array('id'=>'shour',"class"=>"form-control")) !!}
+                        {!! Form::select('smin',$min,'',array('id'=>'smin',"class"=>"form-control")) !!}
                     </div>
-                    <div class="form-group col-xs-3">
+                    <div class="form-group col-xs-2">
                         <label for="exampleInputPassword1">Closing Time</label>
-                        {!! Form::select('ctime',$min,'',array('id'=>'ctime',"class"=>"form-control")) !!}
+                        {!! Form::select('ehour',$hours,'',array('id'=>'shour',"class"=>"form-control")) !!}
+                        {!! Form::select('emin',$min,'',array('id'=>'smin',"class"=>"form-control")) !!}
                     </div>
-                    <div class="form-group col-xs-3">
+                    <div class="form-group col-xs-2">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
