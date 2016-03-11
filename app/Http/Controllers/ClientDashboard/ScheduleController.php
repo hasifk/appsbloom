@@ -70,7 +70,7 @@ class ScheduleController extends Controller {
         } else {
             $obj->day_time = $request->day . " " . $request->stime . ":" . $request->ctime;
             $obj->save();
-            return redirect('find-us');
+            return redirect('manageschedule');
         }
     }
 

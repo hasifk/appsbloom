@@ -37,7 +37,7 @@
                     {{ csrf_field() }}
                     <div class="form-group col-xs-3">
                         <label for="exampleInputPassword1">Select Day</label>
-                        {!! Form::select('day',array('Mon'=>'Monday','Tue' => 'Tuesday','Wend'=>'wednesday','Thu' => 'Thursday','Fri'=>'Friday','Sat' => 'Saturday','Sun' => 'Sunday'),'',array('id'=>'day_status',"class"=>"form-control")) !!}
+                        {!! Form::select('day',array('Mon'=>'Monday','Tue' => 'Tuesday','Wed'=>'wednesday','Thu' => 'Thursday','Fri'=>'Friday','Sat' => 'Saturday','Sun' => 'Sunday'),'',array('id'=>'day_status',"class"=>"form-control")) !!}
                     </div>
                     <?php
                     for ($i = 1; $i < 25; $i++) {
