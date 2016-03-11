@@ -11,5 +11,5 @@ class Time_sheduling extends Model
      *
      *
     **/ 
-      protected $table = 'Time_Sheduling';
+      protected $table = 'Time_sheduling';
 }

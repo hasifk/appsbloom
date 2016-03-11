@@ -38,6 +38,9 @@ class ApiController extends Controller {
             case "news":
                 $return = Model\News::where('admin_id', $id)->get();
                 break;
+            case "workingtime":
+                $return = Model\Time_sheduling::where('admin_id', $id)->get();
+                break;
             case "loyality":
                 $return = Model\Loyalty::where('admin_id', $id)->get();
                 break;
