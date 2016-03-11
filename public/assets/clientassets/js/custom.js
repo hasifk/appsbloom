@@ -123,6 +123,28 @@ $(document).ready(function () {
             });
         }
     });
+    
+    $(document).on("click", '.schedule_time', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to delete"))
+        {
+            var ids = this.id;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/schedule_delete',
+                data: "id=" + ids,
+                cache: false,
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+    
+    
     $(document).on("click", '.booking_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
@@ -142,6 +164,7 @@ $(document).ready(function () {
             });
         }
     });
+    
     
     $(document).on("change", '.booking_status', function () {
         var cursel = $(this);

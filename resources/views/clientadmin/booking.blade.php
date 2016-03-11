@@ -27,7 +27,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody>
                             <?php
                             if (count($booking) > 0):
                                 $f = 1;

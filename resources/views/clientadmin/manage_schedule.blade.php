@@ -13,7 +13,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <textarea id="schedule_info" name="schedule_info" rows="10" cols="80" class="to_ck">
-                                   @if(isset($schedule_info)) {{$schedule_info->schedule_info}} @endif
+                                   @if(isset($schedule['schedule_info'])) {{$schedule['schedule_info']->schedule_info}} @endif
                         </textarea>
                         @if ($errors->has('schedule_info'))
                         <span class="help-block">
@@ -45,7 +45,7 @@
                     }
                     for ($i = 0; $i < 60; $i++) {
                         if ($i < 10)
-                            $min["0".$i] = "0" . $i;
+                            $min["0" . $i] = "0" . $i;
                         else
                             $min[$i] = $i;
                     }
@@ -63,8 +63,40 @@
                     </div>
                 </div>
                 {!! Form::close() !!}
-                
-                
+                <div class="box-body no-padding">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Opening Days and Time</th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (count($schedule['schedule_time']) > 0):
+                                $f = 1;
+                                foreach ($schedule['schedule_time'] as $val):
+                                    echo "<tr id=\"booking_$val->id\">";
+                                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->day_time . "</td>";
+                                    ?>
+                                <td class="booking_focus">
+                                    <a class="schedule_time" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a>
+                                </td>
+                                <?php
+                            endforeach;
+                        else:
+                            ?>
+                            <tr><td colspan="6"> No Booking </td></tr>
+                        <?php
+                        endif;
+                        ?>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+
+
             </div>
         </div><!-- /.col-->
     </div>

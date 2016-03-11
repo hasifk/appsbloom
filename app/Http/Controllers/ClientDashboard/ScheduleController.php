@@ -20,8 +20,8 @@ class ScheduleController extends Controller {
     protected function manageschedule() {
         $id = Auth::user()->id;
         $schedule_info = Model\Contents::where('admin_id', $id)->first();
-
-        return view('clientadmin.manage_schedule')->with('schedule_info', $schedule_info);
+        $schedule_time = Model\Time_sheduling::where('admin_id', $id)->get();
+        return view('clientadmin.manage_schedule')->with('schedule', ['schedule_info' => $schedule_info, 'schedule_time' => $schedule_time]);
     }
 
     /*     * ***************************************************************************************** */
@@ -52,6 +52,7 @@ class ScheduleController extends Controller {
 
         return back();
     }
+
     public function ShedulingTime(Request $request) {
         $rules = [
             'day' => 'required',
@@ -59,25 +60,19 @@ class ScheduleController extends Controller {
             'ctime' => 'required',
         ];
         $admin = Auth::user()->id;
-        
-        $return = 'manageschedule';
-        if ($request->has('id')):
-            $return = 'findus_update/' . $request->id;
-            $obj = Model\Time_sheduling::find($request->id);
-        else:
-            $obj = new Model\Time_sheduling;
-            $obj->admin_id = $admin;
-        endif;
+        $obj = new Model\Time_sheduling;
+        $obj->admin_id = $admin;
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
-            return redirect($return)
+            return redirect('manageschedule')
                             ->withErrors($this->validator)
                             ->withInput();
         } else {
-            $obj->day_time = $request->day." ".$request->stime.":".$request->ctime;
+            $obj->day_time = $request->day . " " . $request->stime . ":" . $request->ctime;
             $obj->save();
             return redirect('find-us');
         }
     }
+
     /*     * ***************************************************************************************** */
 }
