@@ -75,6 +75,11 @@ class ScheduleController extends Controller {
             return redirect('manageschedule');
         }
     }
+    public function ShedulingDelete(Request $request) {
+        $admin = Auth::user()->id;
+        $gallery = Model\Time_sheduling::where('id',$request->id)->where('admin_id', $admin)->get();
+        Model\Time_sheduling::where('id',$request->id)->delete();
+    }
 
     /*     * ***************************************************************************************** */
 }

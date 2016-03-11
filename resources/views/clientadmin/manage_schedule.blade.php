@@ -51,13 +51,19 @@
                     }
                     ?>
                     <div class="form-group col-xs-2">
-                        <label for="exampleInputPassword1">Starting Time</label>
-                        {!! Form::select('shour',$hours,'',array('id'=>'shour',"class"=>"form-control")) !!}
-                        {!! Form::select('smin',$min,'',array('id'=>'smin',"class"=>"form-control")) !!}
+                        <label for="exampleInputPassword1">Starting Hour</label>
+                            {!! Form::select('shour',$hours,'',array('id'=>'shour',"class"=>"form-control")) !!}
                     </div>
                     <div class="form-group col-xs-2">
-                        <label for="exampleInputPassword1">Closing Time</label>
+                        <label for="exampleInputPassword1">Minute</label>
+                            {!! Form::select('smin',$min,'',array('id'=>'smin',"class"=>"form-control")) !!}
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <label for="exampleInputPassword1">Closing Hour</label>
                         {!! Form::select('ehour',$hours,'',array('id'=>'shour',"class"=>"form-control")) !!}
+                        </div>
+                    <div class="form-group col-xs-2">
+                        <label for="exampleInputPassword1">Minute</label>
                         {!! Form::select('emin',$min,'',array('id'=>'smin',"class"=>"form-control")) !!}
                     </div>
                     <div class="form-group col-xs-2">

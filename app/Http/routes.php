@@ -102,7 +102,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
     Route::post('scheduling_time', 'ClientDashboard\ScheduleController@ShedulingTime');
-    Route::post('schedule_delete', 'ClientDashboard\ScheduleController@ShedulingDelete');
+    Route::get('schedule_delete', 'ClientDashboard\ScheduleController@ShedulingDelete');
 
     Route::get('clients/manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('clients/saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
