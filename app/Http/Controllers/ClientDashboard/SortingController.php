@@ -20,12 +20,12 @@ class SortingController extends Controller {
     public function Sorting(Request $request) {
         $admin = Auth::user()->id;
         if ($request->section == "Booking") {
-            //if (!empty($request->name) && !empty($request->date))
+            if (!empty($request->name) && !empty($request->date))
                 $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->where('date', 'like', trim($request->date) . "%")->orderBy('created_at')->paginate(20);
-           // else if (!empty($request->date))
-             //   $booking = Model\Booking::where('admin_id', $admin)->where('date', '=', $request->date)->paginate(20);
-            //else
-               // $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->paginate(20);
+            else if (!empty($request->date))
+                $booking = Model\Booking::where('admin_id', $admin)->where('date', '=', trim($request->date))->paginate(20);
+            else
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->paginate(20);
             ?>
             <script>
                 $(document).ready(function () {
