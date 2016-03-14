@@ -179,7 +179,7 @@ $(document).ready(function () {
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
                 success: function (data) {
-                    alert("Successfully Changed");
+                    alert("Successfully Changed"+data);
                 },
                 error: function (xhr, status, error) {
                     alert(error);
