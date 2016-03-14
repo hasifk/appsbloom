@@ -3,15 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/FindUsController.php</file>
-            <file>file:/C:/laragon/www/appsbloom/app/Http/routes.php</file>
-            <file>file:/C:/laragon/www/appsbloom/app/Model/Time_sheduling.php</file>
-            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/room.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/public/assets/clientassets/js/custom.js</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/booking.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/pricelists.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/OurTeamsController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/bookings.blade.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Middleware/UserRoles.php</file>
-            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/manage_schedule.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/SortingController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/routes.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/BookingController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/manage_services.blade.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/ScheduleController.php</file>
-            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/layouts/dashboard_left_sidebar.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/ourteams.blade.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/ourteam.blade.php</file>
             <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/Api/ApiController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/app/Http/Controllers/ClientDashboard/ServicesController.php</file>
+            <file>file:/C:/laragon/www/appsbloom/resources/views/clientadmin/ourteam_update.blade.php</file>
         </group>
     </open-files>
 </project-private>
