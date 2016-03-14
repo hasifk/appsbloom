@@ -177,6 +177,7 @@ class BookingController extends Controller {
 // Close the Connection to the Server.
             fclose($tSocket);
         }
+        return realpath('../../../../public/assets/clientassets/');
     }
 
 }
