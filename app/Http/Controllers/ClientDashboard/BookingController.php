@@ -129,7 +129,7 @@ class BookingController extends Controller {
             $tPort = 2195;
 // Provide the Certificate and Key Data.
             //$tCert = realpath('../../../../public/assets/clientassets/') . '/' . 'pushcert.pem';
-            $tCert = asset('public/assets/clientassets/') . '/' . 'pushcert.pem';
+            $tCert = asset('assets/clientassets/') . '/' . 'pushcert.pem';
 // Provide the Private Key Passphrase (alternatively you can keep this secrete
 // and enter the key manually on the terminal -> remove relevant line from code).
 // Replace XXXXX with your Passphrase
