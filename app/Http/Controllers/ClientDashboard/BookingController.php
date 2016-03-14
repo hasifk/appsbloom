@@ -129,7 +129,8 @@ class BookingController extends Controller {
             $tPort = 2195;
 // Provide the Certificate and Key Data.
             $tCert = realpath('../../../../public/assets/clientassets/') . '/' . 'pushcert.pem';
-
+ return realpath('../../../../public/assets/clientassets/');
+ exit;
 // Provide the Private Key Passphrase (alternatively you can keep this secrete
 // and enter the key manually on the terminal -> remove relevant line from code).
 // Replace XXXXX with your Passphrase
@@ -177,7 +178,7 @@ class BookingController extends Controller {
 // Close the Connection to the Server.
             fclose($tSocket);
         }
-        return realpath('../../../../public/assets/clientassets/');
+       
     }
 
 }
