@@ -167,13 +167,13 @@ class BookingController extends Controller {
             if (!$tSocket)
                 exit("APNS Connection Failed: $error $errstr" . PHP_EOL);
 // Build the Binary Notification.
-            $tMsg = chr(0) . chr(0) . chr(32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
+            $tMsg = chr(0) . pack('n', 32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
 // Send the Notification to the Server.
             $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
-            if ($tResult)
-                echo 'Delivered Message to APNS' . PHP_EOL;
-            else
-                echo 'Could not Deliver Message to APNS' . PHP_EOL;
+//            if ($tResult)
+//                echo 'Delivered Message to APNS' . PHP_EOL;
+//            else
+//                echo 'Could not Deliver Message to APNS' . PHP_EOL;
             //Close the Connection to the Server.
             fclose($tSocket);
         }
