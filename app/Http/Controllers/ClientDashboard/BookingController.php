@@ -170,11 +170,13 @@ class BookingController extends Controller {
             $tMsg = chr(0) . chr(0) . chr(32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
 // Send the Notification to the Server.
             $tResult = fwrite($tSocket, $tMsg);
+            $tResult = fwrite($tSocket, $tMsg);
 if ($tResult)
 return 'Delivered Message to APNS' . PHP_EOL;
 else
 {
     $tResult = fwrite($tSocket, $tMsg);
+    
 return 'Could not Deliver Message to APNS' . PHP_EOL;
 }
  //Close the Connection to the Server.
