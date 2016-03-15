@@ -128,7 +128,7 @@ class BookingController extends Controller {
 //$tHost = 'gateway.push.apple.com';
             $tPort = 2195;
 // Provide the Certificate and Key Data.
-            $tCert ='pushcert.pem';
+            $tCert = 'pushcert.pem';
             //$tCert = asset('assets/clientassets/') . '/' . 'pushcert.pem';
 // Provide the Private Key Passphrase (alternatively you can keep this secrete
 // and enter the key manually on the terminal -> remove relevant line from code).
@@ -169,32 +169,14 @@ class BookingController extends Controller {
 // Build the Binary Notification.
             $tMsg = chr(0) . chr(0) . chr(32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
 // Send the Notification to the Server.
-//            $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
-//if ($tResult)
-//echo 'Delivered Message to APNS' . PHP_EOL;
-//else
-//echo 'Could not Deliver Message to APNS' . PHP_EOL;
- //Close the Connection to the Server.
-            
-            
-            // Send it to the server
-try {                           
-    $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
-}
-catch (Exception $ex) {
-    // try once again for socket busy error (fwrite(): SSL operation failed with code 1.
-    // OpenSSL Error messages:\nerror:1409F07F:SSL routines:SSL3_WRITE_PENDING)
-    sleep(5); //sleep for 5 seconds
-    $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
-    if ($tResult)
-    {
-        return true;
-    }
-    else {
-        return false;
-    }
-}  
+            $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
+            if ($tResult)
+                echo 'Delivered Message to APNS' . PHP_EOL;
+            else
+                echo 'Could not Deliver Message to APNS' . PHP_EOL;
+            //Close the Connection to the Server.
             fclose($tSocket);
         }
     }
+
 }
