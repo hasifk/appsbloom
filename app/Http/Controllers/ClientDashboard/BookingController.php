@@ -157,7 +157,9 @@ class BookingController extends Controller {
 // Encode the body to JSON.
             $tBody = json_encode($tBody);
 // Create the Socket Stream.
-            $tContext = stream_context_create();
+            $tContext = stream_context_create(['ssl' => [
+    'capture_session_meta' => TRUE
+]]);
             stream_context_set_option($tContext, 'ssl', 'local_cert', $tCert);
 // Remove this line if you would like to enter the Private Key Passphrase manually.
             stream_context_set_option($tContext, 'ssl', 'passphrase', $tPassphrase);
