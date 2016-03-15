@@ -157,7 +157,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         'Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider',
-        Ixudra\Curl\CurlServiceProvider::class,
 
     ],
 
@@ -208,7 +207,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
         'Str'  => Illuminate\Support\Str::class,
-         'Curl'          => Ixudra\Curl\Facades\Curl::class,
+         'cURL' => 'anlutro\cURL\Laravel\cURL'
 
     ],
 
