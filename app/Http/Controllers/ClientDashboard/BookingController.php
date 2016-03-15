@@ -128,7 +128,7 @@ class BookingController extends Controller {
 //$tHost = 'gateway.push.apple.com';
             $tPort = 2195;
 // Provide the Certificate and Key Data.
-            $tCert = 'pushcert.pem';
+            $tCert = realpath('../public/assets/clientassets/') . '/' . 'pushcert.pem';
             //$tCert = asset('assets/clientassets/') . '/' . 'pushcert.pem';
 // Provide the Private Key Passphrase (alternatively you can keep this secrete
 // and enter the key manually on the terminal -> remove relevant line from code).
@@ -162,21 +162,26 @@ class BookingController extends Controller {
 // Remove this line if you would like to enter the Private Key Passphrase manually.
             stream_context_set_option($tContext, 'ssl', 'passphrase', $tPassphrase);
 // Open the Connection to the APNS Server.
-            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr, 60, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
+            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr, 30, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
 // Check if we were able to open a socket.
             if (!$tSocket)
                 exit("APNS Connection Failed: $error $errstr" . PHP_EOL);
 // Build the Binary Notification.
-            $tMsg = chr(0) . pack('n', 32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
+            $tMsg = chr(0) . chr(0) . chr(32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
+            
+            // Ensure that blocking is disabled
+stream_set_blocking($tSocket, 0);
+            
 // Send the Notification to the Server.
             $tResult = fwrite($tSocket, $tMsg, strlen($tMsg));
-//            if ($tResult)
-//                echo 'Delivered Message to APNS' . PHP_EOL;
-//            else
-//                echo 'Could not Deliver Message to APNS' . PHP_EOL;
-            //Close the Connection to the Server.
+//if ($tResult)
+//return 'Delivered Message to APNS' . PHP_EOL;
+//else
+//return 'Could not Deliver Message to APNS' . PHP_EOL;
+ //Close the Connection to the Server.
             fclose($tSocket);
         }
+       
     }
 
 }
