@@ -552,7 +552,7 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-    alert($( ".cck" )[1].val());
+    alert($( ".cck" )[1].attr('value'));
 //    for (var k = 0; k < i; k++)
 //    {
 //        if (document.frm.elements[k].className == fieldName)
