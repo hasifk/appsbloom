@@ -519,6 +519,28 @@ $(document).ready(function () {
 
     ];
 
+
+
+$(document).on("change", '.selectallMeM', function () {
+        var cursel = $(this);
+        if (confirm("Are sure want to delete"))
+        {
+            var ids = this.id;
+            $.ajax({
+                type: "GET",
+                url: base_url + '/room_delete',
+                data: "id=" + ids,
+                cache: false,
+                success: function (data) {
+                    $('#rooms').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    });
+
 });
 
 
