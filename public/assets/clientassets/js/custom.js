@@ -552,16 +552,15 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-    alert($( ".cck:eq(1)").val());
-//    for (var k = 0; k < i; k++)
-//    {
-//        if (document.frm.elements[k].className == fieldName)
-//        {
-//
-//            document.frm.elements[k].checked = obj;
-//        }
-//    }
-//    selectall();
+    alert();
+    for (var k = 0; k < i; k++)
+    {
+        if ($(".cck:eq("+k+")").className == fieldName)
+        {
+            $(".cck:eq("+k+")").checked = obj;
+        }
+    }
+    selectall();
 }
 function selectallMeM()
 {
