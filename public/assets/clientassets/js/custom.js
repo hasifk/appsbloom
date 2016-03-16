@@ -530,32 +530,32 @@ $(document).on("change", '.selectallMeM', function () {
 
 var fieldName = 'cck';
 function selectall() {
-    var i = document.frm.elements.length;
+    var i = $( ".cck" ).length;
     var e = document.frm.elements;
     var name = new Array();
     var value = new Array();
     var j = 0;
     for (var k = 0; k < i; k++)
     {
-        if (document.frm.elements[k].className == fieldName)
+        if ($(".cck:eq("+k+")").attr('class') == fieldName)
         {
-            if (document.frm.elements[k].checked == true)
+            if ($(".cck:eq("+k+")").checked == true)
             {
 
-                value[j] = document.frm.elements[k].value;
+                value[j] = $(".cck:eq("+k+")").val();
                 j++;
             }
         }
     }
-    checkSelect();
+   // checkSelect();
 }
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-    alert();
+   // alert();
     for (var k = 0; k < i; k++)
     {
-        if ($(".cck:eq("+k+")").className == fieldName)
+        if ($(".cck:eq("+k+")").attr('class') == fieldName)
         {
             $(".cck:eq("+k+")").checked = obj;
         }
