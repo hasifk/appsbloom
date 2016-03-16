@@ -557,11 +557,11 @@ function selectCheck(obj)
     for (var k = 1; k <= i; k++)
     {
         alert(k);
-//        if ($(".cck:eq("+k+")").attr('class').trim() == fieldName)
-//        {
-//             alert(".cck:eq("+k+")".attr('class'));
-//            $(".cck:eq("+k+")").checked = obj;
-//        }
+        if ($(".cck:eq("+k+")").attr('class') == fieldName)
+        {
+             //alert(".cck:eq("+k+")".attr('class'));
+             //$(".cck:eq("+k+")").checked = obj;
+        }
     }
     //selectall();
 }
@@ -574,7 +574,6 @@ function selectallMeM()
 }
 function selectallMe(u)
 {
-
     if (u == true)
     {
         $('#allCheck').checked;
