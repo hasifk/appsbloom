@@ -19,7 +19,7 @@
                     <table class="table table-responsive">
                         <thead>
                             <tr>
-                                <th style="width: 10px">#</th>
+                                <th style="width: 10px"><input type="checkbox" name="allCheck" onClick="selectallMeM()"></th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Age</th>
@@ -33,8 +33,9 @@
                                 $f = 1;
                                 foreach ($booking as $val):
                                     echo "<tr id=\"booking_$val->id\">";
-                                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . "</td><td>" . $val->age . "</td><td>" . $val->date . "</td>";
-                                    ?>
+                                ?>
+                        <td><input type="checkbox" name="check[]" class="cck" onClick="selectall()" value='{{$val->id}}'/> </td><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
+                                   
                                 <td class="booking_focus"><a href="{{url('booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
                                 {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$val->status,array('id'=>$val->id,'class'=>'booking_status')) !!}&nbsp;&nbsp;&nbsp;
                                 <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a></td>
