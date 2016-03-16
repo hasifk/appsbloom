@@ -520,8 +520,83 @@ $(document).ready(function () {
     ];
 
 });
-//$(function () {
-//    $('.ck_edit').each(function () {
-//        CKEDITOR.replace($(this).attr('id'));
-//    });
-//});
+
+
+var fieldName = 'cck';
+function selectall() {
+    var i = document.frm.elements.length;
+    var e = document.frm.elements;
+    var name = new Array();
+    var value = new Array();
+    var j = 0;
+    for (var k = 0; k < i; k++)
+    {
+        if (document.frm.elements[k].className == fieldName)
+        {
+            if (document.frm.elements[k].checked == true)
+            {
+
+                value[j] = document.frm.elements[k].value;
+                j++;
+            }
+        }
+    }
+    checkSelect();
+}
+function selectCheck(obj)
+{
+    var i = document.frm.elements.length;
+    for (var k = 0; k < i; k++)
+    {
+        if (document.frm.elements[k].className == fieldName)
+        {
+
+            document.frm.elements[k].checked = obj;
+        }
+    }
+    selectall();
+}
+function selectallMeM()
+{
+    if (document.frm.allCheck.checked)
+        selectallMe(true);
+    else
+        selectallMe(false);
+}
+function selectallMe(u)
+{
+
+    if (u == true)
+    {
+        document.frm.allCheck.checked;
+        selectCheck(true);
+    } else
+    {
+        selectCheck(false);
+    }
+}
+function checkSelect()
+{
+    var i = document.frm.elements.length;
+    var berror = true;
+    for (var k = 0; k < i; k++)
+    {
+        if (document.frm.elements[k].className == fieldName)
+        {
+            if (document.frm.elements[k].checked == false)
+            {
+                berror = false;
+                break;
+            }
+        }
+    }
+    if (berror == false)
+    {
+        document.frm.allCheck.checked = false;
+    } else
+    {
+        document.frm.allCheck.checked = true;
+
+
+    }
+}

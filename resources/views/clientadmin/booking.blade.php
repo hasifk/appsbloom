@@ -19,7 +19,7 @@
                     <table class="table table-responsive">
                         <thead>
                             <tr>
-                                <th style="width: 10px">Sl No</th>
+                                <th style="width: 20px">Sl No</th>
                                 <th style="width: 10px"><input type="checkbox" name="allCheck" onClick="selectallMeM()"></th>
                                 <th>Name</th>
                                 <th>Phone</th>
