@@ -552,7 +552,8 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-   // alert($(".cck:eq(3)").attr('class'));
+    
+    alert(i);
     for (var k = 1; k <= i; k++)
     {
         alert(k);
