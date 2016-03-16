@@ -124,12 +124,12 @@ class BookingController extends Controller {
             curl_close($ch);
         } else {
 // Provide the Host Information.
-            $tHost = 'gateway.sandbox.push.apple.com';
-//$tHost = 'gateway.push.apple.com';
+            //  $tHost = 'gateway.sandbox.push.apple.com';
+            $tHost = 'gateway.push.apple.com';
             $tPort = 2195;
 // Provide the Certificate and Key Data.
             $tCert = base_path('public/assets/clientassets/') . 'pushcert.pem';
-           
+
 // Provide the Private Key Passphrase (alternatively you can keep this secrete
 // and enter the key manually on the terminal -> remove relevant line from code).
 // Replace XXXXX with your Passphrase
@@ -162,7 +162,7 @@ class BookingController extends Controller {
 // Remove this line if you would like to enter the Private Key Passphrase manually.
             stream_context_set_option($tContext, 'ssl', 'passphrase', $tPassphrase);
 // Open the Connection to the APNS Server.
-            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr,600, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
+            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr, 600, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
 // Check if we were able to open a socket.
             if (!$tSocket)
                 exit("APNS Connection Failed: $error $errstr" . PHP_EOL);
@@ -171,7 +171,6 @@ class BookingController extends Controller {
 
             // Ensure that blocking is disabled
             //stream_set_blocking($tSocket, 0);
-
 // Send the Notification to the Server.
             $tResult = fwrite($tSocket, $tMsg);
             $tResult = fwrite($tSocket, $tMsg);
