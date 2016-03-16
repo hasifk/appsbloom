@@ -555,7 +555,7 @@ function selectCheck(obj)
    // alert($(".cck:eq(3)").attr('class'));
     for (var k = 1; k <= i; k++)
     {
-        if ($(".cck:eq("+k+")").attr('class') == fieldName)
+        if ($(".cck:eq("+k+")").attr('class').trim() == fieldName)
         {
              alert(".cck:eq("+k+")".attr('class'));
             $(".cck:eq("+k+")").checked = obj;
