@@ -551,20 +551,21 @@ function selectall() {
 }
 function selectCheck(obj)
 {
-    var i = document.frm.elements.length;
-    for (var k = 0; k < i; k++)
-    {
-        if (document.frm.elements[k].className == fieldName)
-        {
-
-            document.frm.elements[k].checked = obj;
-        }
-    }
-    selectall();
+    var i = $( ".cck" ).length;
+    alert(i);
+//    for (var k = 0; k < i; k++)
+//    {
+//        if (document.frm.elements[k].className == fieldName)
+//        {
+//
+//            document.frm.elements[k].checked = obj;
+//        }
+//    }
+//    selectall();
 }
 function selectallMeM()
 {
-    if (document.frm.allCheck.checked)
+    if ($('#allCheck').checked)
         selectallMe(true);
     else
         selectallMe(false);
@@ -574,7 +575,7 @@ function selectallMe(u)
 
     if (u == true)
     {
-        document.frm.allCheck.checked;
+        $('#allCheck').checked;
         selectCheck(true);
     } else
     {
