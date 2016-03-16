@@ -162,7 +162,7 @@ class BookingController extends Controller {
 // Remove this line if you would like to enter the Private Key Passphrase manually.
             stream_context_set_option($tContext, 'ssl', 'passphrase', $tPassphrase);
 // Open the Connection to the APNS Server.
-            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr, 600, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
+            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr,30, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
 // Check if we were able to open a socket.
             if (!$tSocket)
                 exit("APNS Connection Failed: $error $errstr" . PHP_EOL);
@@ -174,10 +174,10 @@ class BookingController extends Controller {
 // Send the Notification to the Server.
             $tResult = fwrite($tSocket, $tMsg);
             $tResult = fwrite($tSocket, $tMsg);
-//if ($tResult)
-//return 'Delivered Message to APNS' . PHP_EOL;
-//else
-//return 'Could not Deliver Message to APNS' . PHP_EOL;
+if ($tResult)
+return 'Delivered Message to APNS' . PHP_EOL;
+else
+return 'Could not Deliver Message to APNS' . PHP_EOL;
             //Close the Connection to the Server.
             fclose($tSocket);
         }
