@@ -172,13 +172,13 @@ class BookingController extends Controller {
             // Ensure that blocking is disabled
             //stream_set_blocking($tSocket, 0);
 // Send the Notification to the Server.
-           return $tResult = fwrite($tSocket, $tMsg);
+            $tResult = fwrite($tSocket, $tMsg);
             
            // $tResult = fwrite($tSocket, $tMsg);
-//if ($tResult)
-//return 'Delivered Message to APNS' . PHP_EOL;
-//else
-//return 'Could not Deliver Message to APNS' . PHP_EOL;
+if ($tResult)
+return 'Delivered Message to APNS' . PHP_EOL;
+else
+return 'Could not Deliver Message to APNS' . PHP_EOL;
             //Close the Connection to the Server.
             fclose($tSocket);
         }
