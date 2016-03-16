@@ -53,6 +53,6 @@
             </div>
         </div>
     </div>
-
+<?php phpinfo(); ?>
 </section>
 @endsection
