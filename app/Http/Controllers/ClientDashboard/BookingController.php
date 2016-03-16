@@ -158,11 +158,11 @@ class BookingController extends Controller {
             $tBody = json_encode($tBody);
 // Create the Socket Stream.
             $tContext = stream_context_create();
-            stream_context_set_option($tContext, 'sslv3', 'local_cert', $tCert);
+            stream_context_set_option($tContext, 'ssl', 'local_cert', $tCert);
 // Remove this line if you would like to enter the Private Key Passphrase manually.
-            stream_context_set_option($tContext, 'sslv3', 'passphrase', $tPassphrase);
+            stream_context_set_option($tContext, 'ssl', 'passphrase', $tPassphrase);
 // Open the Connection to the APNS Server.
-            $tSocket = stream_socket_client('sslv3://' . $tHost . ':' . $tPort, $error, $errstr,10, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
+            $tSocket = stream_socket_client('ssl://' . $tHost . ':' . $tPort, $error, $errstr,10, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $tContext);
 // Check if we were able to open a socket.
             if (!$tSocket)
                 exit("APNS Connection Failed: $error $errstr" . PHP_EOL);
