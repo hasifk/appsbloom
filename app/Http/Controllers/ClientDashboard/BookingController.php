@@ -169,10 +169,11 @@ class BookingController extends Controller {
 // Build the Binary Notification.
             $tMsg = chr(0) . chr(0) . chr(32) . pack('H*', $tToken) . pack('n', strlen($tBody)) . $tBody;
 
-            // Ensure that blocking is disabled
+      // Ensure that blocking is disabled
+stream_set_blocking($tSocket, 0);
             //stream_set_blocking($tSocket, 0);
 // Send the Notification to the Server.
-            $tResult = fwrite($tSocket, $tMsg);
+            $tResult = fwrite($tSocket, $tMsg,strlen($tMsg));
             
            // $tResult = fwrite($tSocket, $tMsg);
 if ($tResult)
