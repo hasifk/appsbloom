@@ -552,8 +552,8 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-    alert($(".cck:eq(3)").attr('class'));
-    for (var k = 0; k < i; k++)
+   // alert($(".cck:eq(3)").attr('class'));
+    for (var k = 1; k <= i; k++)
     {
         if ($(".cck:eq("+k+")").attr('class') == fieldName)
         {
