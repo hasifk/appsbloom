@@ -552,7 +552,7 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-   // alert();
+    alert($(".cck:eq("+k+")").attr('class'));
     for (var k = 0; k < i; k++)
     {
         if ($(".cck:eq("+k+")").attr('class') == fieldName)
@@ -560,7 +560,7 @@ function selectCheck(obj)
             $(".cck:eq("+k+")").checked = obj;
         }
     }
-    selectall();
+    //selectall();
 }
 function selectallMeM()
 {
