@@ -128,8 +128,8 @@ public function AppointmentChecking(Request $request) {
         $date = date('d-m-Y',strtotime($result->date));
         $time=explode(":",$result->time);
         $datet=$date." " .$time[0].":";
-        $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like',$date."%")->get();
-       // return count($booking);
+        $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like',$date." %")->get();
+        
         if(count($booking)>0):
             $f=0;
             foreach ($booking as $val):
@@ -148,9 +148,9 @@ public function AppointmentChecking(Request $request) {
            $f=0;
         endif;
         if($f==1)
-            return "n";
+            return "n".count($booking);
         else
-            return 'y';
+            return 'y'.count($booking);
     }
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
