@@ -541,7 +541,7 @@ function selectall() {
     var value = new Array();
     var j = 0;
     $(".cck").each(function () {
-        if (this.attr('class') == fieldName)
+        if (this.className == fieldName)
         {
             alert("hello");
             if (this.is(":checked"))
@@ -583,7 +583,7 @@ function checkSelect()
     var i = $(".cck").length;
     var berror = true;
     $(".cck").each(function () {
-        if (this.attr('class') == fieldName)
+        if (this.className == fieldName)
         {
             if ($(this).prop("checked") == false)
             {
