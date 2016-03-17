@@ -579,13 +579,13 @@ function selectallMe(u)
 }
 function checkSelect()
 {
-    var i = $(".cck").length;
     var berror = true;
     $(".cck").each(function () {
         if (this.className == fieldName)
         {
             if ($(this).prop("checked") == false)
             {
+                alert("hello");
                 berror = false;
                 return false;
             }
