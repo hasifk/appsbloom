@@ -582,6 +582,7 @@ function checkSelect()
     $(".cck").each(function () {
         if (this.className == fieldName)
         {
+            alert("hell000000022200o");
             if (this.is(":checked") == false)
             {
                 alert("hell000000000o");
@@ -590,6 +591,7 @@ function checkSelect()
             }
         }
     });
+    
     if (berror == false)
         $('#allCheck').checked = false;
      else
