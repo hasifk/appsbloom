@@ -127,17 +127,17 @@ public function AppointmentChecking(Request $request) {
         $result = json_decode(file_get_contents('php://input'));
         $date = date('d-m-Y',strtotime($result->date));
         $time=explode(":",$result->time);
-        $datet=$date." " .$time[0].":";
         $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like',$date." %")->get();
         
         if(count($booking)>0):
             $f=0;
+        $u=0;
             foreach ($booking as $val):
             $ddate=explode(" ",$val->date);
             $dtime=explode(":",$ddate[1]);
             $tdiff=abs($time[1]-$dtime[1]);
             if($dtime[0]==$time[0])
-            {
+            { $u++;
                 if($tdiff<10){
                     $f=1;
                     break;
@@ -148,9 +148,9 @@ public function AppointmentChecking(Request $request) {
            $f=0;
         endif;
         if($f==1)
-            return "n".count($booking);
+            return "n".$u;
         else
-            return 'y'.count($booking);
+            return 'y'.$u;
     }
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
