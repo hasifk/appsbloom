@@ -546,7 +546,6 @@ function selectall() {
             if (this.is(":checked"))
             {
                 value[j++] = this.val();
-
             }
         }
     });
