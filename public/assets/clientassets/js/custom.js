@@ -543,6 +543,7 @@ function selectall() {
     $(".cck").each(function () {
         if (this.attr('class') == fieldName)
         {
+            alert("hello");
             if (this.is(":checked"))
             {
                 value[j++] = this.val();
