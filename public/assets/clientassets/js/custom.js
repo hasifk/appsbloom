@@ -536,38 +536,38 @@ function selectall() {
     var name = new Array();
     var value = new Array();
     var j = 0;
-    for (var k = 0; k < i; k++)
-    {
-        if ($(".cck:eq(" + k + ")").attr('class') == fieldName)
+    $(".cck").each(function () {
+        if (this.attr('class') == fieldName)
         {
-            if ($(".cck:eq(" + k + ")").checked == true)
+            if (this.is(":checked"))
             {
+                value[j++] = this.val();
 
-                value[j] = $(".cck:eq(" + k + ")").val();
-                j++;
             }
         }
-    }
-    // checkSelect();
+        //   this.checked = obj;
+    });
+//    for (var k = 0; k < i; k++)
+//    {
+//        if ($(".cck:eq(" + k + ")").attr('class') == fieldName)
+//        {
+//            if ($(".cck:eq(" + k + ")").checked == true)
+//            {
+//
+//                value[j] = $(".cck:eq(" + k + ")").val();
+//                j++;
+//            }
+//        }
+//    }
+    //checkSelect();
 }
 function selectCheck(obj)
 {
     var i = $(".cck").length;
     $(".cck").each(function () {
-       this.checked = obj;
+        this.checked = obj;
     });
-
-    alert(i);
-//    for (var k = 1; k <= i; k++)
-//    {
-//        alert(k);
-//        if ($(".cck:eq("+k+")").attr('class') == fieldName)
-//        {
-//             //alert(".cck:eq("+k+")".attr('class'));
-//             //$(".cck:eq("+k+")").checked = obj;
-//        }
-//    }
-    //selectall();
+    selectall();
 }
 function selectallMeM()
 {
@@ -589,19 +589,19 @@ function selectallMe(u)
 }
 function checkSelect()
 {
-    var i = document.frm.elements.length;
+    var i = $(".cck").length;
     var berror = true;
-    for (var k = 0; k < i; k++)
-    {
-        if (document.frm.elements[k].className == fieldName)
+    $(".cck").each(function () {
+        if (this.attr('class') == fieldName)
         {
-            if (document.frm.elements[k].checked == false)
+            if ($(this).prop("checked") == false)
             {
                 berror = false;
-                break;
+                return false;
             }
         }
-    }
+        //   this.checked = obj;
+    });
     if (berror == false)
     {
         document.frm.allCheck.checked = false;
@@ -611,4 +611,6 @@ function checkSelect()
 
 
     }
+
+
 }
