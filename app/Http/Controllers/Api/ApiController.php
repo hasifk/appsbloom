@@ -129,9 +129,9 @@ public function AppointmentChecking(Request $request) {
         $time=explode(":",$result->time);
         $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like', $date. " " .$time[0].":".$time[1]."%")->get();
         if(count($booking)>0)
-            return 1;
+            return "1";
         else 
-            return 0;
+            return "0";
     }
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
