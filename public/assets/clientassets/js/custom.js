@@ -545,21 +545,8 @@ function selectall() {
 
             }
         }
-        //   this.checked = obj;
     });
-//    for (var k = 0; k < i; k++)
-//    {
-//        if ($(".cck:eq(" + k + ")").attr('class') == fieldName)
-//        {
-//            if ($(".cck:eq(" + k + ")").checked == true)
-//            {
-//
-//                value[j] = $(".cck:eq(" + k + ")").val();
-//                j++;
-//            }
-//        }
-//    }
-    //checkSelect();
+    checkSelect();
 }
 function selectCheck(obj)
 {
@@ -600,16 +587,13 @@ function checkSelect()
                 return false;
             }
         }
-        //   this.checked = obj;
     });
     if (berror == false)
     {
-        document.frm.allCheck.checked = false;
+        $('#allCheck').checked = false;
     } else
     {
-        document.frm.allCheck.checked = true;
-
-
+        $('#allCheck').checked = true;
     }
 
 
