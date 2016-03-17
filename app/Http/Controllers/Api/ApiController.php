@@ -120,7 +120,7 @@ class ApiController extends Controller {
         $obj->date = date('d-m-Y',strtotime($result->date)) . " " . $result->time;
         $obj->app_id = $result->app_id;
         $obj->device_type = $result->device_type;
-        $obj->save();
+        //$obj->save();
         // }
     }
 public function AppointmentChecking(Request $request) {
