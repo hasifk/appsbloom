@@ -137,7 +137,7 @@ public function AppointmentChecking(Request $request) {
             $dtime=explode(":",$ddate[1]);
             if($dtime[0]==$time[0])
             {
-                if($time[1]=$dtime[1]||$time[1]+9<$dtime[1]||$time[0]-9>$dtime[1]){
+                if($time[1]=$dtime[1]||$time[1]+9<$dtime[1]||$time[1]-9>$dtime[1]){
                     $f=1;
                     break;
                 }
@@ -147,9 +147,9 @@ public function AppointmentChecking(Request $request) {
            $f=0;
         endif;
         if($f==1)
-            return "y";
+            return "n";
         else
-            return 'n';
+            return 'y';
     }
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
