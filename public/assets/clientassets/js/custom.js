@@ -571,7 +571,7 @@ function selectCheck(obj)
 }
 function selectallMeM()
 {
-    if ($('#allCheck').checked)
+    if ($('#allCheck').is(":checked"))
         selectallMe(true);
     else
         selectallMe(false);
