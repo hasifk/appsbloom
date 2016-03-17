@@ -582,7 +582,7 @@ function checkSelect()
     $(".cck").each(function () {
         if (this.className == fieldName)
         {
-            if (this.prop("checked") == false)
+            if ($(this).attr('checked') == false)
             {
                 alert("hello");
                 berror = false;
