@@ -534,7 +534,7 @@ $(document).ready(function () {
 
 var fieldName = 'cck';
 function selectall() {
-    var i = $(".cck").length;
+    //var i = $(".cck").length;
     alert("hello");
     var name = new Array();
     var value = new Array();
@@ -544,7 +544,8 @@ function selectall() {
         { 
             if (this.is(":checked"))
             {
-                value[j++] = this.val();
+                value[j] = this.val();
+                j++;
             }
         }
     });
@@ -552,7 +553,7 @@ function selectall() {
 }
 function selectCheck(obj)
 {
-    var i = $(".cck").length;
+    //var i = $(".cck").length;
     $(".cck").each(function () {
         this.checked = obj;
     });
