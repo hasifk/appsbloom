@@ -138,7 +138,7 @@ public function AppointmentChecking(Request $request) {
             $tdiff=abs($time[1]-$dtime[1]);
             if($dtime[0]==$time[0])
             {
-                if($time[1]==$dtime[1]||$tdiff<10){
+                if($tdiff<10){
                     $f=1;
                     break;
                 }
