@@ -525,6 +525,10 @@ $(document).ready(function () {
     $(document).on("change", '.selectallMeM', function () {
         selectallMeM();
     });
+    
+    $(document).on("change", '.cck', function () {
+        selectall();
+    });
 
 });
 

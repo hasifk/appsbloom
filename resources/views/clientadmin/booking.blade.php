@@ -36,7 +36,7 @@
                                     echo "<tr id=\"booking_$val->id\">";
                                 ?>
                         <th>{{$f++}}</th>
-                        <th><input type="checkbox" name="check[]" class="cck" onClick="selectall()" value='{{$val->id}}'/> </th><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
+                        <th><input type="checkbox" name="check[]" class="cck" value='{{$val->id}}'/> </th><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
                                    
                                 <td class="booking_focus"><a href="{{url('booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
                                 {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$val->status,array('id'=>$val->id,'class'=>'booking_status')) !!}&nbsp;&nbsp;&nbsp;
