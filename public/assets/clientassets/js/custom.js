@@ -521,7 +521,6 @@ $(document).ready(function () {
     ];
 
 
-
     $(document).on("change", '.selectallMeM', function () {
         selectallMeM();
     });
@@ -583,7 +582,7 @@ function checkSelect()
     $(".cck").each(function () {
         if (this.className == fieldName)
         {
-            if ($(this).prop("checked") == false)
+            if (this.checked == false)
             {
                 alert("hello");
                 berror = false;
