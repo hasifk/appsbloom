@@ -533,6 +533,27 @@ $(document).ready(function () {
 
 
 var fieldName = 'cck';
+function checkSelect()
+{
+    var berror = true;
+    $(".cck").each(function () {
+        if (this.className == fieldName)
+        {
+            alert("hell000000022200o");
+            if (this.is(":checked") == false)
+            {
+                alert("hell000000000o");
+                berror = false;
+                return false;
+            }
+        }
+    });
+    
+    if (berror == false)
+        $('#allCheck').checked = false;
+     else
+        $('#allCheck').checked = true;
+}
 function selectall() {
     var i = $(".cck").length;
     alert("hello");
@@ -575,25 +596,4 @@ function selectallMe(u)
     {
         selectCheck(false);
     }
-}
-function checkSelect()
-{
-    var berror = true;
-    $(".cck").each(function () {
-        if (this.className == fieldName)
-        {
-            alert("hell000000022200o");
-            if (this.is(":checked") == false)
-            {
-                alert("hell000000000o");
-                berror = false;
-                return false;
-            }
-        }
-    });
-    
-    if (berror == false)
-        $('#allCheck').checked = false;
-     else
-        $('#allCheck').checked = true;
 }
