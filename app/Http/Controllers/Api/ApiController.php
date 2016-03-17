@@ -123,7 +123,7 @@ class ApiController extends Controller {
         $obj->save();
         // }
     }
-public function appointmentchecking(Request $request) {
+public function AppointmentChecking(Request $request) {
         $result = json_decode(file_get_contents('php://input'));
         $date = date('d-m-Y',strtotime($result->date));
         $time=explode(":",$result->time);

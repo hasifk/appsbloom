@@ -29,6 +29,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header('content-type: application/json; charset=utf-8');
 
 Route::post('insertbooking/{id}', 'Api\ApiController@InsertBooking');
+Route::post('appointmentchecking/{id}', 'Api\ApiController@AppointmentChecking');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
