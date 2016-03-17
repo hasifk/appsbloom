@@ -123,7 +123,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     $(document).on("click", '.schedule_time', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
@@ -143,8 +143,8 @@ $(document).ready(function () {
             });
         }
     });
-    
-    
+
+
     $(document).on("click", '.booking_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
@@ -164,8 +164,8 @@ $(document).ready(function () {
             });
         }
     });
-    
-    
+
+
     $(document).on("change", '.booking_status', function () {
         var cursel = $(this);
         if (confirm("Are sure want to change"))
@@ -179,7 +179,7 @@ $(document).ready(function () {
                 data: "id=" + ids + "&value=" + values,
                 cache: false,
                 success: function (data) {
-                    alert("Successfully Changed"+data);
+                    alert("Successfully Changed" + data);
                 },
                 error: function (xhr, status, error) {
                     alert(error);
@@ -323,16 +323,17 @@ $(document).ready(function () {
     });
 
     $(document).on("click", '#search,#reset', function () {
-        var name,date;
+        var name, date;
         if (this.id == 'search')
         {
-             name = $('#name').val().trim();
-             date = $('#datetimepicker').val().trim();
-           
+            name = $('#name').val().trim();
+            date = $('#datetimepicker').val().trim();
+
         } else {
-           $('#name').val('');
-           $('#datetimepicker').val('');
-           name="";date="";
+            $('#name').val('');
+            $('#datetimepicker').val('');
+            name = "";
+            date = "";
         }
         var section = $('#section').val();
         $.ajax({
@@ -521,7 +522,7 @@ $(document).ready(function () {
 
 
 
-$(document).on("change", '.selectallMeM', function () {
+    $(document).on("change", '.selectallMeM', function () {
         selectallMeM();
     });
 
@@ -530,32 +531,32 @@ $(document).on("change", '.selectallMeM', function () {
 
 var fieldName = 'cck';
 function selectall() {
-    var i = $( ".cck" ).length;
-   // var e = document.frm.elements;
+    var i = $(".cck").length;
+    // var e = document.frm.elements;
     var name = new Array();
     var value = new Array();
     var j = 0;
     for (var k = 0; k < i; k++)
     {
-        if ($(".cck:eq("+k+")").attr('class') == fieldName)
+        if ($(".cck:eq(" + k + ")").attr('class') == fieldName)
         {
-            if ($(".cck:eq("+k+")").checked == true)
+            if ($(".cck:eq(" + k + ")").checked == true)
             {
 
-                value[j] = $(".cck:eq("+k+")").val();
+                value[j] = $(".cck:eq(" + k + ")").val();
                 j++;
             }
         }
     }
-   // checkSelect();
+    // checkSelect();
 }
 function selectCheck(obj)
 {
-    var i = $( ".cck" ).length;
+    var i = $(".cck").length;
     $(".cck").each(function () {
-
-      $(this).checked = obj
-   });
+        alert($(".cck").val());
+        $(this).checked = obj
+    });
 
     alert(i);
 //    for (var k = 1; k <= i; k++)
