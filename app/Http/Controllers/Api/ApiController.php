@@ -117,41 +117,49 @@ class ApiController extends Controller {
         $obj->age = $result->age;
         $obj->gender = $result->gender;
         $obj->address = $result->address;
-        $obj->date = date('d-m-Y',strtotime($result->date)) . " " . $result->time;
+        $obj->date = date('d-m-Y', strtotime($result->date)) . " " . $result->time;
         $obj->app_id = $result->app_id;
         $obj->device_type = $result->device_type;
         //$obj->save();
         // }
     }
-public function AppointmentChecking(Request $request) {
+
+    public function AppointmentChecking(Request $request) {
         $result = json_decode(file_get_contents('php://input'));
-        $date = date('d-m-Y',strtotime($result->date));
-        $time=explode(":",$result->time);
-        $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like',$date." %")->get();
-        
-        if(count($booking)>0):
-            $f=0;
-        $u=0;
+        $date = date('d-m-Y', strtotime($result->date));
+        $time = explode(":", $result->time);
+        $booking = Model\Booking::where('admin_id', $result->admin_id)->where('date', 'like', $date . " %")->get();
+
+        if (count($booking) > 0):
+            $f = 0;
             foreach ($booking as $val):
-            $ddate=explode(" ",$val->date);
-            $dtime=explode(":",$ddate[1]);
-            $tdiff=abs($time[1]-$dtime[1]);
-            if($dtime[0]==$time[0])
-            { $u++;
-                if($tdiff<10){
-                    $f=1;
-                    break;
+                $ddate = explode(" ", $val->date);
+                $dtime = explode(":", $ddate[1]);
+                $tdiff = abs($time[1] - $dtime[1]);
+                if($tdiff>50 && ($dtime[0]==$time[0]+1||$dtime[0]+1==$time[0]))
+                {
+                    $tdiff=60-$tdiff;
+                    if ($tdiff < 10) {
+                        $f = 1;
+                        break;
+                    }
                 }
-            }
+                else if ($dtime[0] == $time[0]) {
+                    if ($tdiff < 10) {
+                        $f = 1;
+                        break;
+                    }
+                }
             endforeach;
         else:
-           $f=0;
+            $f = 0;
         endif;
-        if($f==1)
-            return "n".$u;
+        if ($f == 1)
+            return "n";
         else
-            return 'y'.$u;
+            return "y";
     }
+
     public function InsertFanwall(Request $request) {
         $admin = Auth::user()->id;
         $obj = new Model\Fanwall;
