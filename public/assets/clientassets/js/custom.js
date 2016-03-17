@@ -536,7 +536,7 @@ $(document).ready(function () {
 var fieldName = 'cck';
 function selectall() {
     var i = $(".cck").length;
-    // var e = document.frm.elements;
+    alert("hello");
     var name = new Array();
     var value = new Array();
     var j = 0;
@@ -598,6 +598,4 @@ function checkSelect()
     {
         $('#allCheck').checked = true;
     }
-
-
 }
