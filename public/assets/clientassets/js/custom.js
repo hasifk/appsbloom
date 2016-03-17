@@ -554,8 +554,7 @@ function selectCheck(obj)
 {
     var i = $(".cck").length;
     $(".cck").each(function () {
-        alert($(".cck").val());
-        $(this).checked = obj;
+       this.checked = obj;
     });
 
     alert(i);
