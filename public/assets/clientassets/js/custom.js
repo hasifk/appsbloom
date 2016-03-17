@@ -552,17 +552,21 @@ function selectall() {
 function selectCheck(obj)
 {
     var i = $( ".cck" ).length;
-    
+    $(".cck").each(function () {
+
+      $(this).checked = obj
+   });
+
     alert(i);
-    for (var k = 1; k <= i; k++)
-    {
-        alert(k);
-        if ($(".cck:eq("+k+")").attr('class') == fieldName)
-        {
-             //alert(".cck:eq("+k+")".attr('class'));
-             //$(".cck:eq("+k+")").checked = obj;
-        }
-    }
+//    for (var k = 1; k <= i; k++)
+//    {
+//        alert(k);
+//        if ($(".cck:eq("+k+")").attr('class') == fieldName)
+//        {
+//             //alert(".cck:eq("+k+")".attr('class'));
+//             //$(".cck:eq("+k+")").checked = obj;
+//        }
+//    }
     //selectall();
 }
 function selectallMeM()
