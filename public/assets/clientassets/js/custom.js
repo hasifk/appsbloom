@@ -542,8 +542,7 @@ function selectall() {
     var j = 0;
     $(".cck").each(function () {
         if (this.className == fieldName)
-        {
-            alert("hello");
+        { 
             if (this.is(":checked"))
             {
                 value[j++] = this.val();
@@ -593,10 +592,7 @@ function checkSelect()
         }
     });
     if (berror == false)
-    {
         $('#allCheck').checked = false;
-    } else
-    {
+     else
         $('#allCheck').checked = true;
-    }
 }
