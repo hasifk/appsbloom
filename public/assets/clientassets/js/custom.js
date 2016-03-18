@@ -155,7 +155,7 @@ $(document).ready(function () {
                value[j++]=$(this).val();
             });
             alert(value);
-            alert(cursel.className)
+            alert(this.className)
             if (confirm("Are sure want to delete"))
             {
                 var ids = this.id;
