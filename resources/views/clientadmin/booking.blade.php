@@ -8,7 +8,7 @@
                 <div class="box-header with-border">
                     <div class="col-md-3 box-title">{!! Form::text('name','',array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}</div>
                     <div class="col-md-3 box-title">{!! Form::text('date','',array("id"=>"datetimepicker","class"=>"form-control","placeholder"=>date('d/m/Y'))) !!}
-                    {!! Form::hidden('section','Booking',array("id"=>"section")) !!}
+                        {!! Form::hidden('section','Booking',array("id"=>"section")) !!}
                     </div>
                     <div class="col-md-3 box-title"><button id="search" class="btn btn-primary">Search</button>&nbsp;&nbsp;<button id="reset" class="btn btn-primary">Reset</button></div>
                     <div class="box-tools pagination-sm no-margin pull-right">
@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20px">Sl No</th>
-                                <th style="width: 10px"><input type="checkbox" id="allCheck" class="selectallMeM"></th>
+                                <th style="width: 10px"><input type="checkbox" id="selectall"/></th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Age</th>
@@ -34,15 +34,16 @@
                                 $f = 1;
                                 foreach ($booking as $val):
                                     echo "<tr id=\"booking_$val->id\">";
-                                ?>
-                        <th>{{$f++}}</th>
-                        <th><input type="checkbox" name="check[]" class="cck" value='{{$val->id}}'/> </th><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
-                                   
+                                    ?>
+                                <th>{{$f++}}</th>
+                                <th>
+                                    <input type="checkbox" class="case" name="case" value="{{$val->id}}"/>
+                                </th><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
+
                                 <td class="booking_focus"><a href="{{url('booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
-                                {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$val->status,array('id'=>$val->id,'class'=>'booking_status')) !!}&nbsp;&nbsp;&nbsp;
-                                <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a></td>
+                                    {!! Form::select('status',array('0'=>'Pending','1' => 'Approved','-1'=>'Cancel'),$val->status,array('id'=>$val->id,'class'=>'booking_status')) !!}&nbsp;&nbsp;&nbsp;
+                                    <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a></td>
                                         <?php
-                                        
                                     endforeach;
                                 else:
                                     ?>
