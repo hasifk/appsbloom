@@ -152,10 +152,12 @@ $(document).ready(function () {
         if (cursel.className == 'booking_delete')
         {
             var ids = cursel.id;
-            $(".checkbox:checked").each(function () {
+            $(".checkbox").each(function () {
+                if($(this).is(":checked"))
                 $(this).removeAttr("checked");
-                $("#" + ids).prop("checked", true);
             });
+            $("#selectall").removeAttr("checked");
+            $("#" + ids).prop("checked", true);
         }
         if ($(".checkbox:checked").length > 0)
         {
@@ -167,7 +169,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     url: base_url + '/booking_delete',
-                    data: "id=" + ids,
+                    data: "id=" + value,
                     cache: false,
                     success: function (data) {
                         location.reload();
@@ -178,6 +180,8 @@ $(document).ready(function () {
                 });
             }
         }
+        else
+            alert("Please select atleast one")
     });
 
 

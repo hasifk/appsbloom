@@ -60,7 +60,10 @@ class BookingController extends Controller {
     }
 
     public function BookingDelete(Request $request) {
-        Model\Booking::where('id', $request->id)->delete();
+        $ids = explode(",", $request->id);
+        foreach ($ids as $value):
+            Model\Booking::where('id', $value)->delete();
+        endforeach;
     }
 
     public function UpdateBooking($id) {
