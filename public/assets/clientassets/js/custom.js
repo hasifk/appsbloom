@@ -520,23 +520,30 @@ $(document).ready(function () {
 
     ];
 
-$('#selecctall').click(function(event) {  //on click 
-        if(this.checked) { // check select status
-            $('.checkbox').each(function() { //loop through each checkbox
+    $('#selectall').click(function (event) {  //on click 
+        if (this.checked) { // check select status
+            $('.checkbox').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"               
             });
-        }else{
-            $('.checkbox').each(function() { //loop through each checkbox
+        } else {
+            $('.checkbox').each(function () { //loop through each checkbox
                 this.checked = false; //deselect all checkboxes with class "checkbox1"                       
-            });         
+            });
         }
     });
 
-$("#selecctall").change(function(){
-      $(".checkbox").prop('checked', $(this).prop("checked"));
-      });
+    $("#selectall").change(function () {
+        $(".checkbox").prop('checked', $(this).prop("checked"));
+    });
 
+    $(document).on("click", '.checkbox', function () {
+        if ($(".checkbox").length == $(".checkbox:checked").length) {
+            $("#selectall").attr("checked", true);
+        } else {
+            $("#selectall").removeAttr("checked");
+        }
 
+    });
 //    $(document).on("click", '#selectall', function () {
 //          $('.case').attr('checked', this.checked);
 //    });

@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20px">Sl No</th>
-                                <th style="width: 10px"><input type="checkbox" id="selecctall"/></th>
+                                <th style="width: 10px"><input type="checkbox" id="selectall"/></th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Age</th>
