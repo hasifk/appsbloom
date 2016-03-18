@@ -528,7 +528,7 @@ $(document).ready(function () {
     // and viceversa
     $(document).on("click", '.case', function () {
         if($(".case").length == $(".case:checked").length) {
-            $("#selectall").attr("checked", "checked");
+            $("#selectall").attr("checked",true);
         } else {
             $("#selectall").removeAttr("checked");
         }
