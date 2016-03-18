@@ -149,16 +149,17 @@ $(document).ready(function () {
         var cursel = this;
         var value = new Array();
         var j = 0;
+        if (cursel.className == 'booking_delete')
+        {
+            var ids = cursel.id;
+            $(".checkbox:checked").each(function () {
+                $(this).removeAttr("checked");
+                $("#" + ids).prop("checked", true);
+            });
+        }
         if ($(".checkbox:checked").length > 0)
         {
             $(".checkbox:checked").each(function () {
-                if (cursel.className == 'booking_delete')
-                {
-                    var ids = cursel.id;
-                    $(this).removeAttr("checked");
-                    $("#"+ids).prop("checked", true);
-                }
-                else
                 value[j++] = $(this).val();
             });
             if (confirm("Are sure want to delete"))
@@ -171,7 +172,7 @@ $(document).ready(function () {
                     success: function (data) {
                         location.reload();
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         alert(error);
                     }
                 });
