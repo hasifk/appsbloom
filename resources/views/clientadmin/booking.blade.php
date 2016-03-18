@@ -34,7 +34,7 @@
                                 $f = 1;
                                 foreach ($booking as $val):
                                     ?>
-                            <tr id="booking_<?php echo $val->id; ?>">;
+                            <tr id="booking_<?php echo $val->id; ?>">
                                 <th>{{$f++}}</th>
                                 <th><input type="checkbox" class="checkbox" name="check[]" value="{{$val->id}}"/></th>
                                 <td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>
@@ -44,7 +44,7 @@
                                         <?php
                                     endforeach;
                                  ?>
-                            <tr><th colspan="6"></th><th><button id="search" class="btn btn-primary">Delete</button></th></tr>
+                            <tr><th colspan="6"></th><th><button id="booking_delete" class="btn btn-primary">Delete</button></th></tr>
                                 <?php
                                 else:
                                     ?>

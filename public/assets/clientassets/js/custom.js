@@ -145,7 +145,7 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", '.booking_delete', function () {
+    $(document).on("click", '.booking_delete,#booking_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
         {
