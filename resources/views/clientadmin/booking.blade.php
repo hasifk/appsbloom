@@ -44,11 +44,11 @@
                                         <?php
                                     endforeach;
                                  ?>
-                                <tr>
+                            <tr><th colspan="7"><button id="search" class="btn btn-primary">Delete</button></th></tr>
                                 <?php
                                 else:
                                     ?>
-                            <tr><td colspan="6"> No Booking </td></tr>
+                            <tr><td colspan="7"> No Booking </td></tr>
                         <?php
                         endif;
                         ?>
