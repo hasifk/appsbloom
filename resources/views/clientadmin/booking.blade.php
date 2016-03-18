@@ -36,8 +36,7 @@
                                     echo "<tr id=\"booking_$val->id\">";
                                     ?>
                                 <th>{{$f++}}</th>
-                                <th>
-                                    <input type="checkbox" class="case" name="case" value="{{$val->id}}"/>
+                                <th><input type="checkbox" class="case" name="case" value="{{$val->id}}"/>
                                 </th><td class="booking_focus">{{$val->name}}</td><td class="booking_focus">{{$val->phone}}</td><td>{{$val->age}}</td><td>{{$val->date}}</td>;
 
                                 <td class="booking_focus"><a href="{{url('booking/'.$val->id)}}" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
