@@ -537,12 +537,12 @@ $(document).ready(function () {
     });
 
     $(document).on("click", '.checkbox', function () {
+        alert($(".checkbox").length+"----"+$(".checkbox:checked").length);
         if ($(".checkbox").length == $(".checkbox:checked").length) {
             $("#selectall").attr("checked", "checked");
         } else {
             $("#selectall").removeAttr("checked");
         }
-
     });
 //    $(document).on("click", '#selectall', function () {
 //          $('.case').attr('checked', this.checked);
