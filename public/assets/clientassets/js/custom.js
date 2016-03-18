@@ -145,13 +145,17 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", '.booking_delete,#booking_delete', function () {
+    $(document).on("click", '.booking_delete,.mbooking_delete', function () {
         var cursel = $(this);
+        var value = new Array();
+        var j=1;
         if ($(".checkbox:checked").length > 0)
         {
             $(".checkbox:checked").each(function () {
-               alert($(this).val());
+               value[j++]=$(this).val();
             });
+            alert(value);
+            alert(cursel.className)
             if (confirm("Are sure want to delete"))
             {
                 var ids = this.id;
