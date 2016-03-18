@@ -538,7 +538,7 @@ $(document).ready(function () {
 
     $(document).on("click", '.checkbox', function () {
         if ($(".checkbox").length == $(".checkbox:checked").length) {
-            $("#selectall").attr("checked", true);
+            $("#selectall").attr("checked", "checked");
         } else {
             $("#selectall").removeAttr("checked");
         }
