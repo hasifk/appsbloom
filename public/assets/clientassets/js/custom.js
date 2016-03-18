@@ -520,18 +520,35 @@ $(document).ready(function () {
 
     ];
 
-    $(document).on("click", '#selectall', function () {
-          $('.case').attr('checked', this.checked);
-    });
- 
-    // if all checkbox are selected, check the selectall checkbox
-    // and viceversa
-    $(document).on("click", '.case', function () {
-        if($(".case").length == $(".case:checked").length) {
-            $("#selectall").attr("checked",true);
-        } else {
-            $("#selectall").removeAttr("checked");
+$('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+            $('.checkbox').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"               
+            });
+        }else{
+            $('.checkbox').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+            });         
         }
- 
     });
+
+$("#selecctall").change(function(){
+      $(".checkbox").prop('checked', $(this).prop("checked"));
+      });
+
+
+//    $(document).on("click", '#selectall', function () {
+//          $('.case').attr('checked', this.checked);
+//    });
+// 
+//    // if all checkbox are selected, check the selectall checkbox
+//    // and viceversa
+//    $(document).on("click", '.case', function () {
+//        if($(".case").length == $(".case:checked").length) {
+//            $("#selectall").attr("checked",true);
+//        } else {
+//            $("#selectall").removeAttr("checked");
+//        }
+// 
+//    });
 });
