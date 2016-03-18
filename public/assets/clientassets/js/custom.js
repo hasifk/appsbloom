@@ -519,8 +519,7 @@ $(document).ready(function () {
         }
 
     ];
-
-    $('#selectall').click(function (event) {  //on click 
+    $(document).on("click", '#selectall', function () {
         if (this.checked) { // check select status
             $('.checkbox').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"               
@@ -531,31 +530,16 @@ $(document).ready(function () {
             });
         }
     });
-
-    $("#selectall").change(function () {
+    $(document).on("change", '#selectall', function () {
         $(".checkbox").prop('checked', $(this).prop("checked"));
     });
 
     $(document).on("click", '.checkbox', function () {
-        alert($(".checkbox").length+"----"+$(".checkbox:checked").length);
+       // alert($(".checkbox").length + "----" + $(".checkbox:checked").length);
         if ($(".checkbox").length == $(".checkbox:checked").length) {
-            $("#selectall").prop( "checked", true );
+            $("#selectall").prop("checked", true);
         } else {
             $("#selectall").removeAttr("checked");
         }
     });
-//    $(document).on("click", '#selectall', function () {
-//          $('.case').attr('checked', this.checked);
-//    });
-// 
-//    // if all checkbox are selected, check the selectall checkbox
-//    // and viceversa
-//    $(document).on("click", '.case', function () {
-//        if($(".case").length == $(".case:checked").length) {
-//            $("#selectall").attr("checked",true);
-//        } else {
-//            $("#selectall").removeAttr("checked");
-//        }
-// 
-//    });
 });
