@@ -520,14 +520,6 @@ $(document).ready(function () {
 
     ];
 
-
-    $(document).on("change", '.selectallMeM', function () {
-        selectallMeM();
-    });
-    
-    $(document).on("change", '.cck', function () {
-        selectall();
-    });
     $(document).on("click", '#selectall', function () {
           $('.case').attr('checked', this.checked);
     });
@@ -543,72 +535,3 @@ $(document).ready(function () {
  
     });
 });
-
-
-var fieldName = 'cck';
-function selectall() {
-    //var i = $(".cck").length;
-    alert("hello");
-    var name = new Array();
-    var value = new Array();
-    var j = 0;
-    $(".cck").each(function () {
-        if (this.className == fieldName)
-        { 
-            if (this.is(":checked"))
-            {
-                value[j] = this.val();
-                j++;
-            }
-        }
-    });
-    checkSelect();
-}
-function selectCheck(obj)
-{
-    //var i = $(".cck").length;
-    $(".cck").each(function () {
-        this.checked = obj;
-    });
-    selectall();
-}
-function selectallMeM()
-{
-    if ($('#allCheck').is(":checked"))
-        selectallMe(true);
-    else
-        selectallMe(false);
-}
-function selectallMe(u)
-{
-    if (u == true)
-    {
-        $('#allCheck').checked;
-        selectCheck(true);
-    } else
-    {
-        selectCheck(false);
-    }
-}
-function checkSelect()
-{
-    alert("hell000000022200o");
-//    var berror = true;
-//    $(".cck").each(function () {
-//        if (this.className == fieldName)
-//        {
-//            
-//            if (this.is(":checked") == false)
-//            {
-//                alert("hell000000000o");
-//                berror = false;
-//                return false;
-//            }
-//        }
-//    });
-//    
-//    if (berror == false)
-//        $('#allCheck').checked = false;
-//     else
-//        $('#allCheck').checked = true;
-}
