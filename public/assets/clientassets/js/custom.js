@@ -539,7 +539,7 @@ $(document).ready(function () {
     $(document).on("click", '.checkbox', function () {
         alert($(".checkbox").length+"----"+$(".checkbox:checked").length);
         if ($(".checkbox").length == $(".checkbox:checked").length) {
-            $("#selectall").attr("checked", "checked");
+            $("#selectall").prop( "checked", true );
         } else {
             $("#selectall").removeAttr("checked");
         }
