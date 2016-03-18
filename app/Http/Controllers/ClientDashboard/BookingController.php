@@ -125,6 +125,7 @@ class BookingController extends Controller {
         } else {
 // Provide the Host Information.
             //$tHost = 'gateway.sandbox.push.apple.com';
+            //
             $tHost = 'gateway.push.apple.com';
             $tPort = 2195;
 // Provide the Certificate and Key Data.
