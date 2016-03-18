@@ -146,19 +146,23 @@ $(document).ready(function () {
 
 
     $(document).on("click", '.booking_delete,.mbooking_delete', function () {
-        var cursel = $(this);
+        var cursel = this;
         var value = new Array();
-        var j=1;
+        var j = 0;
         if ($(".checkbox:checked").length > 0)
         {
             $(".checkbox:checked").each(function () {
-               value[j++]=$(this).val();
+                if (cursel.className == 'booking_delete')
+                {
+                    var ids = cursel.id;
+                    $(this).removeAttr("checked");
+                    $("#"+ids).prop("checked", true);
+                }
+                else
+                value[j++] = $(this).val();
             });
-            alert(value);
-            alert(this.className)
             if (confirm("Are sure want to delete"))
             {
-                var ids = this.id;
                 $.ajax({
                     type: "GET",
                     url: base_url + '/booking_delete',
@@ -167,7 +171,7 @@ $(document).ready(function () {
                     success: function (data) {
                         location.reload();
                     },
-                    error: function (xhr, status, error) {
+                    error: function(xhr, status, error) {
                         alert(error);
                     }
                 });
