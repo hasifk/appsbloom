@@ -147,21 +147,27 @@ $(document).ready(function () {
 
     $(document).on("click", '.booking_delete,#booking_delete', function () {
         var cursel = $(this);
-        if (confirm("Are sure want to delete"))
+        if ($(".checkbox:checked").length > 0)
         {
-            var ids = this.id;
-            $.ajax({
-                type: "GET",
-                url: base_url + '/booking_delete',
-                data: "id=" + ids,
-                cache: false,
-                success: function (data) {
-                    location.reload();
-                },
-                error: function (xhr, status, error) {
-                    alert(error);
-                }
+            $(".checkbox:checked").each(function () {
+               alert($(this).val());
             });
+            if (confirm("Are sure want to delete"))
+            {
+                var ids = this.id;
+                $.ajax({
+                    type: "GET",
+                    url: base_url + '/booking_delete',
+                    data: "id=" + ids,
+                    cache: false,
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }
         }
     });
 
@@ -535,7 +541,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", '.checkbox', function () {
-       // alert($(".checkbox").length + "----" + $(".checkbox:checked").length);
+        // alert($(".checkbox").length + "----" + $(".checkbox:checked").length);
         if ($(".checkbox").length == $(".checkbox:checked").length) {
             $("#selectall").prop("checked", true);
         } else {
