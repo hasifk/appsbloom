@@ -44,7 +44,7 @@
                                         <?php
                                     endforeach;
                                  ?>
-                            <tr><th colspan="7"><button id="search" class="btn btn-primary">Delete</button></th></tr>
+                            <tr><th colspan="6"></th><th><button id="search" class="btn btn-primary">Delete</button></th></tr>
                                 <?php
                                 else:
                                     ?>
