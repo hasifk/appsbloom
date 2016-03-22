@@ -5,7 +5,7 @@
         {!! Form::open(array('url' => 'updateservice','files' => true)) !!} 
         {{ csrf_field() }}
         <div class="box-body">
-            <img class="img-responsive pad" src="{{$service_edit->image}}" alt="Photo">
+            <img class="img-responsive pad" src="{{asset($service_edit->image)}}" alt="Photo">
             <div class="form-group">
                 <label>Upload Service Image</label>
                 <input type="file" name="service_image" class="form-control" id="service_image">
