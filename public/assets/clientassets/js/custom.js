@@ -221,7 +221,7 @@ $(document).on("click", '.notification_delete,mnotification_delete', function ()
         var cursel = this;
         var value = new Array();
         var j = 0;
-        if (cursel.className.split(' ')[2] == 'notification_delete')
+        if (cursel.className.split(' ')[0] == 'notification_delete')
         {
             var ids = cursel.id;
             $(".checkbox").each(function () {

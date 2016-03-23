@@ -29,7 +29,7 @@
                                     <!-- General tools such as edit or delete-->
                                     <span class="tools pull-right">
                                         <a href="<?php echo url('update-notification/'.$value->id) ?>"><i class="fa fa-edit"></i></a>
-                                        <i class="fa fa-trash-o notification_delete" id="{{$value->id}}"></i>
+                                        <i class="notification_delete fa fa-trash-o" id="{{$value->id}}"></i>
                                     </span>
                                 </h4>
                             </div>
