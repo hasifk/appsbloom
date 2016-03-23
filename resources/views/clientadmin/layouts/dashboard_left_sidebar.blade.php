@@ -240,6 +240,16 @@
                                 <li><a href="{{ url('clients/our-teams') }}"><i class="fa fa-circle-o"></i>Our Teams</a></li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>Push Notifications </span>
+                                <span class="label label-primary pull-right">1</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ url('clients/push-notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
+                            </ul>
+                        </li>
                         <?php
                         break;
                     }
