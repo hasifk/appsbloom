@@ -21,7 +21,7 @@
                         <div class="panel panel-default" id="removal">
                             <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
                                 <h4 class="panel-title">
-                                    <span class="tools pull-left"><input type="checkbox" class="checkbox" name="check[]" value="{{$value->id}}" id="{{$value->id}}"/>&nbsp;&nbsp;&nbsp;</span>
+                                    <span class="tools pull-left"><input type="checkbox" class="checkbox" name="check[]" value="{{$value->id}}" id="{{$value->id}}"/>&nbsp;&nbsp;</span>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
 
                                         <span class="text"> {!!Str::limit($info,50)!!}</span>
@@ -52,7 +52,7 @@
                     </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
-                    <a href="#notification_add"> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
+                    <a href="#notification_add"><button class="mbooking_delete btn btn-primary" >Delete</button> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
                 </div>
             </div><!-- /.box -->
         </div>
