@@ -8,7 +8,7 @@
             <!-- TO DO List -->
             <div class="box box-primary" >
                 <div class="box-header with-border">
-                    <h3 class="box-title">Notifications</h3>
+                    <h3 class="box-title"><input type="checkbox" id="selectall"/> Notifications</h3>
                     <div class="box-tools pull-right">
                             <?php echo $notification->links(); ?>
                     </div>
@@ -23,7 +23,7 @@
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
 
-                                        <span class="text">{!!Str::limit($info,50)!!}</span>
+                                        <span class="text"><input type="checkbox" class="checkbox" name="check[]" value="{{$val->id}}" id="{{$val->id}}"/> {!!Str::limit($info,50)!!}</span>
                                     </a>
                                     <!-- General tools such as edit or delete-->
                                     <span class="tools pull-right">
@@ -35,7 +35,6 @@
                             <div id="collapse_{{$value->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$value->id}}">
                                 <div class="panel-body">
                                     {!!$value->notification!!}
-                                    
                                 </div>
                             </div>
                         </div>
