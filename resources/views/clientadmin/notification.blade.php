@@ -52,7 +52,7 @@
                     </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
-                    <a href="#notification_add"><button class="mbooking_delete btn btn-primary" >Delete</button> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
+                    <a href="#notification_add"><button class="mnotification_delete btn btn-primary" >Delete</button> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
                 </div>
             </div><!-- /.box -->
         </div>

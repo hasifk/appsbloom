@@ -217,6 +217,48 @@ $(document).ready(function () {
         }
     });
 
+$(document).on("click", '.notification_delete,mnotification_delete', function () {
+        var cursel = this;
+        var value = new Array();
+        var j = 0;
+        if (cursel.className == 'notification_delete')
+        {
+            var ids = cursel.id;
+            $(".checkbox").each(function () {
+                if($(this).is(":checked"))
+                $(this).removeAttr("checked");
+            });
+            $("#selectall").removeAttr("checked");
+            $("#" + ids).prop("checked", true);
+        }
+        if ($(".checkbox:checked").length > 0)
+        {
+            $(".checkbox:checked").each(function () {
+                value[j++] = $(this).val();
+            });
+            if (confirm("Are sure want to delete"))
+            {
+                $.ajax({
+                    type: "GET",
+                    url: base_url + '/notification_delete',
+                    data: "id=" + value,
+                    cache: false,
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }
+        }
+        else
+            alert("Please select atleast one")
+    });
+
+
+
+
     $(document).on("click", '.coupons_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
