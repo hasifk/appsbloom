@@ -24,6 +24,8 @@ class OurTeamsController extends Controller {
     }
 
     public function TeamsSave(Request $request) {
+         $admin = Auth::user()->id;
+        $role = Auth::user()->role;
         $rules = [
             'name' => 'required',
             'about' => 'required',
@@ -34,9 +36,11 @@ class OurTeamsController extends Controller {
         if ($request->has('Phone')) {
             $rules['Phone'] = 'required|numeric';
         }
-        $admin = Auth::user()->id;
-        $role = Auth::user()->role;
-        $return = 'our-teams';
+        if ($role != "SuperAdm")
+            $return='clients/our-teams';
+        else
+            $return = 'our-teams';
+       
         if ($request->has('id')):
             $return = 'update-ourteam/' . $request->id;
             $obj = Model\OurTeam::find($request->id);
@@ -73,7 +77,7 @@ class OurTeamsController extends Controller {
             $obj->about = $request->about;
             $obj->save();
             if ($role != "SuperAdm")
-                return redirect('clients/our-teams');
+                return redirect($return);
             else
                 return redirect('our-teams');
         }

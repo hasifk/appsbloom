@@ -64,7 +64,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Notifications</h3>
+                    <h3 class="box-title">Add Push Notifications</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 {!! Form::open(array('url' => 'notification_save')) !!}

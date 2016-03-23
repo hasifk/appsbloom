@@ -29,13 +29,8 @@ class PushNotificationController extends Controller {
         ];
         $admin = Auth::user()->id;
         $return = 'notification';
-        if ($request->has('id')):
-            $return = 'update-notification/' . $request->id;
-            $obj = Model\Notifications::find($request->id);
-        else:
-            $obj = new Model\Notifications;
-            $obj->admin_id = $admin;
-        endif;
+        $obj = new Model\Notifications;
+        $obj->admin_id = $admin;
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
             return redirect($return)

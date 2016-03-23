@@ -21,8 +21,6 @@ class ServicesController extends Controller {
     protected function manageservices() {
         $id = Auth::user()->id;
         $service_list = Model\Services::where('admin_id', $id)->paginate(10);
-
-
         return view('clientadmin.manage_services')->with('service_list', $service_list);
     }
 
