@@ -28,7 +28,11 @@ class PushNotificationController extends Controller {
             'notification' => 'required',
         ];
         $admin = Auth::user()->id;
-        $return = 'notification';
+        $role = Auth::user()->role;
+        if ($role != "SuperAdm")
+            $return='clients/notification';
+        else
+            $return = 'notification';
         $obj = new Model\Notifications;
         $obj->admin_id = $admin;
         $this->validator = Validator::make($request->all(), $rules);
@@ -39,7 +43,7 @@ class PushNotificationController extends Controller {
         } else {
             $obj->notification = $request->notification;
             $obj->save();
-            return redirect('notifications');
+            return redirect($return);
         }
     }
 

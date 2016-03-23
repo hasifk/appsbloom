@@ -316,14 +316,14 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     //PushNotification
     Route::get('push-notification', 'ClientDashboard\PushNotificationController@Notifications');
-    Route::post('notification_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
+    Route::post('notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
     Route::get('notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
-    Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
+    Route::get('update-notification/{id}', 'ClientDashboard\PushNotificationController@UpdateNotification');
 
     Route::get('clients/push-notification', 'ClientDashboard\PushNotificationController@Notifications');
-    Route::post('clients/notification_save', 'ClientDashboard\PushNotificationControllerController@NotificationSave');
+    Route::post('clients/notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
     Route::get('clients/notification_status', 'ClientDashboard\PushNotificationController@NotificationStatus');
-    Route::get('clients/update-notification/{id}', 'ClientDashboard\PushNotificationControllerController@UpdateNotification');
+    Route::get('clients/update-notification/{id}', 'ClientDashboard\PushNotificationController@UpdateNotification');
 
     //Our Teams
     Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
