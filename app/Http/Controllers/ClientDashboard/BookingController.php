@@ -127,8 +127,8 @@ class BookingController extends Controller {
             curl_close($ch);
         } else {
 // Provide the Host Information.
-            //$tHost = 'gateway.sandbox.push.apple.com';
-            $tHost = 'gateway.push.apple.com';
+            $tHost = 'gateway.sandbox.push.apple.com';
+            //$tHost = 'gateway.push.apple.com';
             $tPort = 2195;
 // Provide the Certificate and Key Data.
             $tCert = base_path('public/assets/clientassets/') . 'pushcert.pem';
