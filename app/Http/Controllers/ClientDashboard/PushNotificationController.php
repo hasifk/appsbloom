@@ -30,9 +30,9 @@ class PushNotificationController extends Controller {
         $admin = Auth::user()->id;
         $role = Auth::user()->role;
         if ($role != "SuperAdm")
-            $return='clients/notification';
+            $return='clients/push-notification';
         else
-            $return = 'notification';
+            $return = 'push-notification';
         $obj = new Model\Notifications;
         $obj->admin_id = $admin;
         $this->validator = Validator::make($request->all(), $rules);
