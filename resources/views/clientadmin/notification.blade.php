@@ -23,7 +23,6 @@
                                 <h4 class="panel-title">
                                     <span class="tools pull-left"><input type="checkbox" class="checkbox" name="check[]" value="{{$value->id}}" id="{{$value->id}}"/>&nbsp;&nbsp;&nbsp;</span>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
-
                                         <span class="text"> {!!Str::limit($info,50)!!}</span>
                                     </a>
                                     <!-- General tools such as edit or delete-->
