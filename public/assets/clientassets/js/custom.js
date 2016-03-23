@@ -217,7 +217,7 @@ $(document).ready(function () {
         }
     });
 
-$(document).on("click", '.notification_delete,mnotification_delete', function () {
+$(document).on("click", '.notification_delete,.mnotification_delete', function () {
         var cursel = this;
         var value = new Array();
         var j = 0;

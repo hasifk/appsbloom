@@ -46,7 +46,9 @@ class PushNotificationController extends Controller {
         }
     }
     public function NotificationDelete(Request $request) {
-        Model\Notifications::where('id', $request->id)->delete();
-        $admin = Auth::user()->id;
+        $ids = explode(",", $request->id);
+        foreach ($ids as $value):
+            Model\Notifications::where('id', $value)->delete();
+        endforeach;
     }
 }
