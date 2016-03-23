@@ -21,9 +21,10 @@
                         <div class="panel panel-default" id="removal">
                             <div class="panel-heading" role="tab" id="heading_{{$value->id}}">
                                 <h4 class="panel-title">
+                                    <span class="tools pull-left"><input type="checkbox" class="checkbox" name="check[]" value="{{$value->id}}" id="{{$value->id}}"/></span>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{$value->id}}" aria-expanded="false" aria-controls="collapse_{{$value->id}}">
 
-                                        <span class="text"><input type="checkbox" class="checkbox" name="check[]" value="{{$value->id}}" id="{{$value->id}}"/> {!!Str::limit($info,50)!!}</span>
+                                        <span class="text"> {!!Str::limit($info,50)!!}</span>
                                     </a>
                                     <!-- General tools such as edit or delete-->
                                     <span class="tools pull-right">
