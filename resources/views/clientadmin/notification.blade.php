@@ -38,6 +38,7 @@
                                     {!!$value->notification!!}
                                 </div>
                             </div>
+                            
                         </div>
                         @endforeach
                         @else

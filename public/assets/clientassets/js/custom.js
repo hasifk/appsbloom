@@ -234,6 +234,7 @@ $(document).on("click", '.notification_delete,mnotification_delete', function ()
             $("#selectall").removeAttr("checked");
             $("#" + ids).prop("checked", true);
         }
+       
         if ($(".checkbox:checked").length > 0)
         {
             $(".checkbox:checked").each(function () {
