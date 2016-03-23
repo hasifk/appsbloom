@@ -223,7 +223,6 @@ $(document).on("click", '.notification_delete,mnotification_delete', function ()
         var j = 0;
         if (cursel.className.split(' ')[2] == 'notification_delete')
         {
-            alert('sdsddf');
             var ids = cursel.id;
             $(".checkbox").each(function () {
                 if($(this).is(":checked"))
