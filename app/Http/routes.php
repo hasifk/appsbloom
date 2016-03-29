@@ -30,6 +30,7 @@ header('content-type: application/json; charset=utf-8');
 
 Route::post('insertbooking/{id}', 'Api\ApiController@InsertBooking');
 Route::post('appointmentchecking/{id}', 'Api\ApiController@AppointmentChecking');
+Route::post('appinfo/{id}', 'Api\ApiController@AppinfoSave');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
