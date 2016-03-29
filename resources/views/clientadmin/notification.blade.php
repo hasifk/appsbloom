@@ -80,7 +80,7 @@
                     @endif
                     <div class="form-group">
                         <label for="exampleInputPassword1">Notifications</label>
-                        {{ Form::textarea('notification','',['id' => 'offer_info','class'=>'to_ck']) }}
+                        {{ Form::textarea('notification','') }}
                     </div>
                 </div><!-- /.box-body -->
 
