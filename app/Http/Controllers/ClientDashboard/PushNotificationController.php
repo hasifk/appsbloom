@@ -59,7 +59,7 @@ class PushNotificationController extends Controller {
                     $msg = array
                         (
                         'message' => $request->notification,
-                        'title' => "Booking Status",
+                        'title' => "Notification",
                         'subtitle' => 'This is a subtitle. subtitle',
                         'tickerText' => 'Ticker text here...Ticker text here...Ticker text here',
                         'vibrate' => 1,
