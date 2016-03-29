@@ -321,8 +321,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('notification_delete', 'ClientDashboard\PushNotificationController@NotificationDelete');
 
     Route::get('clients/push-notification', 'ClientDashboard\PushNotificationController@Notifications');
-    Route::post('clients/notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
-    Route::get('clients/notification_delete', 'ClientDashboard\PushNotificationController@NotificationDelete');
+    //Route::post('clients/notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
+    //Route::get('clients/notification_delete', 'ClientDashboard\PushNotificationController@NotificationDelete');
 
     //Our Teams
     Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
