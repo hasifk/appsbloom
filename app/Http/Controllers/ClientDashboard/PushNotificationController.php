@@ -89,7 +89,7 @@ class PushNotificationController extends Controller {
                     $result = curl_exec($ch);
 // Close connection
                     curl_close($ch);
-                } 
+                }
                 if(!empty($app_id2) && count($app_id2)>0) {
 // Provide the Host Information.
                     $tHost = 'gateway.sandbox.push.apple.com';
