@@ -49,7 +49,7 @@ class PushNotificationController extends Controller {
                         $app_id2[] = $val->app_id;
                     }
                 }
-                if (count($app_id1)>0) {
+                if (!empty($app_id1) && count($app_id1)>0) {
 
 // API access key from Google API's Console
                     define('API_ACCESS_KEY', 'AIzaSyDPQxOac0sXH7VZEa79R45hCuJjXTn0X8g');
@@ -90,7 +90,7 @@ class PushNotificationController extends Controller {
 // Close connection
                     curl_close($ch);
                 } 
-                if(count($app_id2)>0) {
+                if(!empty($app_id2) && count($app_id2)>0) {
 // Provide the Host Information.
                     $tHost = 'gateway.sandbox.push.apple.com';
                     //$tHost = 'gateway.push.apple.com';
