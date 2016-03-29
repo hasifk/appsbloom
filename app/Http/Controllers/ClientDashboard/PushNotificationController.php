@@ -153,7 +153,7 @@ class PushNotificationController extends Controller {
                 }
                 $obj = new Model\Notifications;
                 $obj->admin_id = $admin;
-                $obj->notification = $app_id1[2];
+                $obj->notification = $request->notification;
                 $obj->save();
                 return redirect($return);
             }
