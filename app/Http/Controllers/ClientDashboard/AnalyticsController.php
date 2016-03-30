@@ -6,6 +6,7 @@ namespace App\Http\Controllers\ClientDashboard;
 use Auth;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\View\View;
 
 use App\Model;
