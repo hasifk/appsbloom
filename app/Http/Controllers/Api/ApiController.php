@@ -25,7 +25,7 @@ class ApiController extends Controller {
             case "hours":
             case "price-lists":
             {
-                $data = Model\Contents::where('admin_id', $id)->get();
+                $data = Model\Contents::where('admin_id', $id)->first();
                 $return['content']=$data->home;
                 break;
             }
