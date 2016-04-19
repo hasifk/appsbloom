@@ -27,9 +27,11 @@ class ApiController extends Controller {
             {
                 $data = Model\Contents::where('admin_id', $id)->first()->toArray();
                 $return['content']=$data['home'];
-                return $user;
                 break;
             }
+            case "price-lists":
+                $return = Model\Contents::where('admin_id', $id)->get();
+                break;
             case "services":
             {
                 $data = Model\Services::where('admin_id', $id)->get()->toArray();
