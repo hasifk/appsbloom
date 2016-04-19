@@ -39,7 +39,7 @@ class ServicesController extends Controller {
             }
         }
         $rules = [
-            'title' => 'required',
+           // 'title' => 'required',
             'service_content' => 'required',
         ];
         if (!empty($request->service_image)) {
@@ -55,9 +55,9 @@ class ServicesController extends Controller {
             $service_image_store = "";
         $service_task = new Model\Services;
         $service_task->admin_id = $id;
-        $service_task->title = $request->title;
+       // $service_task->title = $request->title;
         $service_task->description = $request->service_content;
-        $service_task->image = $service_image_store;
+       // $service_task->image = $service_image_store;
         $service_task->save();
         return back();
     }

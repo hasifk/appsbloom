@@ -55,7 +55,7 @@
         {!! Form::open(array('url' => 'saveservice','files' => true)) !!} 
         {{ csrf_field() }}
         <div class="box-body">
-            <div class="form-group">
+<!--            <div class="form-group">
                 <label for="exampleInputEmail1">Service Title </label>
                 {!! Form::text('title','',array("id"=>"title","class"=>"form-control","placeholder"=>"Service Title")) !!}
             </div>
@@ -67,9 +67,9 @@
                     <strong>{{ $errors->first('service_image') }}</strong>
                 </span>
                 @endif 
-            </div>
+            </div>-->
             <div class="form-group">
-                <label>Enter Service Description </label>
+                <label>Services</label>
                 {{ Form::textarea('service_content','',['id' => 'service_content','class'=>'to_ck']) }}
                 @if ($errors->has('service_content'))
                 <span class="help-block">

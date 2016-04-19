@@ -71,9 +71,9 @@ class OurTeamsController extends Controller {
                 // sending back with message
                 $obj->photo = $destinationPath . '/' . $fileName;
             }
-            $obj->name = $request->name;
-            $obj->phone = $request->Phone;
-            $obj->email = $request->email;
+           // $obj->name = $request->name;
+            //$obj->phone = $request->Phone;
+           // $obj->email = $request->email;
             $obj->about = $request->about;
             $obj->save();
             if ($role != "SuperAdm")
