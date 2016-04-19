@@ -30,7 +30,7 @@ class ApiController extends Controller {
             }
             case "price-lists":
             {
-                $data = Model\Contents::where('admin_id', $id)->get()->toArray();
+                $data = Model\Contents::where('admin_id', $id)->first()->toArray();
                 $return['content']=$data['price_lists'];
                 break;
             }
@@ -95,7 +95,8 @@ class ApiController extends Controller {
                 $return = Model\Offer::where('admin_id', $id)->get();
                 break;
             case "teams":
-                $return = Model\OurTeam::where('admin_id', $id)->get();
+                $data = Model\OurTeam::where('admin_id', $id)->first()->toArray();
+                $return['content']=$data['about'];
                 break;
             default:
                 $return = "";
