@@ -102,8 +102,7 @@ class ApiController extends Controller {
                 $return = "";
                 break;
         }
-        return $return;
-        
+        return response()->json($return);
     }
 
     public function InsertBooking(Request $request) {
