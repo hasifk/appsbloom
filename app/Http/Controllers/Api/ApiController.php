@@ -26,7 +26,7 @@ class ApiController extends Controller {
             case "price-lists":
             {
                 $data = Model\Contents::where('admin_id', $id)->get()->toArray();
-                $return['content']=$data['home'];
+                $return['content']=$data->home;
                 break;
             }
             case "services":
