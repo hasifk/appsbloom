@@ -24,11 +24,17 @@ class ApiController extends Controller {
             case "contact-us":
             case "hours":
             case "price-lists":
-                $return = Model\Contents::where('admin_id', $id)->get();
+            {
+                $data = Model\Contents::where('admin_id', $id)->get()->toArray();
+                $return['content']=$data['home'];
                 break;
+            }
             case "services":
-                $return = Model\Services::where('admin_id', $id)->get();
+            {
+                $data = Model\Services::where('admin_id', $id)->get()->toArray();
+                $return['content']=$data['description'];
                 break;
+            }
             case "gallery":
                 $return = Model\Gallery::where('admin_id', $id)->get();
                 break;
