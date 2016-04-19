@@ -103,6 +103,7 @@ class ApiController extends Controller {
                 break;
         }
         return $return;
+        
     }
 
     public function InsertBooking(Request $request) {
