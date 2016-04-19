@@ -63,7 +63,7 @@
                 {!! Form::open(array('url' => 'ourteam_save','files'=>true,'role'=>"form")) !!}
                 <div class="box-body">
                     
-                    <div class="form-group col-xs-6">
+<!--                    <div class="form-group col-xs-6">
                         <label for="exampleInputEmail1">Name <span style="color:red;">*</span></label>
                         {!! Form::text('name','',array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}
                         @if ($errors->has('name'))
@@ -100,7 +100,7 @@
                             </span>
                             @endif
 
-                    </div>
+                    </div>-->
                     <div class="form-group col-xs-12">
                         <label for="exampleInputPassword1">About <span style="color:red;">*</span></label>
                         {{ Form::textarea('about','',['id' => 'about','class'=>'to_ck']) }}

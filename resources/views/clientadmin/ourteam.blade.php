@@ -23,7 +23,7 @@
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body no-padding">
-                    <div class="col-xs-12 col-md-2 box-header border-right pull-left image">
+<!--                    <div class="col-xs-12 col-md-2 box-header border-right pull-left image">
                         <img src="{{asset($ourteam[0]->photo)}}" width="150" height="150">
                         <div class="col-xs-12 col-md-12 box-header with-border">
                             {{$ourteam[0]->phone}}
@@ -31,7 +31,7 @@
                         <div class="col-xs-12 col-md-12 box-header with-border">
                             {{$ourteam[0]->email}}
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-xs-12 col-md-10">
                         {!!$ourteam[0]->about!!}
                     </div>
