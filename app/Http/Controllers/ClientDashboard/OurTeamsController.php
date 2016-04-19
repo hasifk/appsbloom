@@ -24,10 +24,10 @@ class OurTeamsController extends Controller {
     }
 
     public function TeamsSave(Request $request) {
-         $admin = Auth::user()->id;
+        $admin = Auth::user()->id;
         $role = Auth::user()->role;
         $rules = [
-            'name' => 'required',
+            //'name' => 'required',
             'about' => 'required',
         ];
         if ($request->has('email')) {

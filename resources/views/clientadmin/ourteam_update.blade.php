@@ -10,10 +10,11 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Update Our Teams</h3>
                     <div class="pagination-sm no-margin xs-pull">
-                        <a href="<?php if ($role != "SuperAdm")
-                        echo url('clients/our-teams/'.$ourteam[0]->id);
+                        <a href="<?php
+                        if ($role != "SuperAdm")
+                            echo url('clients/our-teams/' . $ourteam[0]->id);
                         else
-                        echo url('our-teams/'.$ourteam[0]->id);
+                            echo url('our-teams/' . $ourteam[0]->id);
                         ?>">
                             <span class="glyphicon glyphicon-arrow-left"></span>
                         </a>&nbsp;&nbsp;
@@ -31,7 +32,7 @@
                         </ul>
                     </div>
                     @endif
-                    <div class="form-group col-xs-6">
+<!--                    <div class="form-group col-xs-6">
                         <label for="exampleInputEmail1">Name <span style="color:red;">*</span></label>
                         {!! Form::text('name',$ourteam[0]->name,array("id"=>"name","class"=>"form-control","placeholder"=>"Name")) !!}
                     </div>
@@ -42,24 +43,22 @@
                     <div class="form-group col-xs-6">
                         <label for="exampleInputFile">Phone &nbsp;&nbsp;<span><i>(Optional)</i></span></label>
                         {!! Form::text('Phone',$ourteam[0]->phone,array("id"=>"phone","class"=>"form-control","placeholder"=>"Phone Number")) !!}
-
                     </div>
                     <div class="form-group col-xs-6">
                         <label for="exampleInputFile">Upload Photo</label>
                         {!! Form::file('image',$attributes = array("id"=>"exampleInputFile")) !!}
-
-                    </div>
+                    </div>-->
                     <div class="form-group col-xs-12">
                         <label for="exampleInputPassword1">About <span style="color:red;">*</span></label>
                         {{ Form::textarea('about',$ourteam[0]->about,['id' => 'about','class'=>'to_ck']) }}
                     </div>
                     <div class="form-group col-xs-12">
-                    {{Form::hidden('id',$ourteam[0]->id) }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                        {{Form::hidden('id',$ourteam[0]->id) }}
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
                 </div><!-- /.box-body -->
 
-                
+
                 {!! Form::close() !!}
             </div><!-- /.box -->
         </div>

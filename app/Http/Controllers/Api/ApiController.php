@@ -41,11 +41,15 @@ class ApiController extends Controller {
                 break;
             }
             case "gallery":
+            {
                 $return = Model\Gallery::where('admin_id', $id)->get();
                 break;
+            }
             case "find-us":
+            {
                 $return = Model\FindUs::where('admin_id', $id)->get();
                 break;
+            }
             case "news":
                 $return = Model\News::where('admin_id', $id)->get();
                 break;
