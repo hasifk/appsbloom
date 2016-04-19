@@ -23,7 +23,6 @@ class ApiController extends Controller {
             case "about":
             case "contact-us":
             case "hours":
-            case "price-lists":
             {
                 $data = Model\Contents::where('admin_id', $id)->first()->toArray();
                 $return['content']=$data['home'];
@@ -34,7 +33,7 @@ class ApiController extends Controller {
                 break;
             case "services":
             {
-                $data = Model\Services::where('admin_id', $id)->get()->toArray();
+                $data = Model\Services::where('admin_id', $id)->first()->toArray();
                 $return['content']=$data['description'];
                 break;
             }

@@ -27,6 +27,8 @@
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 
         <script src="{{asset('assets/clientassets/plugins/jQuery/jquery-2.2.0.min.js')}}"></script>
+        
+        <script src="{{asset('assets/clientassets/plugins/ckeditor/plugin.js')}}"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
