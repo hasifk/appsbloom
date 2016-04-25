@@ -197,7 +197,7 @@ class ApiController extends Controller {
         $result = json_decode(file_get_contents('php://input'));
         $appinfo = Model\Appinfo::get();
         $f=1;
-        if(!empty($obj))
+        if(!empty($appinfo))
         {
             foreach($appinfo as $app)
             {
