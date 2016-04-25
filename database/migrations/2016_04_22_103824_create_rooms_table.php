@@ -19,7 +19,7 @@ class CreateRoomsTable extends Migration {
 
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('admin_id');
+            $table->intiger('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')
                     ->onUpdate('cascade')->onDelete('cascade');
             $table->string('type', 50);
