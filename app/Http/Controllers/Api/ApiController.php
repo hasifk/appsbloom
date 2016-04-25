@@ -36,8 +36,8 @@ class ApiController extends Controller {
             }
             case "services":
             {
-                $data = Model\Services::where('admin_id', $id)->first()->toArray();
-                $return['content']=$data['description'];
+                $data = Model\Contents::where('admin_id', $id)->first()->toArray();
+                $return['content']=$data['services'];
                 break;
             }
             case "gallery":

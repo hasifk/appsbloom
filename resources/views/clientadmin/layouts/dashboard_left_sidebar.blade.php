@@ -195,7 +195,7 @@
                                 <span class="label label-primary pull-right">1</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{ url('our-teams') }}"><i class="fa fa-circle-o"></i>Our Teams</a></li>
+                                <li><a href="{{ url('our_teams') }}"><i class="fa fa-circle-o"></i>Our Teams</a></li>
                             </ul>
                         </li>
                         <?php
