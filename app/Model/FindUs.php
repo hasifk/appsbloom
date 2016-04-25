@@ -11,5 +11,5 @@ class FindUs extends Model
      *
      *
     **/ 
-      protected $table = 'Find-us';
+      protected $table = 'Find_us';
 }

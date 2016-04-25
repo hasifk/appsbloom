@@ -12,13 +12,13 @@ class CreateFindUsTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('Find-us')):
-            DB::statement("TRUNCATE TABLE Find-us");
+        if (Schema::hasTable('Find_us')):
+            DB::statement("TRUNCATE TABLE Find_us");
             DB::statement("TRUNCATE TABLE admin CASCADE");
-            Schema::drop('Find-us');
+            Schema::drop('Find_us');
         endif;
 
-        Schema::create('Find-us', function (Blueprint $table) {
+        Schema::create('Find_us', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')

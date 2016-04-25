@@ -45,7 +45,7 @@ class ApiController extends Controller {
                 $return = Model\Gallery::where('admin_id', $id)->get();
                 break;
             }
-            case "find-us":
+            case "find_us":
             {
                 $return = Model\FindUs::where('admin_id', $id)->get();
                 break;
