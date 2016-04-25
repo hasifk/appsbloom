@@ -62,7 +62,7 @@ class ScheduleController extends Controller {
         $obj->admin_id = $admin;
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
-            return redirect('manageschedule')
+            return redirect(Auth::user()->roleAccess('manageschedule'))
                             ->withErrors($this->validator)
                             ->withInput();
         } else {

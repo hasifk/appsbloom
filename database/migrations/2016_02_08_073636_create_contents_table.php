@@ -30,6 +30,10 @@ class CreateContentsTable extends Migration
             $table->longText('schedule_info');
             $table->longText('contact_us');
             $table->string('image',200);
+            $table->longText('price_lists');
+            $table->longText('home');
+            $table->longText('services');
+            $table->longText('ourteams');
             $table->timestamps();
         });
     }

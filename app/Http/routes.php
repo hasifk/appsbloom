@@ -50,49 +50,93 @@ Route::group(['middleware' => ['web']], function () {
 
 
 /* * ****************************************************************************************************************** */
+
+
+
 Route::group(['middleware' => ['web', 'auth']], function () {
 
-    Route::get('success', 'Auth\IndexController@success');
-    Route::get('clients/success', 'Auth\IndexController@success');
-    
-    
-    
+    Route::group(['middleware' => ['admin']], function () {
+
+        //success
+        Route::get('success', 'Auth\IndexController@success');
+
+        //home
+        Route::get('home', 'ClientDashboard\HomeController@Home');
+        Route::post('home_save', 'ClientDashboard\HomeController@HomeSave');
+
+        //About
+        Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
+        Route::post('saveabout', 'ClientDashboard\AboutController@saveabout');
+
+        //Services
+        Route::get('manageservices', 'ClientDashboard\ServicesController@manageservices');
+        Route::post('saveservice', 'ClientDashboard\ServicesController@saveservice');
+
+        //Profile
+        Route::get('profile', 'ClientDashboard\ProfileController@Profile');
+        Route::post('client_save', 'ClientDashboard\ProfileController@ProfileSave');
+        Route::get('profile-update', 'ClientDashboard\ProfileController@ProfileUpdate');
+        Route::get('profile_delete', 'ClientDashboard\ProfileController@ProfileDelete');
+
+        //PriceLists
+        Route::get('price-list', 'ClientDashboard\PricelistController@PriceLists');
+        Route::post('pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
+
+        //Our Teams
+        Route::get('our_teams', 'ClientDashboard\OurTeamsController@Teams');
+        // Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
+        Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
+        //  Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
+        //  Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
+        //PushNotification
+        Route::get('push_notification', 'ClientDashboard\PushNotificationController@Notifications');
+    });
+
+    Route::group(['prefix' => 'clients', 'middleware' => ['userroles']], function () {
+
+        //Success
+        Route::get('success', 'Auth\IndexController@success');
+
+        //Home
+        Route::get('home', 'ClientDashboard\HomeController@Home');
+        Route::post('home_save', 'ClientDashboard\HomeController@HomeSave');
+
+        //About
+        Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
+        Route::post('saveabout', 'ClientDashboard\AboutController@saveabout');
+
+        //Services
+        Route::get('manageservices', 'ClientDashboard\ServicesController@manageservices');
+        Route::post('saveservice', 'ClientDashboard\ServicesController@saveservice');
+
+        //Profile
+        Route::get('profile', 'ClientDashboard\ProfileController@Profile');
+        Route::post('client_save', 'ClientDashboard\ProfileController@ProfileSave');
+        Route::get('profile-update', 'ClientDashboard\ProfileController@ProfileUpdate');
+        Route::get('profile_delete', 'ClientDashboard\ProfileController@ProfileDelete');
+
+        //PriceLists
+        Route::get('price-list', 'ClientDashboard\PricelistController@PriceLists');
+        Route::post('pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
+
+        //Our Teams
+        Route::get('our_teams', 'ClientDashboard\OurTeamsController@Teams');
+//                    Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
+        Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
+//                    Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
+//                    Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
+        //PushNotification
+        Route::get('push_notification', 'ClientDashboard\PushNotificationController@Notifications');
+    });
+
     Route::get('logout', 'Auth\IndexController@logout');
-    /* Route::post('areainterest', 'Auth\IndexController@areainterest');
-      Route::get('apptype', 'ClientDashboard\AppsController@apptype');
-      Route::post('storeapptype', 'ClientDashboard\AppsController@storeapptype');
-      Route::get('appinfo', 'ClientDashboard\AppsController@appinfo');
-      Route::post('storeappinfo', 'ClientDashboard\AppsController@storeappinfo'); */
-
     //Home
-    
-    Route::get('home', 'ClientDashboard\HomeController@Home');
-    Route::get('clients/home', 'ClientDashboard\HomeController@Home');
+
     Route::post('home_save', 'ClientDashboard\HomeController@HomeSave');
-    //About
 
-    Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
-    Route::post('saveabout', 'ClientDashboard\AboutController@saveabout');
 
-    Route::get('clients/manageabout', 'ClientDashboard\AboutController@manageabout');
-    Route::post('clients/saveabout', 'ClientDashboard\AboutController@saveabout');
-
-    //Services
-
-    Route::get('manageservices', 'ClientDashboard\ServicesController@manageservices');
-    Route::post('saveservice', 'ClientDashboard\ServicesController@saveservice');
-    Route::get('editservice/{id}', 'ClientDashboard\ServicesController@editservice');
-    Route::post('updateservice', 'ClientDashboard\ServicesController@updateservice');
-    Route::get('deleteservice/{id}', 'ClientDashboard\ServicesController@deleteservice');
-
-    Route::get('clients/manageservices', 'ClientDashboard\ServicesController@manageservices');
-    Route::post('clients/saveservice', 'ClientDashboard\ServicesController@saveservice');
-    Route::get('clients/editservice/{id}', 'ClientDashboard\ServicesController@editservice');
-    Route::post('clients/updateservice', 'ClientDashboard\ServicesController@updateservice');
-    Route::get('clients/deleteservice/{id}', 'ClientDashboard\ServicesController@deleteservice');
 
     //Contacts
-
     Route::get('managecontact', 'ClientDashboard\ContactController@managecontact');
     Route::post('savecontact', 'ClientDashboard\ContactController@savecontact');
 
@@ -100,7 +144,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('clients/savecontact', 'ClientDashboard\ContactController@savecontact');
 
     //Shedule
-
     Route::get('manageschedule', 'ClientDashboard\ScheduleController@manageschedule');
     Route::post('saveschedule', 'ClientDashboard\ScheduleController@saveschedule');
     Route::post('scheduling_time', 'ClientDashboard\ScheduleController@ShedulingTime');
@@ -111,7 +154,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('clients/booking_time', 'ClientDashboard\BookingController@BookingTime');
 
     //Loyality
-
     Route::get('manageloyalty', 'ClientDashboard\LoyaltyController@manageloyalty');
     Route::post('saveloyalty', 'ClientDashboard\LoyaltyController@saveloyalty');
     Route::get('editloyalty/{id}', 'ClientDashboard\LoyaltyController@editloyalty');
@@ -125,7 +167,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('clients/deleteloyalty/{id}', 'ClientDashboard\LoyaltyController@deleteloyalty');
 
     //Events
-
     Route::get('manageevents', 'ClientDashboard\EventsController@manageevents');
     Route::post('saveevent', 'ClientDashboard\EventsController@saveevent');
     Route::get('editevent/{id}', 'ClientDashboard\EventsController@editevent');
@@ -139,7 +180,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('clients/deleteevent/{id}', 'ClientDashboard\EventsController@deleteevent');
 
     //Langualges
-
     Route::get('managelanguages', 'ClientDashboard\LanguagesController@managelanguages');
     Route::post('savelanguage', 'ClientDashboard\LanguagesController@savelanguage');
     Route::get('editlanguage/{id}', 'ClientDashboard\LanguagesController@editlanguage');
@@ -153,7 +193,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('clients/deletelanguage/{id}', 'ClientDashboard\LanguagesController@deletelanguage');
 
     //Language Keys
-
     Route::get('managelangkeys', 'ClientDashboard\LangkeyController@managelangkeys');
     Route::post('savelangkey', 'ClientDashboard\LangkeyController@savelangkey');
     Route::get('editlangkey/{id}', 'ClientDashboard\LangkeyController@editlangkey');
@@ -169,17 +208,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //Analytics
     Route::get('manageanalytics', 'ClientDashboard\AnalyticsController@manageanalytics');
     Route::get('clients/manageanalytics', 'ClientDashboard\AnalyticsController@manageanalytics');
-
-    //Profile
-    Route::get('profile', 'ClientDashboard\ProfileController@Profile');
-    Route::post('client_save', 'ClientDashboard\ProfileController@ProfileSave');
-    Route::get('profile-update', 'ClientDashboard\ProfileController@ProfileUpdate');
-    Route::get('profile_delete', 'ClientDashboard\ProfileController@ProfileDelete');
-
-    Route::get('clients/profile', 'ClientDashboard\ProfileController@Profile');
-    Route::post('clients/client_save', 'ClientDashboard\ProfileController@ProfileSave');
-    Route::get('clients/profile-update', 'ClientDashboard\ProfileController@ProfileUpdate');
-    Route::get('clients/profile_delete', 'ClientDashboard\ProfileController@ProfileDelete');
 
     //Gallery
     Route::get('gallery', 'ClientDashboard\GalleryController@Gallery');
@@ -200,13 +228,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('clients/coordinates_save', 'ClientDashboard\FindUsController@CoordinatesSave');
     Route::get('clients/findus_delete', 'ClientDashboard\FindUsController@FindusDelete');
     Route::get('clients/findus_update/{id}', 'ClientDashboard\FindUsController@FindusUpdate');
-
-    //PriceLists
-    Route::get('price-list', 'ClientDashboard\PricelistController@PriceLists');
-    Route::post('pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
-
-    Route::get('clients/price-list', 'ClientDashboard\PricelistController@PriceLists');
-    Route::post('clients/pricelists_save', 'ClientDashboard\PricelistController@PricelistSave');
 
     //News
     Route::get('news', 'ClientDashboard\NewsController@News');
@@ -242,7 +263,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //oute::post('booking_save', 'ClientDashboard\BookingController@BookingSave');
     Route::get('clients/booking_delete', 'ClientDashboard\BookingController@BookingDelete');
     Route::get('clients/booking_status', 'ClientDashboard\BookingController@BookingStatus');
-    
+
 
     //Coupons
     Route::get('coupons', 'ClientDashboard\CouponsController@Coupons');
@@ -316,33 +337,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('clients/feedback_status', 'ClientDashboard\FeedbackController@FeedbackStatus');
 
     //PushNotification
-    Route::get('push-notification', 'ClientDashboard\PushNotificationController@Notifications');
     Route::post('notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
     Route::get('notification_delete', 'ClientDashboard\PushNotificationController@NotificationDelete');
-
-    Route::get('clients/push-notification', 'ClientDashboard\PushNotificationController@Notifications');
-    //Route::post('clients/notification_save', 'ClientDashboard\PushNotificationController@NotificationSave');
-    //Route::get('clients/notification_delete', 'ClientDashboard\PushNotificationController@NotificationDelete');
-
-    //Our Teams
-    Route::get('our-teams', 'ClientDashboard\OurTeamsController@Teams');
-    Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
-    Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
-    Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
-    Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
-
-    Route::get('clients/our-teams', 'ClientDashboard\OurTeamsController@Teams');
-    Route::get('clients/our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
-    Route::post('clients/ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
-    Route::get('clients/ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
-    Route::get('clients/update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
-
+    
     //sorting
     Route::get('sorting', 'ClientDashboard\SortingController@Sorting');
-
-    Route::get('clients/sorting', 'ClientDashboard\SortingController@Sorting');
 });
 
-Route::group(['middleware' => ['web', 'auth', 'userroles']], function () {
-    
-});

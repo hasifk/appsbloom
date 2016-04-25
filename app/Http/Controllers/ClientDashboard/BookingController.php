@@ -53,7 +53,7 @@ class BookingController extends Controller {
             $obj->type = $request->type;
             $obj->capacity = $request->capacity;
             $obj->rent = $request->rent;
-            $obj->other = $request->other;
+//            $obj->other = $request->other;
             $obj->save();
             return redirect('booking');
         }

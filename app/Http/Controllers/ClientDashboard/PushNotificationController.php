@@ -29,11 +29,7 @@ class PushNotificationController extends Controller {
         ];
         $admin = Auth::user()->id;
         $role = Auth::user()->role;
-        if ($role != "SuperAdm")
-            $return = 'clients/push-notification';
-        else
-            $return = 'push-notification';
-
+        $return = Auth::user()->roleAccess('push_notification');
         $this->validator = Validator::make($request->all(), $rules);
         if ($this->validator->fails()) {
             return redirect($return)
@@ -165,6 +161,8 @@ class PushNotificationController extends Controller {
         foreach ($ids as $value):
             Model\Notifications::where('id', $value)->delete();
         endforeach;
+        
+        return redirect(Auth::user()->roleAccess('push_notification'));
     }
 
 }

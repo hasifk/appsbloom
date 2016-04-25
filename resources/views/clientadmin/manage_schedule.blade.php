@@ -5,7 +5,9 @@
 <h3><b><center>Opening Hours & Days</center></b></h3>
 
 <section class="content">
-    <div class="row">
+    
+    
+<!--    <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
                 {!! Form::open(array('url' => 'saveschedule')) !!} 
@@ -27,8 +29,10 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-        </div><!-- /.col-->
-    </div><!-- ./row -->
+        </div> /.col
+    </div> ./row -->
+    
+    
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">

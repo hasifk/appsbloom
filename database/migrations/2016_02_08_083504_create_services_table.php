@@ -23,6 +23,7 @@ class CreateServicesTable extends Migration
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')
             ->onUpdate('cascade')->onDelete('cascade');
+            $table->string('title',250);
             $table->longText('description');
             $table->string('image',250);
             $table->timestamps();

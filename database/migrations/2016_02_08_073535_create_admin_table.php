@@ -22,10 +22,8 @@ class CreateAdminTable extends Migration
      
         Schema::create('admin', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('app_type_id');
-            $table->foreign('app_type_id')->references('id')->on('app_type')
-            ->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
+            $table->string('role');
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();

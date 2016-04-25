@@ -26,6 +26,12 @@ class CreateBookingTable extends Migration
             $table->string('name',200);
             $table->integer('phone');
             $table->string('email',200);
+            $table->text('address',200);
+             $table->integer('age');
+             $table->string('gender',30);
+             $table->string('date',15);
+             $table->longText('app_id',255);
+             $table->string('device_type',20);
             $table->integer('status')->default(0);
             $table->timestamps();
         });

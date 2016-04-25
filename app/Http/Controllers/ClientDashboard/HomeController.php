@@ -27,19 +27,16 @@ class HomeController extends Controller {
 
         $admin = Auth::user()->id;
         $role = Auth::user()->role;
-        if ($request->has('id')):
-            $obj = Model\Contents::find($request->id);
-        else:
+        $obj=Model\Contents::where('admin_id', $admin)->first();
+        if ($request->has('id'))
+            $obj = Model\Contents::where('admin_id', $admin)->where('id', $request->id)->first();
+        else if (empty($obj)){
             $obj = new Model\Contents;
             $obj->admin_id = $admin;
-        endif;
+        }
         $obj->home = $request->home_content;
         $obj->save();
-
-        if ($role != "SuperAdm")
-            return redirect('clients/home');
-        else
-            return redirect('home');
+        return redirect(Auth::user()->roleAccess('home'));
     }
 
 }

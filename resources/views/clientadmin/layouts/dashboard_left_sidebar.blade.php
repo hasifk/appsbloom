@@ -69,7 +69,7 @@
                                 <span class="label label-primary pull-right">1</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{ url('push-notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
+                                <li><a href="{{ url('push_notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
                             </ul>
                         </li>
 
@@ -201,7 +201,7 @@
                         <?php
                     }
                     break;
-                case "clinic": {
+                case "PhysioClinic": {
                         ?>
                         <li class="active treeview">
                             <a href="{{ url('clients/home') }}">
@@ -237,7 +237,7 @@
                                 <span class="label label-primary pull-right">1</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{ url('clients/our-teams') }}"><i class="fa fa-circle-o"></i>Our Teams</a></li>
+                                <li><a href="{{ url('clients/our_teams') }}"><i class="fa fa-circle-o"></i>Our Teams</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -247,7 +247,7 @@
                                 <span class="label label-primary pull-right">1</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{ url('clients/push-notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
+                                <li><a href="{{ url('clients/push_notification') }}"><i class="fa fa-circle-o"></i>Push Notifications</a></li>
                             </ul>
                         </li>
                         <?php

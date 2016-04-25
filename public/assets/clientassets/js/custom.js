@@ -153,8 +153,8 @@ $(document).ready(function () {
         {
             var ids = cursel.id;
             $(".checkbox").each(function () {
-                if($(this).is(":checked"))
-                $(this).removeAttr("checked");
+                if ($(this).is(":checked"))
+                    $(this).removeAttr("checked");
             });
             $("#selectall").removeAttr("checked");
             $("#" + ids).prop("checked", true);
@@ -179,8 +179,7 @@ $(document).ready(function () {
                     }
                 });
             }
-        }
-        else
+        } else
             alert("Please select atleast one")
     });
 
@@ -217,7 +216,7 @@ $(document).ready(function () {
         }
     });
 
-$(document).on("click", '.notification_delete,.mnotification_delete', function () {
+    $(document).on("click", '.notification_delete,.mnotification_delete', function () {
         var cursel = this;
         var value = new Array();
         var j = 0;
@@ -225,16 +224,16 @@ $(document).on("click", '.notification_delete,.mnotification_delete', function (
         {
             var ids = cursel.id;
             $(".checkbox").each(function () {
-                if($(this).is(":checked"))
+                if ($(this).is(":checked"))
                 {
-                $(this).removeAttr("checked");
-                
-            }
+                    $(this).removeAttr("checked");
+
+                }
             });
             $("#selectall").removeAttr("checked");
             $("#" + ids).prop("checked", true);
         }
-       
+
         if ($(".checkbox:checked").length > 0)
         {
             $(".checkbox:checked").each(function () {
@@ -248,15 +247,14 @@ $(document).on("click", '.notification_delete,.mnotification_delete', function (
                     data: "id=" + value,
                     cache: false,
                     success: function (data) {
-                        location.reload();
+                        //location.reload();
                     },
                     error: function (xhr, status, error) {
                         alert(error);
                     }
                 });
             }
-        }
-        else
+        } else
             alert("Please select atleast one")
     });
 
@@ -388,31 +386,33 @@ $(document).on("click", '.notification_delete,.mnotification_delete', function (
     });
 
     $(document).on("click", '#search,#reset', function () {
-        var name, date;
+        var name, date,section;
         if (this.id == 'search')
         {
             name = $('#name').val().trim();
             date = $('#datetimepicker').val().trim();
+            section = $('#section').val();
+            $.ajax({
+                type: "GET",
+                url: base_url + '/sorting',
+                data: "name=" + name + "&date=" + date + "&section=" + section,
+                cache: false,
+                success: function (data) {
+                    $('#sorted_result').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+            });
+
+
 
         } else {
             $('#name').val('');
             $('#datetimepicker').val('');
-            name = "";
-            date = "";
+            location.reload();
         }
-        var section = $('#section').val();
-        $.ajax({
-            type: "GET",
-            url: base_url + '/sorting',
-            data: "name=" + name + "&date=" + date + "&section=" + section,
-            cache: false,
-            success: function (data) {
-                $('#sorted_result').html(data);
-            },
-            error: function (xhr, status, error) {
-                alert(error);
-            }
-        });
+
     });
 //$(document).on("click", '#reset', function () {
 //        $('#name').val('');

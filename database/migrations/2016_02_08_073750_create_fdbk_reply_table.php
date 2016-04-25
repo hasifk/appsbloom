@@ -24,6 +24,9 @@ class CreateFdbkReplyTable extends Migration
             $table->integer('feedback_id');
             $table->foreign('feedback_id')->references('id')->on('feedback')
             ->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admin')
+            ->onUpdate('cascade')->onDelete('cascade');
             $table->longText('reply');
             $table->timestamps();
         });

@@ -3,29 +3,29 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOfferTable extends Migration {
-
+class CreateFindUsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-        if (Schema::hasTable('offer')):
-            DB::statement("TRUNCATE TABLE offer");
+    public function up()
+    {
+        if (Schema::hasTable('Find-us')):
+            DB::statement("TRUNCATE TABLE Find-us");
             DB::statement("TRUNCATE TABLE admin CASCADE");
-            Schema::drop('offer');
+            Schema::drop('Find-us');
         endif;
 
-
-        Schema::create('offer', function (Blueprint $table) {
+        Schema::create('Find-us', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')
                     ->onUpdate('cascade')->onDelete('cascade');
-            $table->longText('offer_info');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('place', 200);
+            $table->double('lat',15,8);
+            $table->double('long',15,8);
             $table->timestamps();
         });
     }
@@ -35,8 +35,8 @@ class CreateOfferTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-        Schema::drop('offer');
+    public function down()
+    {
+        Schema::drop('Find-us');
     }
-
 }

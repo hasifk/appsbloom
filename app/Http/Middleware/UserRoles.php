@@ -15,15 +15,12 @@ class UserRoles { /**
 
     public function handle($request, Closure $next) {
 
-        if (Auth::check()) {
-            $role = Auth::user()->role;
-            if ($role != "SuperAdm") {
-                 return $next($request);
-            } else {
-                return $next($request);
-            }
+
+        $role = Auth::user()->role;
+        if ($role != "SuperAdm") {
+            return $next($request);
         } else {
-            return redirect('login');
+            return response('Unauthorized.', 404);
         }
     }
 

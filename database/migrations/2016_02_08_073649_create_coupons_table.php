@@ -26,6 +26,8 @@ class CreateCouponsTable extends Migration
             ->onUpdate('cascade')->onDelete('cascade');
             $table->string('coupon_code',200);
             $table->longText('description');
+            $table->text('start_date');
+            $table->text('end_date');
             $table->timestamps();
         });
     }

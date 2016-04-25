@@ -26,6 +26,7 @@ class CreateFeedbackTable extends Migration
             ->onUpdate('cascade')->onDelete('cascade');
             $table->string('email',300);
             $table->longText('feedback');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

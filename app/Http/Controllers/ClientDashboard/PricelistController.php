@@ -24,20 +24,21 @@ class PricelistController extends Controller {
     }
 
     public function PricelistSave(Request $request) {
-        
-       
-            $admin = Auth::user()->id;
-            
-            $obj = Model\Contents::where('admin_id', $admin)->first();
-            if(!empty($obj)):
-                $obj->price_lists=$request->price_lists;
-            else:
-                $obj = new Model\Contents;
-                $obj->admin_id=$admin;
-                $obj->price_lists=$request->price_lists;
-            endif;
-            
-            $obj->save();
-            return redirect('price-list');
+
+
+        $admin = Auth::user()->id;
+
+        $obj = Model\Contents::where('admin_id', $admin)->first();
+        if ($request->has('id'))
+            $obj = Model\Contents::where('admin_id', $admin)->where('id', $request->id)->first();
+        else if (empty($obj)) {
+            $obj = new Model\Contents;
+            $obj->admin_id = $admin;
         }
+        $obj->price_lists = $request->price_lists;
+        $obj->save();
+        
+        return redirect(Auth::user()->roleAccess('price-list'));
+    }
+
 }

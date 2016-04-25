@@ -51,7 +51,9 @@
                     </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
+                    @if(count($notification)>0)
                     <button class="mnotification_delete btn btn-primary" >Delete</button>
+                    @endif
                     <a href="#notification_add"> <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button></a>
                 </div>
             </div><!-- /.box -->

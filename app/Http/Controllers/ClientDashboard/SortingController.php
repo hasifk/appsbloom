@@ -19,18 +19,19 @@ class SortingController extends Controller {
      */
     public function Sorting(Request $request) {
         $admin = Auth::user()->id;
-        $date=date('d-m-Y',strtotime(trim($request->date)));
         if ($request->section == "Booking") {
-            if (!empty(trim($request->name)) && !empty($date))
-                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', trim($request->name) . "%")->where('date', 'like', $date . "%")->orderBy('created_at')->paginate(20);
-            else if (!empty($date))
+            if (!empty($request->name) && !empty($request->date)) {
+                $date = str_replace("/", "-",$request->date);
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->where('date', 'like', $date . "%")->orderBy('created_at')->paginate(20);
+            } else if (!empty($request->date)) {
+                $date = str_replace("/", "-",$request->date);
                 $booking = Model\Booking::where('admin_id', $admin)->where('date', 'like', $date . "%")->paginate(20);
-            else
-                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $date . "%")->paginate(20);
+            } else
+                $booking = Model\Booking::where('admin_id', $admin)->where('name', 'like', $request->name . "%")->paginate(20);
             ?>
             <script>
                 $(document).ready(function () {
-                    $('#datetimepicker').datepicker({format:"dd/mm/yyyy"})
+                    $('#datetimepicker').datepicker({format: "dd/mm/yyyy"})
                 });
             </script>
             <div class="box-header with-border">
@@ -40,7 +41,7 @@ class SortingController extends Controller {
                 </div>
                 <div class="col-md-3 box-title"><button id="search" class="btn btn-primary">Search</button>&nbsp;&nbsp;<button id="reset" class="btn btn-primary">Reset</button></div>
                 <div class="box-tools pagination-sm no-margin pull-right">
-                    <?php echo $booking->links(); ?>
+            <?php echo $booking->links(); ?>
                 </div>
             </div><!-- /.box-header -->
             <table class="table table-responsive">
@@ -55,13 +56,13 @@ class SortingController extends Controller {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    if (count($booking) > 0):
-                        $f = 1;
-                        foreach ($booking as $val):
-                            echo "<tr id=\"booking_$val->id\">";
-                            echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . "</td><td>" . $val->age . "</td><td>" . $val->date . "</td>";
-                            ?>
+            <?php
+            if (count($booking) > 0):
+                $f = 1;
+                foreach ($booking as $val):
+                    echo "<tr id=\"booking_$val->id\">";
+                    echo "<td>" . $f++ . "</td><td class=\"booking_focus\">" . $val->name . "</td><td class=\"booking_focus\">" . $val->phone . "</td><td>" . $val->age . "</td><td>" . $val->date . "</td>";
+                    ?>
                         <td class="booking_focus"><a href="<?php echo url('booking/' . $val->id) ?>" class="booking_edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;  <select name="status" class="booking_status" id="<?php echo $val->id; ?>">
                                 <option <?php if ($val->status == 0) { ?> selected="selected" <?php } ?> value="0">Pending</option>
@@ -69,18 +70,19 @@ class SortingController extends Controller {
                                 <option <?php if ($val->status == -1) { ?> selected="selected" <?php } ?> value="-1">Cancel</option>
                             </select>&nbsp;&nbsp;&nbsp;
                             <a class="booking_delete" id="<?php echo $val->id ?>"><i style="color:red" class="fa fa-fw fa-trash-o"></i></a></td>
-                                <?php
-                            endforeach;
-                        else:
-                            ?>
-                    <tr><td colspan="6"> No Booking</td></tr>
-                <?php
-                endif;
+                    <?php
+                endforeach;
+            else:
                 ?>
+                    <tr><td colspan="6"> No Booking </td></tr>
+                        <?php
+                        endif;
+                        ?>
             </tbody>
             </table>
-            <?php
+                <?php
+            }
         }
-    }
 
-}
+    }
+    

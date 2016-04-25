@@ -11,7 +11,7 @@
                     <h3 class="box-title">Add/Update Price lists</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(array('url' => 'pricelists_save')) !!}
+                {!! Form::open(array('url' => Auth::user()->roleAccess('pricelists_save'))) !!}
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">

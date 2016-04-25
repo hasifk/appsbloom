@@ -19,68 +19,22 @@ class OurTeamsController extends Controller {
      */
     public function Teams() {
         $admin = Auth::user()->id;
-        $ourteam = Model\OurTeam::where('admin_id', $admin)->paginate(6);
+        $ourteam = Model\Contents::where('admin_id', $admin)->get();
         return view('clientadmin.ourteams')->with('ourteam', $ourteam);
     }
-
     public function TeamsSave(Request $request) {
         $admin = Auth::user()->id;
         $role = Auth::user()->role;
-        $rules = [
-            //'name' => 'required',
-            'about' => 'required',
-        ];
-        if ($request->has('email')) {
-            $rules['email'] = 'required|email';
-        }
-        if ($request->has('Phone')) {
-            $rules['Phone'] = 'required|numeric';
-        }
-        if ($role != "SuperAdm")
-            $return='clients/our-teams';
-        else
-            $return = 'our-teams';
-       
-        if ($request->has('id')):
-            $return = 'update-ourteam/' . $request->id;
-            $obj = Model\OurTeam::find($request->id);
-        else:
-            $rules['image'] = 'required|mimes:jpeg';
-            $obj = new Model\OurTeam;
+        $obj=Model\Contents::where('admin_id', $admin)->first();
+        if ($request->has('id'))
+            $obj = Model\Contents::where('admin_id', $admin)->where('id', $request->id)->first();
+        else if (empty($obj)){
+            $obj = new Model\Contents;
             $obj->admin_id = $admin;
-        endif;
-        $this->validator = Validator::make($request->all(), $rules);
-        if ($this->validator->fails()) {
-            return redirect($return)
-                            ->withErrors($this->validator)
-                            ->withInput();
-        } else {
-
-            if (!empty($request->image) && $request->image->isValid()) {
-                $destinationPath = 'assets/clientassets/uploads/' . $admin . '/Teams'; // upload path
-                $extension = $request->image->getClientOriginalExtension(); // getting image extension
-                if (!file_exists($destinationPath)) {
-                    mkdir($destinationPath, 0777, true);
-                }
-                $fileName = rand(11111, 99999) . '.' . $extension; // rename image
-                if ($request->has('id')):
-                    $link = $obj->photo;
-                    unlink($link);
-                endif;
-                $request->image->move($destinationPath, $fileName); // uploading file to given path
-                // sending back with message
-                $obj->photo = $destinationPath . '/' . $fileName;
-            }
-           // $obj->name = $request->name;
-            //$obj->phone = $request->Phone;
-           // $obj->email = $request->email;
-            $obj->about = $request->about;
-            $obj->save();
-            if ($role != "SuperAdm")
-                return redirect($return);
-            else
-                return redirect('our-teams');
         }
+        $obj->ourteams = $request->about;
+        $obj->save();
+        return redirect(Auth::user()->roleAccess('our_teams'));
     }
 
     public function TeamsMore($id) {
