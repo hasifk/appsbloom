@@ -161,8 +161,6 @@ class PushNotificationController extends Controller {
         foreach ($ids as $value):
             Model\Notifications::where('id', $value)->delete();
         endforeach;
-        
-        return redirect(Auth::user()->roleAccess('push_notification'));
     }
 
 }

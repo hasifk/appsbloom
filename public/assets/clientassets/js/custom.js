@@ -247,7 +247,7 @@ $(document).ready(function () {
                     data: "id=" + value,
                     cache: false,
                     success: function (data) {
-                        //location.reload();
+                        location.reload();
                     },
                     error: function (xhr, status, error) {
                         alert(error);
