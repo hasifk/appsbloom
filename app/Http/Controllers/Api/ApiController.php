@@ -99,8 +99,8 @@ class ApiController extends Controller {
                 $return = Model\Offer::where('admin_id', $id)->get();
                 break;
             case "teams":
-                $data = Model\OurTeam::where('admin_id', $id)->first()->toArray();
-                $return['content']=$data['about'];
+                $data = Model\Contents::where('admin_id', $id)->first()->toArray();
+                $return['content']=$data['ourteams'];
                 break;
             default:
                 $return = "";
