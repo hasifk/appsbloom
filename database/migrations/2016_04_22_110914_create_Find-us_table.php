@@ -37,6 +37,6 @@ class CreateFindUsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Find-us');
+        Schema::drop('Find_us');
     }
 }
