@@ -195,10 +195,26 @@ class ApiController extends Controller {
     }
     public function AppinfoSave(Request $request) {
         $result = json_decode(file_get_contents('php://input'));
+        $appinfo = Model\Appinfo::get();
+        $f=1;
+        if(!empty($obj))
+        {
+            foreach($appinfo as $app)
+            {
+                if($app->app_id==$result->app_id)
+                {
+                    $f=0;
+                    break;
+                }
+            }
+        }
+        if($f==1)
+        {
         $obj = new Model\Appinfo;
         $obj->admin_id = $result->admin_id;
         $obj->app_id = $result->app_id;
         $obj->device_type = $result->device_type;
         $obj->save();
+        }
     }
 }
