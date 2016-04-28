@@ -111,19 +111,30 @@ class ApiController extends Controller {
 
     public function InsertBooking(Request $request) {
         $result = json_decode(file_get_contents('php://input'));
-//        $rules = [
-//            'name' => 'required',
-//            'phone' => 'required|numeric',
-//            'email' => 'required|email',
-//            'age' => 'required|numeric',
-//            'gender' => 'required',
-//            'address' => 'required',
-//            'date' => 'required',
-//        ];
-//        $this->validator = Validator::make($result, $rules);
-//        if ($this->validator->fails()) {
-//           print_r($this->validator);
-//       } else {
+        $f=0;
+        if(empty($result->admin_id))
+            $f=1;
+        else if(empty($result->name))
+            $f=1;
+        else if(empty($result->phone))
+            $f=1;
+        else if(empty($result->email))
+            $f=1;
+        else if(empty($result->age))
+            $f=1;
+        else if(empty($result->gender))
+            $f=1;
+       else if(empty($result->address))
+            $f=1;
+        else if(empty($result->date))
+            $f=1;
+       else if(empty($result->time))
+            $f=1;
+        else if(empty($result->app_id))
+            $f=1;
+        else if(empty($result->device_type))
+            $f=1;
+        if($f==0) {
 
         $obj = new Model\Booking;
         $obj->admin_id = $result->admin_id;
@@ -137,7 +148,7 @@ class ApiController extends Controller {
         $obj->app_id = $result->app_id;
         $obj->device_type = $result->device_type;
         $obj->save();
-        // }
+         }
     }
 
     public function AppointmentChecking(Request $request) {
