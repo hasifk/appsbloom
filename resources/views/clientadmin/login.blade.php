@@ -4,11 +4,15 @@
 
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+          @if($role=="client")
+        <b>Client</b> Admin Panel
+        @else
+        <b>Appsbloom</b> Admin Panel
+        @endif
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-          {!! Form::open(array('url' => 'tologin')) !!}
+          {!! Form::open(array('url' => 'tologin/'.$role)) !!}
           {{ csrf_field() }}
           <div class="form-group has-feedback">
             <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }} ">
@@ -40,14 +44,14 @@
           </div>
          {!! Form::close() !!}
 
-        <div class="social-auth-links text-center">
+<!--        <div class="social-auth-links text-center">
           <p>- OR -</p>
           <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
           <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-        </div><!-- /.social-auth-links -->
+        </div> /.social-auth-links -->
 
         <a href="#">I forgot my password</a><br>
-        <a href="{{ url('/') }}" class="text-center">Register a new membership</a>
+<!--        <a href="{{ url('/') }}" class="text-center">Register a new membership</a>-->
 
       </div><!-- /.login-box-body -->
     </div>

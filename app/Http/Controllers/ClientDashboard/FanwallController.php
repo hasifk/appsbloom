@@ -28,10 +28,8 @@ class FanwallController extends Controller {
             $obj = Model\Fanwall::find($request->id);
             $obj->status = $request->value;
             $obj->save();
-           
         }
         else {
-            
          Model\Fanwall::where('id', $request->id)->delete();
             $admin = Auth::user()->id;
             $fanwall = Model\Fanwall::where('admin_id', $admin)->paginate(10);

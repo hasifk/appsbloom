@@ -84,18 +84,18 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", '.room_delete', function () {
+    $(document).on("click", '.user_delete', function () {
         var cursel = $(this);
         if (confirm("Are sure want to delete"))
         {
             var ids = this.id;
             $.ajax({
                 type: "GET",
-                url: base_url + '/room_delete',
+                url: base_url + '/user_delete',
                 data: "id=" + ids,
                 cache: false,
                 success: function (data) {
-                    $('#rooms').html(data);
+                    location.reload();
                 },
                 error: function (xhr, status, error) {
                     alert(error);

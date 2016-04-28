@@ -187,5 +187,4 @@ class BookingController extends Controller {
             fclose($tSocket);
         }
     }
-
 }

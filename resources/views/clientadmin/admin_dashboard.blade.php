@@ -5,7 +5,6 @@
 <section class="content">
     <!-- Small boxes (Stat box) -->
     <div class="row">
-        
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <a href="{{ url('users') }}" class="small-box-footer"> 
@@ -20,7 +19,6 @@
                 </div>
             </a>
         </div><!-- ./col -->
-        
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <a href="{{ url('manageloyalty') }}" class="small-box-footer"> 
@@ -35,7 +33,6 @@
                 </div>
             </a>
         </div><!-- ./col -->
-        
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <a href="{{ url('push_notification') }}" class="small-box-footer">
@@ -49,7 +46,6 @@
                     </div>
                 </div>
             </a>
-            
         </div><!-- ./col -->
         
         <div class="col-lg-3 col-xs-6">
@@ -98,14 +94,11 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                </div>
-            </a>
-            
+                </div></a>
         </div><!-- ./col -->
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <a href="{{ url('manageanalytics') }}" class="small-box-footer"> 
-                <div class="small-box bg-yellow">
+            <a href="{{ url('manageanalytics') }}" class="small-box-footer"> <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3>44</h3>
                         <p>Analytics</p>
@@ -117,8 +110,7 @@
         </div><!-- ./col -->
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <a href="{{ url('feedback') }}" class="small-box-footer"> 
-                <div class="small-box bg-red">
+            <a href="{{ url('feedback') }}" class="small-box-footer"> <div class="small-box bg-red">
                     <div class="inner">
                         <h3>65</h3>
                         <p>Feedback</p>
@@ -126,8 +118,8 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                </div>
-            </a>
+
+                </div></a>
         </div><!-- ./col -->
     </div><!-- /.row -->
 </section>

@@ -33,16 +33,13 @@ Route::post('appointmentchecking/{id}', 'Api\ApiController@AppointmentChecking')
 Route::post('appinfo', 'Api\ApiController@AppinfoSave');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-        return view('clientadmin.signup');
-    });
-
-
-    Route::post('registerme', 'Auth\IndexController@register');
-
-
-    Route::get('login', 'Auth\IndexController@login');
-    Route::post('tologin', 'Auth\IndexController@tologin');
+    
+    Route::get('/', 'Auth\IndexController@clientLogin');
+    Route::get('login', 'Auth\IndexController@clientLogin');
+    Route::get('adm', 'Auth\IndexController@adminLogin');
+    Route::get('adm/login', 'Auth\IndexController@adminLogin');
+    
+    Route::post('tologin/{name}', 'Auth\IndexController@tologin');
     Route::get('api/{id}/{page}', 'Api\ApiController@Display');
     Route::post('insertfanwall/{id}', 'Api\ApiController@InsertFanwall');
     Route::post('insertfeedback/{id}', 'Api\ApiController@InsertFeedback');
@@ -58,7 +55,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::group(['middleware' => ['admin']], function () {
 
         //success
-        Route::get('success', 'Auth\IndexController@success');
+        Route::get('success', 'Auth\IndexController@adminSuccess');
+        
+        //Users
+        Route::get('users', 'ClientDashboard\UserController@Users');
+        Route::post('userregistration', 'ClientDashboard\UserController@Register');
+        Route::get('user_delete', 'ClientDashboard\UserController@UserDelete');
 
         //home
         Route::get('home', 'ClientDashboard\HomeController@Home');
@@ -94,12 +96,14 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::group(['prefix' => 'clients', 'middleware' => ['userroles']], function () {
 
+        
         //Success
-        Route::get('success', 'Auth\IndexController@success');
+        Route::get('success', 'Auth\IndexController@clientSuccess');
 
         //Home
         Route::get('home', 'ClientDashboard\HomeController@Home');
         Route::post('home_save', 'ClientDashboard\HomeController@HomeSave');
+        
 
         //About
         Route::get('manageabout', 'ClientDashboard\AboutController@manageabout');
@@ -121,12 +125,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         //Our Teams
         Route::get('our_teams', 'ClientDashboard\OurTeamsController@Teams');
-//                    Route::get('our-teams/{id}', 'ClientDashboard\OurTeamsController@TeamsMore');
+        
         Route::post('ourteam_save', 'ClientDashboard\OurTeamsController@TeamsSave');
-//                    Route::get('ourteam_status', 'ClientDashboard\OurTeamsController@TeamsStatus');
-//                    Route::get('update-ourteam/{id}', 'ClientDashboard\OurTeamsController@UpdateTeams');
+        
         //PushNotification
         Route::get('push_notification', 'ClientDashboard\PushNotificationController@Notifications');
+        
     });
 
     Route::get('logout', 'Auth\IndexController@logout');

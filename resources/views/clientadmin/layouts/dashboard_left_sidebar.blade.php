@@ -30,9 +30,19 @@
                 case "SuperAdm": {
                         ?>
                         <li class="active treeview">
-                            <a href="#">
+                            <a href="{{url('success')}}">
                                 <i class="fa fa-dashboard"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>User Registration</span>
+                                <span class="label label-primary pull-right">1</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ url('users') }}"><i class="fa fa-circle-o"></i>User Registration</a></li>
+                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">

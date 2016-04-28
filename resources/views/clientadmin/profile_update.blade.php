@@ -9,7 +9,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Update Profile</h3>
                 </div><!-- /.box-header -->
-                {!! Form::open(array('url' => 'client_save')) !!}
+                {!! Form::open(array('url' => Auth::user()->roleAccess('client_save'))) !!}
                 <div class="box-body">
                     @if (($errors->first('name') || $errors->first('email')) && count($errors) > 0)
                     <div class="alert alert-danger">
@@ -48,7 +48,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Change Password</h3>
                 </div><!-- /.box-header -->
-                {!! Form::open(array('url' => 'client_save')) !!}
+                {!! Form::open(array('url' => Auth::user()->roleAccess('client_save'))) !!}
                 <div class="box-body">
                     @if (($errors->first('password') || $errors->first('password_confirmation'))&& count($errors) > 0)
                     <div class="alert alert-danger">

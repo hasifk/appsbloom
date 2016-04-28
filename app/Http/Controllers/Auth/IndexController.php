@@ -17,62 +17,50 @@ class IndexController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    protected function success() {
-
+    
+    protected function adminSuccess() {
+        return view('clientadmin.admin_dashboard');
+    }
+    protected function clientSuccess() {
         return view('clientadmin.client_dashboard');
     }
 
     /*     * ***************************************************************************************** */
 
-    protected function register(Request $request) {
-
-
-
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:admin',
-            'password' => 'required|confirmed|min:6',
-        ]);
-
-
-        $task = new Model\Admin;
-        $task->name = $request->name;
-        $task->email = $request->email;
-        //$task->app_type_id =3;
-        $task->password = bcrypt($request->password);
-
-        $task->save();
-
-
-
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
-            return redirect()->intended('success');
-        } else
-            return back()->with('loginmessage', 'Invalid Email or password login failed');;
+    protected function clientLogin() {
+        if (Auth::check())
+            return redirect(Auth::user()->roleAccess('success'));
+        else
+            return view('clientadmin.login')->with('role','client');
+    }
+    protected function adminLogin() {
+        if (Auth::check())
+            return redirect(Auth::user()->roleAccess('success'));
+        else
+            return view('clientadmin.login')->with('role','adm');
     }
 
     /*     * ***************************************************************************************** */
 
-    protected function login() {
+    protected function tologin(Request $request, $name) {
 
-        return view('clientadmin.login');
-    }
-
-    /*     * ***************************************************************************************** */
-
-    protected function tologin(Request $request) {
         $this->validate($request, [
 
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            if (Auth::user()->role != "SuperAdm") {
+            if ($name == "client" && Auth::user()->role != "SuperAdm")
                 return redirect()->intended('clients/success');
-            } else {
+            else if ($name == "adm" && Auth::user()->role == "SuperAdm")
                 return redirect()->intended('success');
+            else
+            {
+                Auth::logout();
+                return back()->with('loginmessage', 'Not Valid Admin Panel Section');
             }
+           
         } else
             return back()->with('loginmessage', 'Invalid Email or password login failed');
     }
